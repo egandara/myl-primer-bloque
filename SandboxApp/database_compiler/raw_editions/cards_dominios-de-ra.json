@@ -1,0 +1,2362 @@
+[
+    {
+        "name": "Amon",
+        "image_path": "https://api.myl.cl/static/cards/21/001.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Las Habilidades oponentes que afecten a Amón cuestan 2 Oros adicionales. Mientras Amón esté en juego, en tu Fase de Vigilia, sólo una vez por turno, puedes pagar 4 Oros para buscar un Aliado de raza Eterno de coste 5 o menos y ponerlo en juego sin pagar su coste. Carta Única."
+    },
+    {
+        "name": "Ptah",
+        "image_path": "https://api.myl.cl/static/cards/21/002.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 4,
+        "cost": 2,
+        "ability": "Ptah no puede ser declarado atacante. Cuando entra en juego, tu oponente elige 6 cartas de tu Cementerio y las barajas en tu Mazo Castillo."
+    },
+    {
+        "name": "Osiris",
+        "image_path": "https://api.myl.cl/static/cards/21/003.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 6,
+        "cost": 3,
+        "ability": "Osiris no puede ser declarado atacante. Mientras Osiris esté en juego, tu oponente no podrá descartar cartas de tu Mano."
+    },
+    {
+        "name": "Horus",
+        "image_path": "https://api.myl.cl/static/cards/21/004.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 3,
+        "cost": 3,
+        "ability": "Cuando Horus entra en juego, puedes jugar un Talismán de tu mano de coste 3 o menos sin pagar su coste."
+    },
+    {
+        "name": "Apophis",
+        "image_path": "https://api.myl.cl/static/cards/21/005.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 4,
+        "cost": 5,
+        "ability": "Mientras Apophis esté en juego, todos los demás Aliados en juego pierden su Habilidad. Cada vez que tu oponente juegue una carta que no sea un Oro, debe botar 3 cartas de su Mazo Castillo. Carta Única."
+    },
+    {
+        "name": "Seth",
+        "image_path": "https://api.myl.cl/static/cards/21/006.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 3,
+        "cost": 5,
+        "ability": "Seth es Imbloqueable. Si tu oponente juega una Habilidad que afecte a Seth, debe botar 4 cartas de su Mazo Castillo. En respuesta a que tu oponente bote cartas de su Mazo Castillo, puedes destruir uno de tus Aliados para desterrar esas cartas."
+    },
+    {
+        "name": "Ra",
+        "image_path": "https://api.myl.cl/static/cards/21/007.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 4,
+        "cost": 5,
+        "ability": "Mientras Ra esté en juego, en tu Fase de Vigilia, sólo una vez por turno, puedes pagar 3 Oros para que tu oponente bote 5 cartas de su Mazo Castillo. En respuesta a que Ra sea destruido o desterrado, puedes descartar una carta para prevenirlo. Carta Única."
+    },
+    {
+        "name": "Anubis",
+        "image_path": "https://api.myl.cl/static/cards/21/008.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Puedes destruir a Anubis para elegir un Aliado oponente. Ese Aliado pierde su habilidad y es destruido."
+    },
+    {
+        "name": "Bastet",
+        "image_path": "https://api.myl.cl/static/cards/21/009.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Bastet puede atacar cuando entra en juego. Mientras Bastet esté en juego, tus demás Aliados de raza Eterno ganan 1 a la fuerza y pueden atacar cuando entran en juego."
+    },
+    {
+        "name": "Isis",
+        "image_path": "https://api.myl.cl/static/cards/21/010.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes desterrar las 3 cartas superiores de tu Mazo Castillo para buscar 1 carta en tu Mazo Castillo y ponerla en tu Mano."
+    },
+    {
+        "name": "Geb",
+        "image_path": "https://api.myl.cl/static/cards/21/011.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Geb puede atacar cuando entra en juego. Cada vez que haga daño al Mazo Castillo oponente, puedes nombrar una carta que no sea Oro, tu oponente debe mostrar su Mano y barajar todas las copias que tenga en su Mazo Castillo."
+    },
+    {
+        "name": "Nut",
+        "image_path": "https://api.myl.cl/static/cards/21/012.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Si Nut está en tu Línea de Defensa o en tu Línea de Ataque, puedes barajarlo en tu Mazo Castillo para buscar un Aliado de raza Eterno o Sacerdote y ponerlo en tu Mano."
+    },
+    {
+        "name": "Shu",
+        "image_path": "https://api.myl.cl/static/cards/21/013.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 1,
+        "cost": 2,
+        "ability": "Mientras Shu esté en juego, en respuesta a que juegues un Talismán, puedes pagar 2 Oros para que no pueda ser anulado."
+    },
+    {
+        "name": "Am-Heh",
+        "image_path": "https://api.myl.cl/static/cards/21/014.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 4,
+        "cost": 3,
+        "ability": "Juega a Am-Heh en la Línea de Defensa oponente. Mientras Am-Heh esté en juego tus demás Aliados pierden 2 a la fuerza."
+    },
+    {
+        "name": "Akenathon",
+        "image_path": "https://api.myl.cl/static/cards/21/015.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Mientras Akenathon esté en juego, tus demás Aliados no pueden ser afectados por Habilidades de cartas Oponentes. Carta Única."
+    },
+    {
+        "name": "Tutmosis lll",
+        "image_path": "https://api.myl.cl/static/cards/21/016.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Tutmosis lll no puede ser declarado bloqueador. Mientras Tutmosis lll esté en tu Línea de Ataque, no puede ser afectado por Talismanes oponentes."
+    },
+    {
+        "name": "Ramses ll",
+        "image_path": "https://api.myl.cl/static/cards/21/017.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 6,
+        "cost": 4,
+        "ability": "Ramsés ll no puede ser declarado bloqueador. En tu Fase de Vigilia, puedes descartar una carta para que Ramsés ll sea indestructible e Indesterrable hasta tu próxima Fase de Vigilia. En respuesta a que sea bloqueado, puedes elegir que haga daño al Mazo Castillo oponente como si no hubiera sido bloqueado. Carta Única."
+    },
+    {
+        "name": "Nefertiti",
+        "image_path": "https://api.myl.cl/static/cards/21/018.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Nefertiti salga de juego, tu oponente debe botar 4 cartas de su Mazo Castillo."
+    },
+    {
+        "name": "Amenofis ll",
+        "image_path": "https://api.myl.cl/static/cards/21/019.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 4,
+        "cost": 5,
+        "ability": "Mientras Amenofis ll esté en juego, todos tus Aliados de raza Faraón ganan 2 a la fuerza y son Imbloqueables. Si Amenofis ll porta un Arma, todos tus Aliados de raza Faraón en Línea de Ataque no pueden ser afectados por Talismanes oponentes."
+    },
+    {
+        "name": "Seti",
+        "image_path": "https://api.myl.cl/static/cards/21/020.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Mientras Seti esté en juego, en tu Fase de Vigilia, puedes pagar 1 Oro para que tu oponente bote 1 carta de su Mazo Castillo, con un máximo de 4 Oros por turno."
+    },
+    {
+        "name": "Tutankamon",
+        "image_path": "https://api.myl.cl/static/cards/21/021.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Mientras Tutankamon esté en juego, puedes botar una carta de tu Mazo Castillo para que uno de tus Aliados gane 1 a la fuerza , puedes botar hasta un máximo de 6 cartas por turno."
+    },
+    {
+        "name": "Snofru",
+        "image_path": "https://api.myl.cl/static/cards/21/022.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 3,
+        "ability": "Cuando Snofru entra en juego, puedes barajar hasta 3 Aliados de tu Cementerio en tu Mazo Castillo."
+    },
+    {
+        "name": "Kefren",
+        "image_path": "https://api.myl.cl/static/cards/21/023.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Kefrén entra en juego, nombra uno de tus Aliados. Ese Aliado no puede salir del juego mientras Kefrén esté en tu Línea de Defensa."
+    },
+    {
+        "name": "Keops",
+        "image_path": "https://api.myl.cl/static/cards/21/024.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Mientras Keops esté en tu Línea de Ataque, el coste de tus Tótem se reduce en 1. Keops es Imbloqueable."
+    },
+    {
+        "name": "Micerinos",
+        "image_path": "https://api.myl.cl/static/cards/21/025.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Cuando Micerinos entra en juego, busca 1 Tótem en el Mazo Castillo oponente y destiérralo."
+    },
+    {
+        "name": "Djoser",
+        "image_path": "https://api.myl.cl/static/cards/21/026.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 3,
+        "ability": "Djoser no tiene límite de Armas. Si Djoser porta un Arma, gana 2 a la Fuerza. Las Armas jugadas en Djoser reducen en 1 su Coste."
+    },
+    {
+        "name": "Narmer",
+        "image_path": "https://api.myl.cl/static/cards/21/027.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Narmer gana 1 a la fuerza por cada uno de tus Aliados en juego."
+    },
+    {
+        "name": "Imoteph",
+        "image_path": "https://api.myl.cl/static/cards/21/028.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 5,
+        "ability": "Cuando Imoteph entra en juego, nombra una carta. Esa carta y todas sus copias pierdan su Habilidad mientras Imoteph esté en juego. En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 2 Oros para buscar un Tótem en tu Mazo Castillo o en tu Cementerio y ponerlo en tu Mano. En respuesta a que Imoteph salga del juego por una Habilidad oponente, puedes botar 3 cartas para prevenirlo. Carta Única."
+    },
+    {
+        "name": "Bahiti",
+        "image_path": "https://api.myl.cl/static/cards/21/029.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia,sólo una vez por turno, puedes descartar una carta para buscar una carta del mismo tipo en tu Mazo Castillo o Cementerio y ponerla en tu Mano."
+    },
+    {
+        "name": "Meskhenet",
+        "image_path": "https://api.myl.cl/static/cards/21/030.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Mientras Meskhenet esté en juego, en respuesta a que tu oponente juegue una carta que no sea Oro, puedes botar la carta superior de tu Mazo Castillo y si es del mismo tipo, la carta oponente es anulada."
+    },
+    {
+        "name": "Asheru",
+        "image_path": "https://api.myl.cl/static/cards/21/031.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Cuando Asheru entra en juego, elige un Tótem en tu Línea de Apoyo, mientras Asheru esté en tu Línea de Defensa, este Tótem no puede salir del juego."
+    },
+    {
+        "name": "Osorkhon el Grande",
+        "image_path": "https://api.myl.cl/static/cards/21/032.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 4,
+        "cost": 4,
+        "ability": "En la Fase Final, puedes agrupar a Osorkhon el Grande. Si tienes dos o más Aliados de raza Sacerdote en juego, Osorkhon el Grande es Imbloqueable."
+    },
+    {
+        "name": "Werin el Poseido",
+        "image_path": "https://api.myl.cl/static/cards/21/033.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Werin el Poseído no puede ser afectado por Habilidades de Aliados oponentes. En respuesta a que Werin el poseído sea destruido, puedes buscar un Talismán en tu Mazo Castillo y ponerlo en tu Mano."
+    },
+    {
+        "name": "Takelot",
+        "image_path": "https://api.myl.cl/static/cards/21/034.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Takelot entra en juego, nombra una carta para que ésta y todas sus copias pierdan su Habilidad mientras Takelot esté en juego. En respuesta a que Takelot sea destruido o desterrado por una Habilidad oponente, puedes pagar 2 Oros para prevenirlo."
+    },
+    {
+        "name": "Qer-Her",
+        "image_path": "https://api.myl.cl/static/cards/21/035.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Puedes destruir a Qer-Her para subir a la Mano un Aliado oponente. En tu Fase de Vigilia, si Qer-Her está en tu Cementerio, puedes pagar 3 Oros para ponerlo en juego sin pagar su coste."
+    },
+    {
+        "name": "Tuthu",
+        "image_path": "https://api.myl.cl/static/cards/21/036.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Cuando Tuthu entre o salga del juego, tu oponente debe botar tantas cartas como fuerza tenga Tuthu."
+    },
+    {
+        "name": "Kiya",
+        "image_path": "https://api.myl.cl/static/cards/21/037.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Kiya entra en juego, puedes mirar las cuatro cartas superiores de tu Mazo Castillo y devolverlas en el orden que quieras. En respuesta a la Fase Final, puedes desterrar a Kiya para robar 2 cartas."
+    },
+    {
+        "name": "Yunet",
+        "image_path": "https://api.myl.cl/static/cards/21/038.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando Yunet entra en juego, nombra una carta, mientras Yunet esté en tu Línea de Defensa, esa carta no puede salir del juego."
+    },
+    {
+        "name": "Kawit",
+        "image_path": "https://api.myl.cl/static/cards/21/039.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 1,
+        "cost": 2,
+        "ability": "Sólo puedes tener un Kawit en juego. Mientras Kawit esté en juego, las Habilidades de cartas oponentes que afecten a tus Oros cuestan 3 Oros adicionales."
+    },
+    {
+        "name": "Suma",
+        "image_path": "https://api.myl.cl/static/cards/21/040.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Mientras Suma esté en juego, tus Aliados de raza Sacerdote ganan 1 a la fuerza. En respuesta a declarar su bloqueo, tus demás Aliados de raza Sacerdote ganan 2 a la fuerza."
+    },
+    {
+        "name": "Aton",
+        "image_path": "https://api.myl.cl/static/cards/21/041.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 0,
+        "ability": "Atón no puede ser anulado. Busca una carta de Oro en tu Mazo Castillo y ponla en tu Mano."
+    },
+    {
+        "name": "Alas de Horus",
+        "image_path": "https://api.myl.cl/static/cards/21/042.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Baraja una carta en juego que no sea Oro."
+    },
+    {
+        "name": "Momificacion",
+        "image_path": "https://api.myl.cl/static/cards/21/043.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "En respuesta a que un Aliado sea destruido o desterrado, juega Momificación para prevenirlo, este Aliado pierde su Habilidad por el resto del juego."
+    },
+    {
+        "name": "Arenas en Fuego",
+        "image_path": "https://api.myl.cl/static/cards/21/044.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respueta a un ataque oponente, puedes botar hasta 3 cartas de tu Mazo Castillo. Por cada carta que botes, tu oponente debe botar 2. Por este turno, tus Aliados no pueden ser declarados bloqueadores."
+    },
+    {
+        "name": "La Letania de Ra",
+        "image_path": "https://api.myl.cl/static/cards/21/045.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Baraja tu Mano en tu Mazo Castillo y roba el mismo número de cartas."
+    },
+    {
+        "name": "Juicio a los Muertos",
+        "image_path": "https://api.myl.cl/static/cards/21/046.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que un Aliado haga daño a un Mazo Castillo, puedes botar 3 cartas para que tu oponente bote tantas cartas de su Mazo Castillo como fuerza tenga ese Aliado."
+    },
+    {
+        "name": "Osiris ha Muerto",
+        "image_path": "https://api.myl.cl/static/cards/21/047.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Destierra un Aliado en juego. Roba una carta."
+    },
+    {
+        "name": "Venganza",
+        "image_path": "https://api.myl.cl/static/cards/21/048.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a que tu oponente juegue o active una Habilidad que afecte una de sus cartas, juega Venganza para que tu oponente bote 6 cartas. Carta Única."
+    },
+    {
+        "name": "Qadesh",
+        "image_path": "https://api.myl.cl/static/cards/21/049.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Destruye todos los Aliados en juego. Tu oponente puede pagar 5 Oros para anular esta carta."
+    },
+    {
+        "name": "Lamento de Isis",
+        "image_path": "https://api.myl.cl/static/cards/21/050.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Destruye uno de tus Aliados de raza Eterno para buscar una carta de Aliado en tu Mazo Castillo y ponerla en juego sin pagar su coste."
+    },
+    {
+        "name": "Gran Guardian",
+        "image_path": "https://api.myl.cl/static/cards/21/051.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a que tu oponente juegue una carta que haga que uno de tus Aliados salga del juego, juega Gran Guardián para anular esa carta. Busca en el Mazo Castillo oponente todas las copias de esa carta y ponlas en el Cementerio."
+    },
+    {
+        "name": "Flechas de Lava",
+        "image_path": "https://api.myl.cl/static/cards/21/052.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Cancela un ataque oponente y tu oponente bota tantas cartas como Aliados te hayan atacado."
+    },
+    {
+        "name": "Jinetes de Fuego",
+        "image_path": "https://api.myl.cl/static/cards/21/053.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Jinetes de Fuego no puede ser anulado. Tu oponente bota tres cartas de su Mazo Castillo. Puedes jugar esta carta si está en tu Cementerio, si lo haces debes desterrarla."
+    },
+    {
+        "name": "Denwen",
+        "image_path": "https://api.myl.cl/static/cards/21/054.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Juega Denwen para que tus aliados no puedan salir del juego hasta la Fase Final."
+    },
+    {
+        "name": "Barca Dorada",
+        "image_path": "https://api.myl.cl/static/cards/21/055.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Baraja uno de tus Aliados para buscar en tu Mazo Castillo un Aliado de igual coste y ponerlo en juego sin pagar su coste."
+    },
+    {
+        "name": "Ojos de Serpiente",
+        "image_path": "https://api.myl.cl/static/cards/21/056.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Juega Ojos de Serpiente para que un Tótem oponente pierda su Habilidad por el resto del juego."
+    },
+    {
+        "name": "Purificar Escencias",
+        "image_path": "https://api.myl.cl/static/cards/21/057.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En la Fase de Asignación de Daño, juega Purificar Escencias para reducir todo el daño a 0."
+    },
+    {
+        "name": "Aliento de Anubis",
+        "image_path": "https://api.myl.cl/static/cards/21/058.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Pon en juego un Aliado de tu Cementerio reduciendo su coste en 2."
+    },
+    {
+        "name": "Demonio de Piedra",
+        "image_path": "https://api.myl.cl/static/cards/21/059.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a tu Declaración de Bloqueo, juega Demonio de Piedra para que todos los Aliados oponentes declarados atacantes pierdan su Habilidad y 1 a la fuerza hasta la Fase Final."
+    },
+    {
+        "name": "Hacha Sagrada",
+        "image_path": "https://api.myl.cl/static/cards/21/060.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Hacha Sagrada gana 1 a la fuerza. Si el portador es de raza Faraón, gana 1 a la fuerza por cada otro Aliado que tengas en juego."
+    },
+    {
+        "name": "Mandoble de Seth",
+        "image_path": "https://api.myl.cl/static/cards/21/061.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Mandole de Seth gana 2 a la fuerza. Si es portada por Seth, cada vez que sea declarado atacante, tu oponente debe botar 3 cartas."
+    },
+    {
+        "name": "Sakraham",
+        "image_path": "https://api.myl.cl/static/cards/21/062.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Sakraham gana 2 a la fuerza yl es Imbloqueable. En respuesta a que el portador haga daño al Mazo Castillo oponente, puedes robar una carta."
+    },
+    {
+        "name": "Lanza de Osiris",
+        "image_path": "https://api.myl.cl/static/cards/21/063.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que el portador sea afectado por una Habilidad oponente, puedes desterrar Lanza de Osiris para anular esa Habilidad, y tu oponente debe botar 3 cartas."
+    },
+    {
+        "name": "Carro Real",
+        "image_path": "https://api.myl.cl/static/cards/21/064.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "El portador de Carro Real gana 2 a la fuerza. Si el portador es un Aliado de raza Faraón, gana 2 a la fuerza y es Imbloqueable."
+    },
+    {
+        "name": "Espada Diamante",
+        "image_path": "https://api.myl.cl/static/cards/21/065.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador gana 2 a la fuerza. En respuesta a que el portador de Espada Diamante sea bloqueado, tu oponente bota tantas cartas como fuerza tenga este Aliado."
+    },
+    {
+        "name": "Garras de Bronce",
+        "image_path": "https://api.myl.cl/static/cards/21/066.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Garras de Bronce gana 3 a la fuerza cuando bloquea. Si el portador es de raza Sacerdote, además es Indestructible desde la Fase de Batalla Mitológica hasta la Fase Final."
+    },
+    {
+        "name": "Guiza",
+        "image_path": "https://api.myl.cl/static/cards/21/067.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Cuando Guiza entra en juego, todos los Aliados pierden su Habilidad y son barajados. Mientras esté en juego, no se pueden jugar Aliados. En su Fase de Vigilia, cualquier jugador puede pagar 3 Oros para que uno de sus Tótem se considere un Aliado con fuerza igual a su coste hasta la Fase Final. Carta Única."
+    },
+    {
+        "name": "Abu Simbel",
+        "image_path": "https://api.myl.cl/static/cards/21/068.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras Abú Simbel esté en tu Línea de Apoyo, los Aliados en juego no pueden ser destruidos o barajados por Habilidades de Aliados oponentes."
+    },
+    {
+        "name": "Amarna",
+        "image_path": "https://api.myl.cl/static/cards/21/069.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Cuando Amarna entra en juego, nombra un Aliado en tu Línea de Defensa. Mientras Amarna esté en juego, este Aliado no puede ser declarado atacante no puede ser afectado por Habilidades oponentes. Sólo puedes tener un Amarna en juego."
+    },
+    {
+        "name": "Akeru",
+        "image_path": "https://api.myl.cl/static/cards/21/070.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a declarar tu bloqueo, sólo una vez por turno, puedes pagar 2 Oros para poner una carta de Aliados de tu Cementerio en tu Línea de Defensa sin pagar su coste, ese Aliado entra en juego sin su Habilidad y en la Fase Final debe ser desterrado."
+    },
+    {
+        "name": "Nubia",
+        "image_path": "https://api.myl.cl/static/cards/21/071.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Mientras Nubia esté en juego, el límite máximo de cartas en la Mano de los jugadores se reduce en 2. Sólo puedes tener un Nubia en juego."
+    },
+    {
+        "name": "Karnak",
+        "image_path": "https://api.myl.cl/static/cards/21/072.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras Karnak esté en tu Línea de Apoyo, los Aliados en juego que no puedan ser declarados atacantes, no pueden ser afectados por Habilidades de cartas oponentes."
+    },
+    {
+        "name": "Luxor",
+        "image_path": "https://api.myl.cl/static/cards/21/073.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras Luxor esté en juego, tus demás Tótem no pueden ser afectados por Talismanes oponentes. Sólo puedes tener un Luxor en juego."
+    },
+    {
+        "name": "Sobek",
+        "image_path": "https://api.myl.cl/static/cards/21/074.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En respuesta a que Sobek sea declarado bloqueador, tu oponente debe destruir un Aliado declarado atacante."
+    },
+    {
+        "name": "Neftis",
+        "image_path": "https://api.myl.cl/static/cards/21/075.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 2,
+        "ability": "En respuesta a la declaración de ataque oponente puedes agrupar a Neftis. Si es el único Aliado declarado bloqueador duplica su fuerza."
+    },
+    {
+        "name": "Montu",
+        "image_path": "https://api.myl.cl/static/cards/21/076.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Montu entra en juego, puedes tomar un Oro de la reserva oponente y ponerlo en su Zona de Oro Pagado."
+    },
+    {
+        "name": "Maat",
+        "image_path": "https://api.myl.cl/static/cards/21/077.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 3,
+        "cost": 3,
+        "ability": "Puede atacar el turno que entra en juego, sí hace daño al Mazo Castillo este turno, tu oponente debe botar 2 cartas."
+    },
+    {
+        "name": "Kepreth",
+        "image_path": "https://api.myl.cl/static/cards/21/078.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, puedes destruir a Kepreth. En respuesta a que Kepreth sea destruido, puedes nombrar 2 cartas para que tu oponente no pueda jugarlas en el próximo turno. Esta carta no afecta Oros."
+    },
+    {
+        "name": "Hathor",
+        "image_path": "https://api.myl.cl/static/cards/21/079.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Hathor entra en juego, puedes tomar un Aliado oponente de coste 2 y ponerlo en tu Línea de Defensa. Este Aliado debe ser declarado atacante. Si en la Fase Final no fue destruido, vuelve a la Línea de Ataque oponente."
+    },
+    {
+        "name": "Knum",
+        "image_path": "https://api.myl.cl/static/cards/21/080.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En respuesta a que uno de tus Aliados de raza Eterno sea afectado por una Habilidad oponente, puedes desterrar a Knum para anudar esa Habilidad."
+    },
+    {
+        "name": "Toth",
+        "image_path": "https://api.myl.cl/static/cards/21/081.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia puedes desterrar a Toth para que un Aliado de raza Eterno no pueda ser afectado por Talismanes por el resto del juego."
+    },
+    {
+        "name": "Neith",
+        "image_path": "https://api.myl.cl/static/cards/21/082.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Si Neith porta un Arma, es Imbloqueable."
+    },
+    {
+        "name": "Nejbet",
+        "image_path": "https://api.myl.cl/static/cards/21/083.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia, puedes destruir a Nejbet para que un Aliado de raza Eterno sea Indestructible hasta la Fase Final."
+    },
+    {
+        "name": "Sacmis",
+        "image_path": "https://api.myl.cl/static/cards/21/084.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia puedes destruir a Sacmis para que tu oponente bote 2 cartas de su Mazo Castillo."
+    },
+    {
+        "name": "Uadyet",
+        "image_path": "https://api.myl.cl/static/cards/21/085.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En tu Fase de vigilia, sólo una vez por turno, puedes tomar una carta de Aliado de raza Faraón o Eterno de tu Cementerio y bajarlo con tu Mazo Castillo."
+    },
+    {
+        "name": "Tueris",
+        "image_path": "https://api.myl.cl/static/cards/21/086.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando entra en juego puedes tomar un Aliado de tu Zona de Destierro de coste 3 o menos y ponerlo en tu Mano."
+    },
+    {
+        "name": "Tamis",
+        "image_path": "https://api.myl.cl/static/cards/21/087.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 1,
+        "ability": "Si Tamis es declarado atacante, gana 2 a la fuerza. Si hace daño al Mazo Castillo oponente, tú recibes el mismo daño."
+    },
+    {
+        "name": "Nefertari",
+        "image_path": "https://api.myl.cl/static/cards/21/088.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 1,
+        "cost": 4,
+        "ability": "Los Aliados bloqueados por Nefertari pierden su Habilidad hasta la Fase Final."
+    },
+    {
+        "name": "Sesotris",
+        "image_path": "https://api.myl.cl/static/cards/21/089.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando Sesotris entra en juego, tus Aliados ganan 2 a la fuerza hasta la Fase Final. Si Sesotris sale del juego, puedes buscar en tu Mazo Castillo una carta Oro o Tótem y ponerla en tu Mano."
+    },
+    {
+        "name": "Sesotris lll",
+        "image_path": "https://api.myl.cl/static/cards/21/090.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Sesotris lll entra en juego, baraja un Aliado oponente. Tu oponente puede descartar 2 cartas de su Mano o botar 3 cartas de su Mazo Castillo para anular esta carta."
+    },
+    {
+        "name": "Hateshesput",
+        "image_path": "https://api.myl.cl/static/cards/21/091.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En su Fase de Vigilia, cualquier jugador puede pagar 2 Oros para barajar a Hateshesput, Mientras Hateshesput esté en juego, los Aliados en juego no pueden ser afectados por Habilidades."
+    },
+    {
+        "name": "Mentuhopet",
+        "image_path": "https://api.myl.cl/static/cards/21/092.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Mentuhopet entra en juego, puedes pagar 2 Oros para buscar una carta de Aliado de coste 2 o menos en tu Mazo Castillo y ponerla en juego sin pagar su coste."
+    },
+    {
+        "name": "Horemheb",
+        "image_path": "https://api.myl.cl/static/cards/21/093.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, debes destruir uno de tus Aliados. Si Horemheb hace daño al Mazo Castillo oponente, éste debe destruir una de sus cartas que no sea Oro."
+    },
+    {
+        "name": "Escorpion",
+        "image_path": "https://api.myl.cl/static/cards/21/094.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Mientras Escorpión esté en juego, tus Aliados pueden ser declarados atacantes el turno que entran en juego."
+    },
+    {
+        "name": "Ahmosis el de fuego",
+        "image_path": "https://api.myl.cl/static/cards/21/095.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Mientras Ahmosis el de Fuego esté en tu Línea de Defensa, tus Aliados ganan 1 a la fuerza. En respuesta a que sea afectado por una Habilidad oponente, puedes pagar 2 Oros para anular esa Habilidad y subir esta carta a tu Mano."
+    },
+    {
+        "name": "Virrey Setau",
+        "image_path": "https://api.myl.cl/static/cards/21/096.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En respuesta a que uno de tus Aliados sea destruido por una Habilidad oponente, puedes subir a Virrey Setau a tu Mano para prevenirlo."
+    },
+    {
+        "name": "Marenptah",
+        "image_path": "https://api.myl.cl/static/cards/21/097.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 4,
+        "ability": "El turno que Marenptah entra en juego, tus Aliados declarados atacantes pueden ser agrupados en la Fase Final."
+    },
+    {
+        "name": "Smedes",
+        "image_path": "https://api.myl.cl/static/cards/21/098.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Cuando Smedes entra en juego, puedes destruir uno de tus Aliados de fuerza 4 o más para que Smedes gane 3 a la fuerza permanentemente."
+    },
+    {
+        "name": "Shoshenq",
+        "image_path": "https://api.myl.cl/static/cards/21/099.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 2 Oros para buscar en tu Mazo Castillo una carta de Aliado de coste 3 o menos y ponerlo en tu Mano."
+    },
+    {
+        "name": "Shebaka",
+        "image_path": "https://api.myl.cl/static/cards/21/100.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 0,
+        "cost": 4,
+        "ability": "Shebaka tiene fuerza igual al número de cartas en tu Mano."
+    },
+    {
+        "name": "Dagi",
+        "image_path": "https://api.myl.cl/static/cards/21/101.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Dagi entra en juego, nombra un Aliado en juego. Mientras Dagi esté en tu Línea de Defensa, el Aliado nombrado es Indestructible."
+    },
+    {
+        "name": "Gua",
+        "image_path": "https://api.myl.cl/static/cards/21/102.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 2 Oros y subir uno de tus Aliados a tu Mano para destruir un Tótem oponente."
+    },
+    {
+        "name": "Umm",
+        "image_path": "https://api.myl.cl/static/cards/21/103.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Mientras Umm esté en juego, tus demás Aliados de raza Sacerdote no pueden ser barajados."
+    },
+    {
+        "name": "Zaliki",
+        "image_path": "https://api.myl.cl/static/cards/21/104.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Si Zaliki bloquea y es destruido, puedes buscar un Aliado en tu Cementerio y ponerlo en tu Mano."
+    },
+    {
+        "name": "Anpu",
+        "image_path": "https://api.myl.cl/static/cards/21/105.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, puedes pagar 3 Oros para que un Aliado oponente no pueda ser declarado atacante el próximo turno."
+    },
+    {
+        "name": "Ramla",
+        "image_path": "https://api.myl.cl/static/cards/21/106.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando Ramla entra en juego, si tienes dos o más Aliados de raza Sacerdote, puedes mostrar las tres primeras cartas de tu Mazo Castillo. Si hay uno o más cartas de Tótem entre esas cartas, puedes jugar uno de ellos sin pagar su coste. Las otras cartas son desterrados. si no hay Tótem las cartas son barajadas."
+    },
+    {
+        "name": "Acero",
+        "image_path": "https://api.myl.cl/static/cards/21/107.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Si tienes a Seth en juego, Acero gana 2 a la fuerza por cada Aliado oponente de fuerza 3 o más."
+    },
+    {
+        "name": "Penumbra",
+        "image_path": "https://api.myl.cl/static/cards/21/108.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Penumbra entra en juego, puedes subir un Aliado de fuerza 3 o menos a la Mano de tu oponente."
+    },
+    {
+        "name": "Pili",
+        "image_path": "https://api.myl.cl/static/cards/21/109.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando Pili entra en juego, puedes tomar una carta de Talismán de tu Cementerio y ponerla en tu Mano."
+    },
+    {
+        "name": "Panya",
+        "image_path": "https://api.myl.cl/static/cards/21/110.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes descartar dos cartas para que tu oponente descarte una."
+    },
+    {
+        "name": "Qaa",
+        "image_path": "https://api.myl.cl/static/cards/21/111.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 4,
+        "cost": 2,
+        "ability": "Qaa no puede ser declarado atacante. Qaa puede bloquear a más de un Aliado hasta agotar su fuerza."
+    },
+    {
+        "name": "Uni",
+        "image_path": "https://api.myl.cl/static/cards/21/112.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Uni es Imbloqueable. Uni puede bloquear Aliados Imbloqueables."
+    },
+    {
+        "name": "Yii",
+        "image_path": "https://api.myl.cl/static/cards/21/113.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 3,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 3 Oros para que tu oponente bote 2 cartas. Si lo haces, Yii no puede ser declarada atacante."
+    },
+    {
+        "name": "Cárcel para el mal",
+        "image_path": "https://api.myl.cl/static/cards/21/114.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Anula una carta que destruya o destierre uno de tus Aliados."
+    },
+    {
+        "name": "Sokar-Wesir",
+        "image_path": "https://api.myl.cl/static/cards/21/115.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, destruye uno de tus Oros sin Habilidades que esté en tu Reserva para buscar un Aliado de raza Eterno en tu Cementerio y ponerlo en juego sin pagar su coste."
+    },
+    {
+        "name": "Can Seth",
+        "image_path": "https://api.myl.cl/static/cards/21/116.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Si tienes en juego dos o más Aliados de raza Eterno, tu oponente debe mostrar su Mano y descartar una carta."
+    },
+    {
+        "name": "La Vision",
+        "image_path": "https://api.myl.cl/static/cards/21/117.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Mira las cuatro primeras cartas de tu Mazo Castillo y pon una de esas cartas en tu Mano, luego baraja tu Mazo Castillo."
+    },
+    {
+        "name": "Hijos de Anubis",
+        "image_path": "https://api.myl.cl/static/cards/21/118.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Hijos de Anubis no puede ser anulado. En tu Fase de Vigilia, elige 3 cartas de Aliado o Tótem de tu Cementerio y barájalas en tu Mazo Castillo."
+    },
+    {
+        "name": "Hititas",
+        "image_path": "https://api.myl.cl/static/cards/21/119.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Cancela un ataque oponente. Puedes buscar una carta de Arma en tu Mazo Castillo y ponerla en juego sin pagar su coste."
+    },
+    {
+        "name": "Sombras Areneras",
+        "image_path": "https://api.myl.cl/static/cards/21/120.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Baraja uno de tus Aliados de raza Eterno para barajar 2 Aliados oponentes en su Mazo Castillo. Tu oponente puede anular esta Habilidad pagando 3 Oros."
+    },
+    {
+        "name": "Moldear la Realidad",
+        "image_path": "https://api.myl.cl/static/cards/21/121.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Elige uno de tus Aliados y nombra un tipo de carta. Por el resto del juego, ese Aliado se considera de ese tipo."
+    },
+    {
+        "name": "Misil de Montu",
+        "image_path": "https://api.myl.cl/static/cards/21/122.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Si tu oponente tiene en juego dos o más Tótem, debe botar 4 cartas de su Mazo Castillo."
+    },
+    {
+        "name": "Cobras de Luz",
+        "image_path": "https://api.myl.cl/static/cards/21/123.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Bota la carta superior de tu Mazo Castillo y destruye un Aliado oponente que tenga un coste igual o inferior que esa carta. Luego, tu oponente bota la carta superior de su Mazo Castillo y destruye uno de tus Aliados que tenga un coste igual o inferior que esa carta."
+    },
+    {
+        "name": "Ser de Arena",
+        "image_path": "https://api.myl.cl/static/cards/21/124.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Elige un Oro de Reserva y ponlo en tu Línea de Defensa, este Oro pierde su Habilidad hasta la Fase Final y se considera un Aliado con fuerza igual al número de Oros que tengas en tu Reserva. Al finalizar tu turno si permanece en juego, `ponlo en tu Reserva de Oro."
+    },
+    {
+        "name": "Gnam-Gnam",
+        "image_path": "https://api.myl.cl/static/cards/21/125.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Destruye uno de tus Aliados para Anular una carta oponente que no sea Oro que tenga un coste e igual o inferior al coste del Aliado destruido."
+    },
+    {
+        "name": "Rechazar la Sombra",
+        "image_path": "https://api.myl.cl/static/cards/21/126.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Anula una carta que descarte cartas de tu Mano."
+    },
+    {
+        "name": "Duelo de Dezzi Ah",
+        "image_path": "https://api.myl.cl/static/cards/21/127.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Ambos jugadores pueden descartar una carta de su Mano a la vez. El jugador que descarte la carta con mayor coste, puede desterrar un Aliado en juego."
+    },
+    {
+        "name": "Barro Sanador",
+        "image_path": "https://api.myl.cl/static/cards/21/128.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En tu Fase de Asignación de Daño, juega Barro Sanador y destruye uno de tus Aliados para reducir todo el daño a 0."
+    },
+    {
+        "name": "Controlar el Mercado",
+        "image_path": "https://api.myl.cl/static/cards/21/129.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Tu oponente bota dos cartas por cada Oro que tenga en juego, este daño se reduce en dos por cada Oro que tu tengas en juego."
+    },
+    {
+        "name": "Destruir Mercado",
+        "image_path": "https://api.myl.cl/static/cards/21/130.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Tu oponente no puede usar sus cartas de Oro durante su siguiente Fase de Vigilia."
+    },
+    {
+        "name": "Mineros del Lapislazuli",
+        "image_path": "https://api.myl.cl/static/cards/21/131.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Busca una carta de Oro en tu Mazo Castillo y ponla en juego. Roba una carta."
+    },
+    {
+        "name": "Producir Caos",
+        "image_path": "https://api.myl.cl/static/cards/21/132.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 10,
+        "ability": "Tu oponente debe botar 12 cartas de su Mazo Castillo."
+    },
+    {
+        "name": "Guardian de Apophis",
+        "image_path": "https://api.myl.cl/static/cards/21/133.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 10,
+        "ability": "Baraja 12 cartas de tu Cementerio en tu Mazo Castillo."
+    },
+    {
+        "name": "Daga de Bastet",
+        "image_path": "https://api.myl.cl/static/cards/21/134.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, puedes desterrar Daga de Bastet para buscar una carta de Aliado de raza Sacerdote de coste 4 o menos en tu Mazo Castillo o en tu Cementerio y ponerlo en tu Mano."
+    },
+    {
+        "name": "Espada Miliciana",
+        "image_path": "https://api.myl.cl/static/cards/21/135.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Espada Miliciana gana 3 a la fuerza cuando ataca. Si tienes dos o más Aliados de raza Faraón en juego, puedes jugar Espada Miliciana desde tu Cementerio."
+    },
+    {
+        "name": "Escudo Miliciano",
+        "image_path": "https://api.myl.cl/static/cards/21/136.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Escudo Miliciano gana 3 a la fuerza cuando bloquea. Si tienes dos o más Aliados de raza Faraón en juego, puedes jugar Escudo Miliciano desde tu Cementerio."
+    },
+    {
+        "name": "Dezzi Ah",
+        "image_path": "https://api.myl.cl/static/cards/21/137.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "El portador de Dehesilla gana 2 a la fuerza. En respuesta a que su portador haga daño, puedes buscar una copia de esta carta en tu Mazo Castillo y ponerla en juego."
+    },
+    {
+        "name": "Vengativa",
+        "image_path": "https://api.myl.cl/static/cards/21/138.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Vengativa gana 1 a la fuerza. El portador gana 1 a la fuerza por cada Aliado oponente en juego."
+    },
+    {
+        "name": "Espada Nubia",
+        "image_path": "https://api.myl.cl/static/cards/21/139.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a la Asignación de Daño destierra Espada Nubia para reducir el daño a cero."
+    },
+    {
+        "name": "Tebas",
+        "image_path": "https://api.myl.cl/static/cards/21/140.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Tebas esté en juego, los aliados de Fuerza 3 o más no puede ser declarados atacantes."
+    },
+    {
+        "name": "Beni Hassam",
+        "image_path": "https://api.myl.cl/static/cards/21/141.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras Beni Hassam esté en juego, no se puede declarar ataque ni puedes hacer que tu oponente bote cartas de su Mazo Castillo."
+    },
+    {
+        "name": "Valle de los Reyes",
+        "image_path": "https://api.myl.cl/static/cards/21/142.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Mientras Valle de los Reyes esté en juego, en tu Fase de Vigilia, sólo una vez por turno, destruye una de tus cartas en juego que no sea Oro para barajar tantas cartas de tu Cementerio en tu Mazo Castillo como coste tenga la carta destruida."
+    },
+    {
+        "name": "Deir El-Bahari",
+        "image_path": "https://api.myl.cl/static/cards/21/143.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que un Aliado que no pueda ser declarado atacante sea destruido o desterrado, puedes destruir Deir el-Bahari par a prevenirlo."
+    },
+    {
+        "name": "Valle de las Reinas",
+        "image_path": "https://api.myl.cl/static/cards/21/144.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 3 Oros para que tu oponente descarte una carta de su Mano."
+    },
+    {
+        "name": "Colosos de Menmon",
+        "image_path": "https://api.myl.cl/static/cards/21/145.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "Mientras Colosos de Menmon esté en juego, en respuesta a finalizar un turno, puedes descartar 2 cartas para agrupar tus Oros."
+    },
+    {
+        "name": "Lago de la Vida",
+        "image_path": "https://api.myl.cl/static/cards/21/146.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, puedes pagar 2 Oros para que un Arma o Tótem en juego pierda su Habilidad hasta la Fase Final."
+    },
+    {
+        "name": "Wepwawet",
+        "image_path": "https://api.myl.cl/static/cards/21/147.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Si tienes en juego dos o mas Aliados de raza Eterno, puedes barajar a Wepwawer para buscar un Aliado en tu Cementerio y ponerlo en tu Mano."
+    },
+    {
+        "name": "Tefnut",
+        "image_path": "https://api.myl.cl/static/cards/21/148.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 1,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia puedes destruir a Tefnut para destruir un Aliado oponente."
+    },
+    {
+        "name": "Selkis",
+        "image_path": "https://api.myl.cl/static/cards/21/149.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 3,
+        "cost": 2,
+        "ability": "Mientras Selkis esté en tu Línea de Defensa, los Aliados en juego no pueden aumentar su fuerza. En su Fase de Vigilia, tu oponente puede pagar 2 Oros para poner a Selkis en tu Línea de Ataque."
+    },
+    {
+        "name": "Satis",
+        "image_path": "https://api.myl.cl/static/cards/21/150.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Satis entra en juego, tu oponente debe botar 2 cartas de su Mazo Castillo."
+    },
+    {
+        "name": "Aken",
+        "image_path": "https://api.myl.cl/static/cards/21/151.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Aken puede atacar el turno en que entra en juego."
+    },
+    {
+        "name": "Khonsu",
+        "image_path": "https://api.myl.cl/static/cards/21/152.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Cuando Khonsu es declarado bloqueador, gana 2 a la fuerza."
+    },
+    {
+        "name": "Hike",
+        "image_path": "https://api.myl.cl/static/cards/21/153.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia, puedes desterrar a Hike para que un Aliado oponente deba ser declarado atacante el próximo turno."
+    },
+    {
+        "name": "Kek y Kauket",
+        "image_path": "https://api.myl.cl/static/cards/21/154.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 4,
+        "cost": 4,
+        "ability": "Si Kek y Kauket es declarado atacante, en tu próximo turno no puede ser agrupado."
+    },
+    {
+        "name": "Hapi",
+        "image_path": "https://api.myl.cl/static/cards/21/155.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, puedes destruir a Hapi para buscar una carta de Oro en tu Mazo Castillo y ponerla en tu Mano."
+    },
+    {
+        "name": "Renenutet",
+        "image_path": "https://api.myl.cl/static/cards/21/156.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Mientras Renenutet esté en juego, tus demás Aliados de raza Eterno ganan 1 a la fuerza."
+    },
+    {
+        "name": "Heqet",
+        "image_path": "https://api.myl.cl/static/cards/21/157.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 5,
+        "cost": 3,
+        "ability": "Heqet no puede ser declarado atacante. Si Heqet es declarado bloqueador, en la Fase Final debes subirlo a tu Mano."
+    },
+    {
+        "name": "Mahu",
+        "image_path": "https://api.myl.cl/static/cards/21/158.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 3,
+        "cost": 2,
+        "ability": "Si Mahu es declarado atacante, en la Fase Final debe ser Desterrado."
+    },
+    {
+        "name": "Aman",
+        "image_path": "https://api.myl.cl/static/cards/21/159.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 3,
+        "cost": 3,
+        "ability": "En respuesta a que tu oponente descarte cartas de tu Mano, puedes barajar a Amán para robar dos cartas."
+    },
+    {
+        "name": "Pepi l",
+        "image_path": "https://api.myl.cl/static/cards/21/160.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 2,
+        "ability": "Su reinado fue largo y sus obras gloriosas. Un suspiro se llevó sus logros, el tiempo es la peor tormenta, las gotas de su lluvia no tienen compasión."
+    },
+    {
+        "name": "Montuhopet ll",
+        "image_path": "https://api.myl.cl/static/cards/21/161.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 1,
+        "ability": "Para jugar a Montuhopet ll, debes devolver a tu Mano uno de tus Aliados de raza Faraón."
+    },
+    {
+        "name": "Sehetepibre",
+        "image_path": "https://api.myl.cl/static/cards/21/162.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 4,
+        "cost": 2,
+        "ability": "Si Sehetepibre es declarado atacante, no puedes declarar otros Aliados atacantes. En respuesta a la Asignación de Daño, puedes destruir a Sehetepibre para que tu oponente bote tantas cartas de su Mazo Castillo como fuerza tenga este Aliado."
+    },
+    {
+        "name": "Salitis el Usurpador",
+        "image_path": "https://api.myl.cl/static/cards/21/163.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Cuando Salitis el Usurpador entra en juego, baraja todos tus demás Aliados de raza Faraón. Mientras Salitis esté en juego, los Aliados de raza Faraón y Sacerdote pierden 1 a la fuerza."
+    },
+    {
+        "name": "Kamose",
+        "image_path": "https://api.myl.cl/static/cards/21/164.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 2,
+        "ability": "En respuesta a botar cartas de tu Mazo Castillo por una Habilidad oponente, puedes destruir a Kamose para anular esa Habilidad."
+    },
+    {
+        "name": "Medjay",
+        "image_path": "https://api.myl.cl/static/cards/21/165.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 3,
+        "cost": 2,
+        "ability": "Medjay es Imbloqueable. Si uno de tus Aliados de raza Faraón es destruido, debes destruir a Medjay."
+    },
+    {
+        "name": "Guerreros Egipcios",
+        "image_path": "https://api.myl.cl/static/cards/21/166.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 1,
+        "cost": 1,
+        "ability": "Si Guerreros Egipcios es declarado atacante o bloqueador, sólo una vez por turno, puedes botar la carta superior de tu Mazo Castillo para que gane 2 a la fuerza hasta la Fase Final."
+    },
+    {
+        "name": "Visir",
+        "image_path": "https://api.myl.cl/static/cards/21/167.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 1,
+        "cost": 2,
+        "ability": "Cuando Visir entra en juego, puedes barajar uno de tus Aliados de raza Faraón para robar 2 cartas."
+    },
+    {
+        "name": "Radjedef",
+        "image_path": "https://api.myl.cl/static/cards/21/168.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 1,
+        "cost": 5,
+        "ability": "Para jugar a Radjedef debes destruir uno de tus Aliados. Radjedef gana tanta fuerza como fuerza tenga el Aliado destruido, permanentemente."
+    },
+    {
+        "name": "Sinuhe el Viajero",
+        "image_path": "https://api.myl.cl/static/cards/21/169.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En respuesta a que Sinuhé el Viajero salga del juego, puedes buscar una carta de Oro en tu Mazo Castillo y ponerla en tu Mano."
+    },
+    {
+        "name": "Yey",
+        "image_path": "https://api.myl.cl/static/cards/21/170.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, mira la primera carta de tu Mazo Castillo. Si es un Aliado de raza Faraón, puedes pagar 3 Oros para ponerlo en juego sin pagar su coste. Si es de otro tipo, la carta debe ser barajada."
+    },
+    {
+        "name": "Kah el Protector",
+        "image_path": "https://api.myl.cl/static/cards/21/171.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Mientras Kah el Protector esté en juego, no puedes jugar Aliados de raza Sacerdote. En respuesta a que tu oponente juegue un Aliado de raza Sacerdote, puedes pagar el coste de ese Aliado para anularlo."
+    },
+    {
+        "name": "Surero",
+        "image_path": "https://api.myl.cl/static/cards/21/172.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Faraón",
+        "attack": 2,
+        "cost": 6,
+        "ability": "Cuando Surero entra en juego, mira las 6 primeras cartas de tu Mazo Castillo. Puedes jugar un Aliado de raza Faraón que esté entre esas cartas sin pagar su coste. Luego debes barajar tu Mazo Castillo"
+    },
+    {
+        "name": "Astronomo",
+        "image_path": "https://api.myl.cl/static/cards/21/173.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 1,
+        "cost": 4,
+        "ability": "Cuando Astrónomo entra en juego,elige uno de los Tótem en tu Línea de Apoyo. Mientras este Tótem y Astrónomo estén en juego, tu oponente juega con su mano descubierta."
+    },
+    {
+        "name": "Dogir",
+        "image_path": "https://api.myl.cl/static/cards/21/174.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En respuesta a que Dogir salga del juego, puedes buscar un Aliado de raza Eterno en tu Mazo Castillo y ponerlo en tu Mano."
+    },
+    {
+        "name": "Femi",
+        "image_path": "https://api.myl.cl/static/cards/21/175.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia, puedes destruir a Femi para que uno de tus Tótem o Arma en juego no pueda ser afectado por Habilidades oponentes hasta la Fase Final."
+    },
+    {
+        "name": "Nathifa",
+        "image_path": "https://api.myl.cl/static/cards/21/176.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 3,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 3 Oros para activar la Habilidad de uno de tus Tótem sin pagar su coste."
+    },
+    {
+        "name": "Ipy",
+        "image_path": "https://api.myl.cl/static/cards/21/177.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En respuesta a que uno de tus Aliados de raza Eterno o Sacerdote sea destruido o barajado, puedes desterrar a Ipy para prevenirlo."
+    },
+    {
+        "name": "Hechicero Errante",
+        "image_path": "https://api.myl.cl/static/cards/21/178.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes ver la carta superior de tu Mazo Castillo."
+    },
+    {
+        "name": "Traductor de Palacio",
+        "image_path": "https://api.myl.cl/static/cards/21/179.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Mientras Traductor de Palacio esté en tu Línea de Defensa, en tu Fase de Vigilia, sólo una vez por turno, puedes pagar 3 Oros para tomar un Aliado oponente en Línea de Ataque y ponerlo en tu Línea de Defensa hasta la Fase Final."
+    },
+    {
+        "name": "Escribano",
+        "image_path": "https://api.myl.cl/static/cards/21/180.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Mientras Escribano esté en juego, cada vez que juegues un Aliado de raza Sacerdote puedes robar una carta."
+    },
+    {
+        "name": "Ipi-Ha-Ishutet",
+        "image_path": "https://api.myl.cl/static/cards/21/181.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En Batalla Mitológica, puedes desterrar a Ipi-Ha-Ishutet para que tus Aliados declarados bloqueadores ganen 2 a la fuerza hasta la Fase Final."
+    },
+    {
+        "name": "Jarha",
+        "image_path": "https://api.myl.cl/static/cards/21/182.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Jarha entra en juego, puedes subir a tu Mano uno de tus Aliados en Línea de Defensa de raza Eterno o Sacerdote."
+    },
+    {
+        "name": "Iuput",
+        "image_path": "https://api.myl.cl/static/cards/21/183.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 3,
+        "cost": 3,
+        "ability": "Cuando Iuput entra en juego, puedes tomar hasta tres Aliados de raza Sacerdote de su Cementerio y barajarlos en tu Mazo Castillo."
+    },
+    {
+        "name": "Bennu",
+        "image_path": "https://api.myl.cl/static/cards/21/184.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, puedes destruir a Bennu para tomar un Aliado de raza Sacerdote de coste 3 o menos de su Cementerio y ponerlo en juego sin pagar su coste."
+    },
+    {
+        "name": "Asceta del Nilo",
+        "image_path": "https://api.myl.cl/static/cards/21/185.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 3,
+        "cost": 6,
+        "ability": "Cuando Asceta del Nilo entra en juego, destierra un Tótem en juego."
+    },
+    {
+        "name": "Monje de Aton",
+        "image_path": "https://api.myl.cl/static/cards/21/186.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 2,
+        "cost": 5,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, si tienes 3 o más Aliados de raza Sacerdote en juego, puedes pagar 3 Oros para subir un Aliado en juego a la Mano."
+    },
+    {
+        "name": "Vastago de Anubis",
+        "image_path": "https://api.myl.cl/static/cards/21/187.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sacerdote",
+        "attack": 3,
+        "cost": 3,
+        "ability": "En respuesta a la declaración de ataque oponente, puedes subir a Vástago de Anubis a tu Mano para subir a la Mano un Aliado declarado atacante."
+    },
+    {
+        "name": "El perdon de Ra",
+        "image_path": "https://api.myl.cl/static/cards/21/188.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, juega El Perdón de Ra para que Ra no pueda ser afectado por Habilidades de cartas oponentes hasta tu próxima Fase de Vigilia."
+    },
+    {
+        "name": "Dardos de Montu",
+        "image_path": "https://api.myl.cl/static/cards/21/189.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En Guerra de Talismanes, juega Dardos de Montu y bota 2 cartas para que tu oponente bote 4 cartas de su Mazo Castillo."
+    },
+    {
+        "name": "Abrir la Boca",
+        "image_path": "https://api.myl.cl/static/cards/21/190.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Juega Abrir la Boca para que un Aliado oponente en Línea de Ataque no pueda ser agrupado por el resto del juego."
+    },
+    {
+        "name": "Trueno de Seth",
+        "image_path": "https://api.myl.cl/static/cards/21/191.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que Seth sea declarado atacante, juega Trueno de Seth para que tu oponente bote 3 cartas."
+    },
+    {
+        "name": "Nieblas de Anubis",
+        "image_path": "https://api.myl.cl/static/cards/21/192.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a un ataque oponente juega Nieblas de Anubis para tomar de su Cementerio un Aliado de fuerza 3 o menos y pónlo en tu Línea de Defensa, sin pagar su coste. Este Aliado puede ser declarado bloqueador en la Fase Final debe ser destruido."
+    },
+    {
+        "name": "Duelo en el Desierto",
+        "image_path": "https://api.myl.cl/static/cards/21/193.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "En tu Fase de Vigilia, juega Duelo en el Desierto para que todos tus Aliados de raza Faraón sean Imbloqueables hasta la Fase Final."
+    },
+    {
+        "name": "Caceria de Hipopotamo",
+        "image_path": "https://api.myl.cl/static/cards/21/194.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "En tu Fase de Vigilia, juega Cacería de Hipopótamo para que todos tus Aliados de raza Eterno sean Indestructibles hasta la Fase Final."
+    },
+    {
+        "name": "Badu-Badu",
+        "image_path": "https://api.myl.cl/static/cards/21/195.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Juega Badu-Badu para que uno de tus Aliados gane 4 a la fuerza. En la Fase Final destruye todos tus Aliados en juego."
+    },
+    {
+        "name": "Sacerdotiza Corrupta",
+        "image_path": "https://api.myl.cl/static/cards/21/196.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Destruye un Aliado de raza Sacerdote en juego."
+    },
+    {
+        "name": "Hambre de Apophis",
+        "image_path": "https://api.myl.cl/static/cards/21/197.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Juega Hambre de Apophis para que todos los Aliados en juego pierdan su Habilidad y tengan fuerza 0 hasta la Fase Final."
+    },
+    {
+        "name": "Momia Andante",
+        "image_path": "https://api.myl.cl/static/cards/21/198.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Un Aliado en juego gana 2 a la fuerza y no puede ser declarado atacante por el resto del Juego."
+    },
+    {
+        "name": "Dioses del Arbol",
+        "image_path": "https://api.myl.cl/static/cards/21/199.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Nombra un tipo de carta y muestra la carta superior de tu Mazo Castillo, si es de ese tipo, puedes ver la Mano de tu oponente. La carta mostrada debe ser barajada."
+    },
+    {
+        "name": "Sept",
+        "image_path": "https://api.myl.cl/static/cards/21/200.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a un ataque oponente, debes descartar una carta por cada Aliado atacante para cancelar ese ataque."
+    },
+    {
+        "name": "Subach",
+        "image_path": "https://api.myl.cl/static/cards/21/201.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "Este turno no se puede declarar bloqueo."
+    },
+    {
+        "name": "Tou tou",
+        "image_path": "https://api.myl.cl/static/cards/21/202.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "Todos tus Aliados declarados bloqueadores son Indestructibles hasta la Fase Final."
+    },
+    {
+        "name": "Bas-Pef",
+        "image_path": "https://api.myl.cl/static/cards/21/203.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "Por cada Aliado de raza Sacerdote que tengas en tu Cementerio, tu oponente debe botar 1 carta de su Mazo Castillo."
+    },
+    {
+        "name": "Halcon Sagrado",
+        "image_path": "https://api.myl.cl/static/cards/21/204.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Uno de tus Aliados es Imbloqueable y un Aliado oponente no puede ser declarado bloqueador por este turno."
+    },
+    {
+        "name": "Hatmeyth",
+        "image_path": "https://api.myl.cl/static/cards/21/205.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Uno de tus Aliados no recibe daño en Batalla Mitológica."
+    },
+    {
+        "name": "No mas Juegos",
+        "image_path": "https://api.myl.cl/static/cards/21/206.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a que cualquier jugador declare ataque, juega No más Juegos para que los jugadores se salten la Guerra de Talismanes."
+    },
+    {
+        "name": "Arco de Satis",
+        "image_path": "https://api.myl.cl/static/cards/21/207.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Si el portador de Arco de Satis es declarado bloqueador, tu oponente debe botar 2 cartas de su Mazo Castillo."
+    },
+    {
+        "name": "Daga de Seth",
+        "image_path": "https://api.myl.cl/static/cards/21/208.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Daga de Seth gana 2 a la fuerza. Si el portador es de raza Eterno, en tu Fase de Vigilia, puedes descartar una carta para que sea Imbloqueable hasta la Fase Final."
+    },
+    {
+        "name": "Honda Milisiana",
+        "image_path": "https://api.myl.cl/static/cards/21/209.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a que el portador de Honda Miliciana sea declarado atacante, tu oponente debe botar 2 cartas."
+    },
+    {
+        "name": "Hacha de Trabajo",
+        "image_path": "https://api.myl.cl/static/cards/21/210.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Destierra Hacha de Trabajo para que un Aliado declarado bloqueador no reciba daño en Fase de Asignación de Daño."
+    },
+    {
+        "name": "Espada de Guardian",
+        "image_path": "https://api.myl.cl/static/cards/21/211.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Espada de Guardián gana 2 a la fuerza. Si el portador es declarado bloqueador , gana 2 a la fuerza hasta la Fase Final."
+    },
+    {
+        "name": "Jabalina Milesiana",
+        "image_path": "https://api.myl.cl/static/cards/21/212.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Destierra Jabalina Milesiana para que tu oponente bote tantas cartas como Armas haya en juego."
+    },
+    {
+        "name": "Baston de Hequet",
+        "image_path": "https://api.myl.cl/static/cards/21/213.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes buscar un Arma en tu Mazo Castillo y ponerla en tu Mano."
+    },
+    {
+        "name": "Debod",
+        "image_path": "https://api.myl.cl/static/cards/21/214.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que uno de tus Aliados de raza Sacerdote en Línea de Defensa sea destruido, puedes destruir a Debob para prevenirlo."
+    },
+    {
+        "name": "Dones del Nilo",
+        "image_path": "https://api.myl.cl/static/cards/21/215.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a finalizar tu turno, si todos tus Aliados están en Línea de Defensa, puedes pagar 3 Oros para buscar un Aliado de raza Sacerdote en tu Mazo Castillo y ponerlo en tu Mano."
+    },
+    {
+        "name": "Templo Sombrio",
+        "image_path": "https://api.myl.cl/static/cards/21/216.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Templo Sombrío esté en juego, en tu Fase de Vigilia, puedes pagar 2 Oros para que puedas jugar con tu Cementerio hasta la Fase Final."
+    },
+    {
+        "name": "Esfinge de Guiza",
+        "image_path": "https://api.myl.cl/static/cards/21/217.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "En respuesta a un ataque oponente, puedes pagar 3 Oros para que Esfinge de Guiza se considere un Aliado bloqueador de fuerza igual a su coste, no puedes jugar esta Habilidad si tienes Aliados en juego. En la Fase Final, si permanece en juego, vuelve a la Línea de Apoyo."
+    },
+    {
+        "name": "Templo de Isis",
+        "image_path": "https://api.myl.cl/static/cards/21/218.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En Batalla Mitológica, puedes descartar una carta para que un Aliado oponente vuelva a la Línea de Defensa."
+    },
+    {
+        "name": "Mastabas",
+        "image_path": "https://api.myl.cl/static/cards/21/219.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Mastabas esté en juego, los Aliados Imbloqueables en Línea de Ataque tienen fuerza 0."
+    },
+    {
+        "name": "Saqqara",
+        "image_path": "https://api.myl.cl/static/cards/21/220.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a un ataque oponente, puedes desterrar a Saqqara para cancelarlo."
+    },
+    {
+        "name": "Poema a Nefertari",
+        "image_path": "https://api.myl.cl/static/cards/21/221.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Escarabeo",
+        "image_path": "https://api.myl.cl/static/cards/21/222.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Corona Faraonica",
+        "image_path": "https://api.myl.cl/static/cards/21/223.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En respuesta a que bajes un Aliado, si Corona Faraónica está en tu Reserva y si tienes uno o más Aliados de raza Faraón en juego, puedes botar la carta superior de tu Mazo Castillo para que ese Aliado pueda ser declarado atacante este turno. Carta Única."
+    },
+    {
+        "name": "Diadema",
+        "image_path": "https://api.myl.cl/static/cards/21/224.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Libro de los Muertos",
+        "image_path": "https://api.myl.cl/static/cards/21/225.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "Mientras Libro de los Muertos esté en tu Reserva, si tienes uno o más Aliados de raza Eterno en juego, en respuesta a que uno o más de tus Aliados sea destruido por una carta o Habilidad oponente, son barajados. Carta Única."
+    },
+    {
+        "name": "Libro de las Cavernas",
+        "image_path": "https://api.myl.cl/static/cards/21/226.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Senet",
+        "image_path": "https://api.myl.cl/static/cards/21/227.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Sarcofago Sagrado",
+        "image_path": "https://api.myl.cl/static/cards/21/228.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Amkh",
+        "image_path": "https://api.myl.cl/static/cards/21/229.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Latigo y Baston",
+        "image_path": "https://api.myl.cl/static/cards/21/230.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Libro de la Tierra",
+        "image_path": "https://api.myl.cl/static/cards/21/231.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Juguetes Infantiles",
+        "image_path": "https://api.myl.cl/static/cards/21/232.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Fieras Domesticas",
+        "image_path": "https://api.myl.cl/static/cards/21/233.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Hipopotamo Sagrado",
+        "image_path": "https://api.myl.cl/static/cards/21/234.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Poetas de la Corte",
+        "image_path": "https://api.myl.cl/static/cards/21/235.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Piedra Roseta",
+        "image_path": "https://api.myl.cl/static/cards/21/236.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En tu Fase de Vigilia, si tienes dos o más Aliados de raza Sacerdote en juego, puedes barajar una carta de tu Mano para robar una carta, máximo 3 veces por turno. Carta Única."
+    }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "Id": "P-0001",
+    "Tipo": "Mazo",
+    "Nombre": "Acero y Honor",
+    "Edicion": "Espada Sagrada",
+    "Precio": 0,
+    "RutaImagen": "images/sobres/acero_honor.png",
+    "Descripcion": "Mazo Caballero Estructurado de 50 cartas",
+    "CantidadOros": 0,
+    "CantidadVasallos": 0,
+    "CantidadCortesanos": 0,
+    "CantidadReales": 0,
+    "ProbabilidadUpgrade": 0
+  },
+  {
+    "Id": "P-51DD",
+    "Tipo": "Sobre",
+    "Nombre": "Sobre de Superaci\u00F3n Cruzadas",
+    "Edicion": "Cruzadas",
+    "Precio": 500,
+    "RutaImagen": "images/sobres/cruazadas.webp",
+    "Descripcion": "Sobre de Superaci\u00F3n oficial de la expansi\u00F3n Cruzadas",
+    "CantidadOros": 1,
+    "CantidadVasallos": 4,
+    "CantidadCortesanos": 2,
+    "CantidadReales": 1,
+    "ProbabilidadUpgrade": 10
+  },
+  {
+    "Id": "P-0002",
+    "Tipo": "Sobre",
+    "Nombre": "Sobre Espada Sagrada",
+    "Edicion": "Espada Sagrada",
+    "Precio": 500,
+    "RutaImagen": "images/sobres/espada-sagrada.webp",
+    "Descripcion": "Contiene 10 cartas con algoritmo real de Espada Sagrada",
+    "CantidadOros": 1,
+    "CantidadVasallos": 5,
+    "CantidadCortesanos": 3,
+    "CantidadReales": 1,
+    "ProbabilidadUpgrade": 20
+  }
+]

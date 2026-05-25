@@ -1,0 +1,2362 @@
+[
+    {
+        "name": "Gaia",
+        "image_path": "https://api.myl.cl/static/cards/20/001.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes buscar un Aliado en tu Mazo Castillo y ponerlo en tu mano."
+    },
+    {
+        "name": "Helios",
+        "image_path": "https://api.myl.cl/static/cards/20/002.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 5,
+        "ability": "Mientras Helios esté en juego, tus Aliados de raza Olímpico ganan 2 a la fuerza y no pueden ser afectados por Talismánes oponentes."
+    },
+    {
+        "name": "Eolo",
+        "image_path": "https://api.myl.cl/static/cards/20/003.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 6,
+        "ability": "Cuando Eolo entra en juego, destruye todas las cartas en juego a excepción de Eolo."
+    },
+    {
+        "name": "El Gran Zeus",
+        "image_path": "https://api.myl.cl/static/cards/20/004.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 5,
+        "cost": 5,
+        "ability": "El Gran Zeus es indestructible. En tu Fase de Vigilia, sólo una vez por turno, puedes robar hasta 2 cartas. Carta única."
+    },
+    {
+        "name": "Hera",
+        "image_path": "https://api.myl.cl/static/cards/20/005.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 5,
+        "ability": "Si Hera es afectada por una habilidad oponente, puedes redirigir esa habilidad a una carta oponente en juego."
+    },
+    {
+        "name": "Poseidon",
+        "image_path": "https://api.myl.cl/static/cards/20/006.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 3,
+        "cost": 4,
+        "ability": "En respuesta a declarar a Poseidón atacante, debes elegir que Poseidón sea imbloqueable o que sea bloqueado por un Aliado oponente a tu elección."
+    },
+    {
+        "name": "El Oscuro Hades",
+        "image_path": "https://api.myl.cl/static/cards/20/007.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 3,
+        "cost": 5,
+        "ability": "Cuando El Oscuro Hades entra en juego, puedes colocar un Aliado oponente en tu Línea de defensa. Durante este turno, debe ser declarado atacante. Si no es destruido, al final del turno vuelve a la Línea de Defensa oponente."
+    },
+    {
+        "name": "Apolo",
+        "image_path": "https://api.myl.cl/static/cards/20/008.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Cuando Apolo entra en juego, se cancelan todos los modificadores a la fuerza. Mientras Apolo esté en juego, no se podrán jugar ni activar modificadores a la fuerza."
+    },
+    {
+        "name": "Dionisio",
+        "image_path": "https://api.myl.cl/static/cards/20/009.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 0,
+        "cost": 5,
+        "ability": "Dionisio se considera un Aliado de raza Héroe, y gana 1 a la fuerza por cada Aliado de raza Olímpico y Héroe que tengas en juego."
+    },
+    {
+        "name": "Thanatos",
+        "image_path": "https://api.myl.cl/static/cards/20/010.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 5,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes nombrar un Aliado en juego. Todos los Aliados con ese nombre deben ser destruidos. Carta única."
+    },
+    {
+        "name": "Atenea",
+        "image_path": "https://api.myl.cl/static/cards/20/011.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Atenea entra en juego, elige 4 cartas de tu Cementerio y barájalas con tu Mazo Castillo."
+    },
+    {
+        "name": "Ares",
+        "image_path": "https://api.myl.cl/static/cards/20/012.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En Guerra de Talismánes, puedes pagar 3 de oro para cancelar el ataque o bloqueo oponente."
+    },
+    {
+        "name": "Eros",
+        "image_path": "https://api.myl.cl/static/cards/20/013.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Si Eros entra en juego en tu primer turno, puedes buscar 2 oros en tu Mazo Castillo y ponerlos en tu mano."
+    },
+    {
+        "name": "Heracles",
+        "image_path": "https://api.myl.cl/static/cards/20/014.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 4,
+        "cost": 5,
+        "ability": "Cuando Heracles entra en juego, si tienes El Gran Zeus en juego, tu oponente debe jugar con su mano descubierta mientras tengas ambos Aliados en juego."
+    },
+    {
+        "name": "Ulises",
+        "image_path": "https://api.myl.cl/static/cards/20/015.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando Ulises entra en juego, todos tus Aliados de raza Héroe ganan 1 a la fuerza permanentemente."
+    },
+    {
+        "name": "Teseo",
+        "image_path": "https://api.myl.cl/static/cards/20/016.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 3,
+        "cost": 4,
+        "ability": "En respuesta a que Teseo haga daño al Mazo Castillo oponente, puedes destruirle un Aliado."
+    },
+    {
+        "name": "Aristoteles",
+        "image_path": "https://api.myl.cl/static/cards/20/017.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En respuesta a declarar tu ataque, si Aristóteles no es declarado atacante, descarta 1 carta oponente al azar."
+    },
+    {
+        "name": "Jason",
+        "image_path": "https://api.myl.cl/static/cards/20/018.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 5,
+        "ability": "Cuando Jason entra en juego, puedes buscar a Ulises en tu Mazo Castillo y ponerlo en tu Línea de Defensa sin pagar su coste."
+    },
+    {
+        "name": "Dafne",
+        "image_path": "https://api.myl.cl/static/cards/20/019.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Dafne no puede ser afectada por Talismánes."
+    },
+    {
+        "name": "Orfeo",
+        "image_path": "https://api.myl.cl/static/cards/20/020.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes nombrar una carta y luego buscarla en el Mazo Castillo oponente. Si tu oponente la tiene, destiérrala. Carta única."
+    },
+    {
+        "name": "Paris",
+        "image_path": "https://api.myl.cl/static/cards/20/021.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En Guerra de Talismánes, si Paris es declarado atacante, todos los Aliados que lo acompañan ganan 1 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Alejandro Magno",
+        "image_path": "https://api.myl.cl/static/cards/20/022.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 3,
+        "cost": 4,
+        "ability": "En tu Fase de vigilia, puedes pagar 4 de oro para que un Aliado oponente en juego pase a tu Línea de Defensa. Mientras permanezca en juego, ese Aliado oponente se considera como uno de tus Aliados."
+    },
+    {
+        "name": "Penelope",
+        "image_path": "https://api.myl.cl/static/cards/20/023.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Si tienes a Ulises en juego, el coste de Penélope es 1."
+    },
+    {
+        "name": "Castor",
+        "image_path": "https://api.myl.cl/static/cards/20/024.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Si Castor es declarado atacante junto a Pólux, gana 2 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Polux",
+        "image_path": "https://api.myl.cl/static/cards/20/025.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Si Pólux es declarado atacante junto a Castor, gana 2 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Edipo",
+        "image_path": "https://api.myl.cl/static/cards/20/026.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Edipo entra en juego, destruye un Aliado de raza Héroe oponente."
+    },
+    {
+        "name": "Aquiles",
+        "image_path": "https://api.myl.cl/static/cards/20/027.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 6,
+        "cost": 4,
+        "ability": "Si Aquiles modifica su fuerza, es destruido."
+    },
+    {
+        "name": "Tifon",
+        "image_path": "https://api.myl.cl/static/cards/20/028.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 5,
+        "cost": 3,
+        "ability": "En respuesta a que Tifón sea declarado atacante o bloqueador, al final del turno barájalo en tu Mazo Castillo."
+    },
+    {
+        "name": "Los Titanes",
+        "image_path": "https://api.myl.cl/static/cards/20/029.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 5,
+        "cost": 5,
+        "ability": "Cuando Los Titanes entra en juego, busca un Aliado de raza Titán en tu Mazo Castillo o Cementerio y ponlo en tu mano."
+    },
+    {
+        "name": "Rea",
+        "image_path": "https://api.myl.cl/static/cards/20/030.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 4,
+        "cost": 6,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, busca un Aliado de raza Olímpico o raza Titán en tu Zona de Destierro y ponlo en tu Línea de Defensa sin pagar su coste."
+    },
+    {
+        "name": "Atlas",
+        "image_path": "https://api.myl.cl/static/cards/20/031.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 6,
+        "cost": 3,
+        "ability": "Atlas puede bloquear a más de un Aliado hasta agotar su fuerza. Atlas no puede ser declarado atacante y no puede portar armas."
+    },
+    {
+        "name": "Cronos",
+        "image_path": "https://api.myl.cl/static/cards/20/032.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 5,
+        "cost": 5,
+        "ability": "En tu Fase de Vigilia, puedes pagar 4 de oro para destruir un Aliado oponente. En respuesta a finalizar tu turno, puedes agrupar tus cartas. Carta única."
+    },
+    {
+        "name": "Oceano",
+        "image_path": "https://api.myl.cl/static/cards/20/033.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 4,
+        "cost": 5,
+        "ability": "Si no hay Aliados de raza Olímpico en juego, Océano duplica su fuerza."
+    },
+    {
+        "name": "Kampe",
+        "image_path": "https://api.myl.cl/static/cards/20/034.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 5,
+        "cost": 5,
+        "ability": "En respuesta a que Cronos sea destruido, puedes desterrar este Aliado para salvarlo."
+    },
+    {
+        "name": "Selene",
+        "image_path": "https://api.myl.cl/static/cards/20/035.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, genera 2 oros para bajar Aliados de raza Titán."
+    },
+    {
+        "name": "Hiparion",
+        "image_path": "https://api.myl.cl/static/cards/20/036.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En respuesta a que Hiparión sea declarado atacante, puedes ver la carta superior de tu Mazo Castillo: si es un Aliado, ponlo en juego sin pagar su coste; si la carta no es un Aliado, destiérrala."
+    },
+    {
+        "name": "Prometeo",
+        "image_path": "https://api.myl.cl/static/cards/20/037.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 4,
+        "cost": 4,
+        "ability": "Prometeo puede atacar el turno que entra en juego. En respuesta a ser declarado atacante, puedes pagar 1 de oro para que sea imbloqueable, hasta el final del turno."
+    },
+    {
+        "name": "Noctumbros",
+        "image_path": "https://api.myl.cl/static/cards/20/038.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 3,
+        "cost": 1,
+        "ability": "Noctumbros debe atacar el turno que entra en juego y luego, al final del turno, debe ser desterrado."
+    },
+    {
+        "name": "Eos",
+        "image_path": "https://api.myl.cl/static/cards/20/039.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Eos entra en juego, tus Aliados de raza Titán ganan 1 a la fuerza."
+    },
+    {
+        "name": "Tea",
+        "image_path": "https://api.myl.cl/static/cards/20/040.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, puedes pagar 2 de oro para que un Aliado oponente tenga fuerza 0 hasta el final del turno y no pueda recibir modificadores de fuerza."
+    },
+    {
+        "name": "Expulsion de Titanes",
+        "image_path": "https://api.myl.cl/static/cards/20/041.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Destierra un Aliado de raza Titán en juego."
+    },
+    {
+        "name": "Maldicion de Hera",
+        "image_path": "https://api.myl.cl/static/cards/20/042.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Hasta el final del turno, puedes modificar la fuerza de un Aliado oponente entre 0 y 10."
+    },
+    {
+        "name": "Rayos",
+        "image_path": "https://api.myl.cl/static/cards/20/043.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "Destruye todas las cartas en juego."
+    },
+    {
+        "name": "Teleute",
+        "image_path": "https://api.myl.cl/static/cards/20/044.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Descarta 2 cartas de tu oponente al azar."
+    },
+    {
+        "name": "Arde Troya",
+        "image_path": "https://api.myl.cl/static/cards/20/045.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Anula o cancela una carta que afecte a los Oros en juego. Si la carta es cancelada, destrúyela. Si juegas Arde Troya en el turno oponente, éste pasa directamente a la Fase Final."
+    },
+    {
+        "name": "Caballo de Troya",
+        "image_path": "https://api.myl.cl/static/cards/20/046.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Busca un Aliado en tu Mazo Castillo y ponlo en tu Línea de Defensa sin pagar su coste. Puede atacar el turno que entra en juego, pierde 2 a la fuerza y se considera imbloqueable. En la Fase Final, ese Aliado debe ser desterrado."
+    },
+    {
+        "name": "Ira Ignea",
+        "image_path": "https://api.myl.cl/static/cards/20/047.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Destruye un Aliado de fuerza 3 o menos. Puedes robar 1 carta."
+    },
+    {
+        "name": "Invocar Luz",
+        "image_path": "https://api.myl.cl/static/cards/20/048.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 0,
+        "ability": "En Guerra de Talismánes, genera 2 oros para ambos jugadores hasta el final del turno. Carta única."
+    },
+    {
+        "name": "Almas de Estigia",
+        "image_path": "https://api.myl.cl/static/cards/20/049.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que uno de tus Aliados salga del juego, barájalo en tu Mazo Castillo."
+    },
+    {
+        "name": "Olimpiadas",
+        "image_path": "https://api.myl.cl/static/cards/20/050.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Baraja uno de tus Aliados de raza Héroe en juego en tu Mazo Castillo, para buscar un Aliado de raza Olímpico en tu Cementerio y colocarlo en tu Línea de Defensa sin pagar su coste."
+    },
+    {
+        "name": "La Ira de Tifon",
+        "image_path": "https://api.myl.cl/static/cards/20/051.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Ambos jugadores se descartan de toda su mano, y luego roban 4 cartas."
+    },
+    {
+        "name": "Vellocino de Oro",
+        "image_path": "https://api.myl.cl/static/cards/20/052.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "En respuesta a bajar un Aliado, juega a Vellocino de Oro para que pueda atacar en el turno que entra en juego. Al final del turno, roba 1 carta extra."
+    },
+    {
+        "name": "Urano",
+        "image_path": "https://api.myl.cl/static/cards/20/053.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a bajar un Aliado, busca una copia de ese Aliado en tu Mazo Catillo y ponlo en tu Línea de Defensa sin pagar su coste."
+    },
+    {
+        "name": "Alas de Icaro",
+        "image_path": "https://api.myl.cl/static/cards/20/054.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "El oponente bota 2 cartas de su Mazo Castillo. Luego, tú barajas un Aliado oponente en su Mazo Castillo y robas 1 carta."
+    },
+    {
+        "name": "Termofilas",
+        "image_path": "https://api.myl.cl/static/cards/20/055.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Si tienes dos o más Aliados de raza Héroe en juego, ganan 2 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Hogar de Demonios",
+        "image_path": "https://api.myl.cl/static/cards/20/056.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "Todos los Aliados en ambas Zonas de Destierro son puestos en juego sin pagar su coste."
+    },
+    {
+        "name": "Doce Pruebas",
+        "image_path": "https://api.myl.cl/static/cards/20/057.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Uno de tus Aliados de raza Héroe gana 3 a la fuerza permanentemente. Doce Pruebas no puede ser anulada."
+    },
+    {
+        "name": "Nacimiento de Pegaso",
+        "image_path": "https://api.myl.cl/static/cards/20/058.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Juega Nacimiento de Pegaso para que tu oponente no pueda ver tu mano por el resto del juego."
+    },
+    {
+        "name": "Misterio de la Esfinge",
+        "image_path": "https://api.myl.cl/static/cards/20/059.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Nombra una carta. Si tu oponente la tiene en su mano, debe botar 6 cartas de su Mazo Castillo. Y si no la tiene, debes botar 6 cartas de tu Mazo Castillo."
+    },
+    {
+        "name": "Tridente de los Mares",
+        "image_path": "https://api.myl.cl/static/cards/20/060.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El Tridente de los Mares sólo puede ser portado por Poseidón. Gana 4 a la fuerza."
+    },
+    {
+        "name": "Xiphos",
+        "image_path": "https://api.myl.cl/static/cards/20/061.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Si el portador de Xiphos es declarado atacante, gana 1 a la fuerza y tiene la prioridad en Guerra de Talismánes."
+    },
+    {
+        "name": "Hoz de Cronos",
+        "image_path": "https://api.myl.cl/static/cards/20/062.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "La Hoz de Cronos sólo puede ser portada por Cronos. En tu Fase de Vigilia, sólo una vez por turno, puedes destruir una carta en juego que no sea un oro."
+    },
+    {
+        "name": "Escudo de Atenea",
+        "image_path": "https://api.myl.cl/static/cards/20/063.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Si el portador de Escudo de Atenea es afectado por una habilidad oponente, puedes redirigir esa habilidad a una carta oponente en juego."
+    },
+    {
+        "name": "Casco de Hades",
+        "image_path": "https://api.myl.cl/static/cards/20/064.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a declarar tu ataque, si el portador de Casco de Hades no es declarado atacante, tu oponente debe botar tantas cartas como fuerza tenga el portador. Carta única."
+    },
+    {
+        "name": "Jabalina",
+        "image_path": "https://api.myl.cl/static/cards/20/065.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 3 de oro para que tu oponente bote 3 cartas."
+    },
+    {
+        "name": "Martillo de Hefestos",
+        "image_path": "https://api.myl.cl/static/cards/20/066.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Cuando Martillo de Hefestos entra en juego, puedes buscar un arma en tu Mazo Castillo y ponerla en tu mano. Su portador gana 2 a la fuerza."
+    },
+    {
+        "name": "Monte Olimpo",
+        "image_path": "https://api.myl.cl/static/cards/20/067.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "Mientras Monte Olimpo esté en juego, no puedes ser atacado."
+    },
+    {
+        "name": "Tartaro",
+        "image_path": "https://api.myl.cl/static/cards/20/068.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, paga 4 de oro y destierra un Aliado en juego."
+    },
+    {
+        "name": "Campos Elisios",
+        "image_path": "https://api.myl.cl/static/cards/20/069.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "En tu Fase de Vigilia, mientras Campos Elisios esté en juego,puedes pagar 5 de oro para buscar un Aliado en tu Cementerio y ponerlo en tu Línea de Defensa sin pagar su coste."
+    },
+    {
+        "name": "Atenas",
+        "image_path": "https://api.myl.cl/static/cards/20/070.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 2 de oro para buscar una carta en tu Mazo Castillo y ponerla en tu mano."
+    },
+    {
+        "name": "Esparta",
+        "image_path": "https://api.myl.cl/static/cards/20/071.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras Esparta esté en juego, tus Aliados que porten arma ganan 2 a la fuerza."
+    },
+    {
+        "name": "Arcadia",
+        "image_path": "https://api.myl.cl/static/cards/20/072.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "En tu Fase de Vigilia, puedes colocar hasta 2 Aliados de tu mano bajo Arcadia sin pagar su coste. Estos Aliados pueden activar sus habilidades y deben ser destruidos al finalizar tu Fase de Vigilia."
+    },
+    {
+        "name": "Atlantida",
+        "image_path": "https://api.myl.cl/static/cards/20/073.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Atlántida esté en juego, los Aliados oponentes pierden 1 a la fuerza."
+    },
+    {
+        "name": "Ofrenda a los Dioses",
+        "image_path": "https://api.myl.cl/static/cards/20/221.png",
+        "rarity": "Real",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "Si Ofrenda a los Dioses está en tu Reserva, todos tus Aliados de raza Olímpico ganan 1 a la fuerza."
+    },
+    {
+        "name": "La Iliada",
+        "image_path": "https://api.myl.cl/static/cards/20/224.png",
+        "rarity": "Real",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "Una vez por turno, puedes botar la carta superior de tu Mazo Castillo para que hasta el final del turno uno de tus Aliados de raza Titán gane 2 a la fuerza."
+    },
+    {
+        "name": "Antorcha Olimpica",
+        "image_path": "https://api.myl.cl/static/cards/20/229.png",
+        "rarity": "Real",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "Si tienes en juego 2 o más Aliados de raza Héroe, puedes desterrar Antorcha Olímpica para destruir una carta de tu oponente."
+    },
+    {
+        "name": "Hermes",
+        "image_path": "https://api.myl.cl/static/cards/20/074.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes ver las 3 cartas superiores de cualquier Mazo Castillo y ordenarlas como quieras."
+    },
+    {
+        "name": "Artemisa",
+        "image_path": "https://api.myl.cl/static/cards/20/075.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 0,
+        "cost": 4,
+        "ability": "Si Artemisa hace daño al Mazo Castillo oponente, puedes tomar un Aliado en juego y ponerlo en tu Línea de Defensa. Mientras permanezca en juego, ese Aliado se considera como uno de los tuyos."
+    },
+    {
+        "name": "Afrodita",
+        "image_path": "https://api.myl.cl/static/cards/20/076.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, nombra un tipo de carta que no sea Talismán. A continuación, mira la primera carta de tu Mazo Castillo y, si es de ese tipo, ponla en juego sin pagar su coste. Si no lo es, barajala en tu Mazo Castillo"
+    },
+    {
+        "name": "Hestia",
+        "image_path": "https://api.myl.cl/static/cards/20/077.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Mientras Hestia esté en juego, en respuesta a pasar el daño en tu Mazo Castillo, tu oponente bota 3 cartas."
+    },
+    {
+        "name": "HECATAE",
+        "image_path": "https://api.myl.cl/static/cards/20/078.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 1,
+        "ability": "Cuando Hecatae entra en juego, muestra tu mano al oponente."
+    },
+    {
+        "name": "Demetrios",
+        "image_path": "https://api.myl.cl/static/cards/20/079.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 3,
+        "cost": 2,
+        "ability": "Si Demetrios es declarado atacante, pierde 1 a la fuerza."
+    },
+    {
+        "name": "Fenix",
+        "image_path": "https://api.myl.cl/static/cards/20/080.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia, si Fénix está en tu Cementerio, puedes pagar su coste y ponerlo en tu Línea de Defensa."
+    },
+    {
+        "name": "Europa",
+        "image_path": "https://api.myl.cl/static/cards/20/081.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia, si tienes El Gran Zeus en juego, Europa gana 1 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Nemesis",
+        "image_path": "https://api.myl.cl/static/cards/20/082.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 4,
+        "ability": "En respuesta a que tu oponente juegue una habilidad de Aliado que afecte a Némesis, puedes destruir ese Aliado."
+    },
+    {
+        "name": "Hefestos",
+        "image_path": "https://api.myl.cl/static/cards/20/083.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 4,
+        "ability": "Si Hefestos porta Martillo de Hefestos gana 2 a la fuerza."
+    },
+    {
+        "name": "Piton",
+        "image_path": "https://api.myl.cl/static/cards/20/084.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 3,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, si tu oponente tiene a Apolo en juego, puedes robar 1 carta."
+    },
+    {
+        "name": "Demeter",
+        "image_path": "https://api.myl.cl/static/cards/20/085.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 5,
+        "ability": "En respuesta a cualquier fase del juego, puedes desterrar a Deméter para saltarla."
+    },
+    {
+        "name": "Caronte",
+        "image_path": "https://api.myl.cl/static/cards/20/086.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Mientras Caronte esté en juego, tu oponente debe pagar 1 oro en su Fase de Vigilia."
+    },
+    {
+        "name": "Temistocles",
+        "image_path": "https://api.myl.cl/static/cards/20/087.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Temístocles entra en juego, nombra una carta para que ella y todas sus copias pierdan su habilidad mientras Temístocles permanezca en juego."
+    },
+    {
+        "name": "Pericles",
+        "image_path": "https://api.myl.cl/static/cards/20/088.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Pericles entra en juego, todos los Aliados oponentes pierden 1 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Yolao",
+        "image_path": "https://api.myl.cl/static/cards/20/089.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En respuesta a que Yolao sea destruido, puedes pagar 2 de oro para que permanezca en el juego."
+    },
+    {
+        "name": "Platon",
+        "image_path": "https://api.myl.cl/static/cards/20/090.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En respuesta a que Platón sea destruido, puedes ponerlo en tu mano."
+    },
+    {
+        "name": "Sisifo el Hechicero",
+        "image_path": "https://api.myl.cl/static/cards/20/091.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 2,
+        "ability": "Sisifo el Hechicero es imbloqueable. En respuesta a que sea destruido, puedes barajarlo en tu Mazo Castillo."
+    },
+    {
+        "name": "Idmon el Adivino",
+        "image_path": "https://api.myl.cl/static/cards/20/092.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, puedes mirar la primera carta de tu Mazo Castillo: si es un Aliado de raza Héroe, puedes ponerlo en juego sin pagar su coste; si la carta no es un Héroe, destrúyela."
+    },
+    {
+        "name": "Calais y Cetes",
+        "image_path": "https://api.myl.cl/static/cards/20/093.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 3,
+        "cost": 4,
+        "ability": "En respuesta a la Fase Final, si Calais y Cetes está en tu Línea de Ataque, puedes agruparlo a tu Línea de Defensa."
+    },
+    {
+        "name": "Amazonas Guerreras",
+        "image_path": "https://api.myl.cl/static/cards/20/094.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Si hay otra Amazonas Guerreras en juego, su coste es 0."
+    },
+    {
+        "name": "Hector",
+        "image_path": "https://api.myl.cl/static/cards/20/095.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 0,
+        "cost": 3,
+        "ability": "Héctor gana 1 a la fuerza por cada Aliado de raza Héroe que tengas en juego. Y si Aquiles está en juego, no puede recibir modificadores de fuerza."
+    },
+    {
+        "name": "Socrates",
+        "image_path": "https://api.myl.cl/static/cards/20/096.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, Sócrates genera 2 oros para jugar Talismánes."
+    },
+    {
+        "name": "Epicureo, el Sabio",
+        "image_path": "https://api.myl.cl/static/cards/20/097.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 2,
+        "ability": "El siguiente turno que Epicureo, El Sabio entra en juego, tu oponente no puede jugar con su Cementerio ni su Zona de Destierro."
+    },
+    {
+        "name": "Belerofonte",
+        "image_path": "https://api.myl.cl/static/cards/20/098.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando Belerofonte entra en juego, tu oponente debe elegir uno de sus Tótem y destruirlo."
+    },
+    {
+        "name": "Ptolomeo",
+        "image_path": "https://api.myl.cl/static/cards/20/099.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Durante el turno que Ptolomeo entra en juego, tus Aliados de raza Héroe son imbloqueables."
+    },
+    {
+        "name": "Homero",
+        "image_path": "https://api.myl.cl/static/cards/20/100.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cada vez que Homero entre y salga del juego, puedes buscar un oro en tu Mazo Castillo y ponerlo en tu mano."
+    },
+    {
+        "name": "Ciclopes",
+        "image_path": "https://api.myl.cl/static/cards/20/101.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Cíclopes no pueden ser afectados por Talismánes oponentes."
+    },
+    {
+        "name": "Mnemoisine",
+        "image_path": "https://api.myl.cl/static/cards/20/102.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En respuesta a que Mnemoisine sea declarado atacante, puedes mirar la mano de tu oponente."
+    },
+    {
+        "name": "Asteria",
+        "image_path": "https://api.myl.cl/static/cards/20/103.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Asteria entra en juego, puedes buscar un Aliado de raza Titán en tu Cementerio y ponerlo en tu mano."
+    },
+    {
+        "name": "Las Musas",
+        "image_path": "https://api.myl.cl/static/cards/20/104.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Durante el turno en que Las Musas entra en juego, no se pueden jugar Talismánes."
+    },
+    {
+        "name": "Titan",
+        "image_path": "https://api.myl.cl/static/cards/20/105.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 4,
+        "cost": 3,
+        "ability": "Si no tienes otro Aliado de su misma raza, Titán debe ser destruido."
+    },
+    {
+        "name": "Quimera",
+        "image_path": "https://api.myl.cl/static/cards/20/106.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Si Quimera hace daño al Mazo Castillo oponente, ese daño se duplica."
+    },
+    {
+        "name": "Ladon",
+        "image_path": "https://api.myl.cl/static/cards/20/107.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 3,
+        "cost": 2,
+        "ability": "Ladon sólo puede bloquear. Si Ladon es destruido, barájalo en tu Mazo Castillo."
+    },
+    {
+        "name": "Nessos",
+        "image_path": "https://api.myl.cl/static/cards/20/108.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando Nessos entra en juego, puedes destruir un Aliado de raza Héroe oponente."
+    },
+    {
+        "name": "Hecatroncheires",
+        "image_path": "https://api.myl.cl/static/cards/20/109.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 3,
+        "cost": 4,
+        "ability": "En respuesta a que Hecatroncheires sea destruido, destruye un Aliado de raza Titán oponente."
+    },
+    {
+        "name": "Ketos",
+        "image_path": "https://api.myl.cl/static/cards/20/110.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 3,
+        "cost": 5,
+        "ability": "Mientras Ketos esté en juego, las cartas enviadas al Cementerio pasan a la Zona de Destierro."
+    },
+    {
+        "name": "Equidna",
+        "image_path": "https://api.myl.cl/static/cards/20/111.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes buscar en tu Mazo Castillo un Aliado de raza Titán de fuerza 2 o menor y ponerlo en tu mano."
+    },
+    {
+        "name": "Hidra de Lernea",
+        "image_path": "https://api.myl.cl/static/cards/20/112.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Hidra de Lernea sólo puede ser destruida por Aliados oponentes de raza Héroe."
+    },
+    {
+        "name": "Dragon Custodio",
+        "image_path": "https://api.myl.cl/static/cards/20/113.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Cuando Dragón Custodio bloquea, duplica su fuerza."
+    },
+    {
+        "name": "Furias",
+        "image_path": "https://api.myl.cl/static/cards/20/114.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "En respuesta a comenzar el turno oponente, juega Las Furias para que tu oponente se salte su Fase de Agrupar."
+    },
+    {
+        "name": "Pasion de Zeus",
+        "image_path": "https://api.myl.cl/static/cards/20/115.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Baraja 2 cartas de tu Cementerio en tu Mazo Castillo. Si tienes en juego a El Gran Zeus, puedes barajar 4 cartas."
+    },
+    {
+        "name": "Raza de Pigmeos",
+        "image_path": "https://api.myl.cl/static/cards/20/116.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Juega Raza de Pigmeos para anular un Tótem que esté entrando en juego."
+    },
+    {
+        "name": "Antropofagos",
+        "image_path": "https://api.myl.cl/static/cards/20/117.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Un Aliado oponente en juego pasa a tu Línea de Defensa y al final del turno debe ser destruido."
+    },
+    {
+        "name": "Isla de las Sirenas",
+        "image_path": "https://api.myl.cl/static/cards/20/118.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a la Fase de Vigilia oponente, juega Isla de las Sirenas para que un Aliado oponente deba atacar reduciendo su fuerza a 0."
+    },
+    {
+        "name": "Iris",
+        "image_path": "https://api.myl.cl/static/cards/20/119.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Si tienes en juego un Aliado de raza Olímpico, puedes robar 2 cartas."
+    },
+    {
+        "name": "Caliope",
+        "image_path": "https://api.myl.cl/static/cards/20/120.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Si juegas Calíope en tu primer turno, tu oponente no podrá jugar habilidades que afecten a tus oros por el resto del juego."
+    },
+    {
+        "name": "Refugiados",
+        "image_path": "https://api.myl.cl/static/cards/20/121.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a finalizar tu turno, puedes agrupar un Aliado"
+    },
+    {
+        "name": "Medicina de Hipocrates",
+        "image_path": "https://api.myl.cl/static/cards/20/122.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Durante el resto del juego, puedes volver a jugar con tu Cementerio y con tu Zona de Destierro."
+    },
+    {
+        "name": "Veneno Sagrado",
+        "image_path": "https://api.myl.cl/static/cards/20/123.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Destruye uno de tus Aliados en juego, para que tu oponente destruya a su elección 2 de sus Aliados."
+    },
+    {
+        "name": "Entrenamiento Espartano",
+        "image_path": "https://api.myl.cl/static/cards/20/124.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a declarar tu bloqueo, agrupa un Aliado y puedes declararlo bloqueador."
+    },
+    {
+        "name": "Red de Aracne",
+        "image_path": "https://api.myl.cl/static/cards/20/125.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Durante el resto del juego, no se puede jugar con el Cementerio ni con la Zona de Destierro."
+    },
+    {
+        "name": "Templo de Medusa",
+        "image_path": "https://api.myl.cl/static/cards/20/126.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a que tu oponente destierre uno de tus Aliados, destruye todos los Aliados oponentes en juego."
+    },
+    {
+        "name": "Fuego Griego",
+        "image_path": "https://api.myl.cl/static/cards/20/127.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Destruye un Tótem oponente."
+    },
+    {
+        "name": "Proteus",
+        "image_path": "https://api.myl.cl/static/cards/20/128.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Hasta el final del turno, todos los Aliados en juego cambian su fuerza por coste."
+    },
+    {
+        "name": "Tormenta de Fuego",
+        "image_path": "https://api.myl.cl/static/cards/20/129.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a bajar un Aliado, juega Tormenta de Fuego para que no pueda ser destruido hasta el final del juego."
+    },
+    {
+        "name": "Forja de Hefestos",
+        "image_path": "https://api.myl.cl/static/cards/20/130.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Puedes buscar un arma en tu Mazo Castillo o Cementerio y ponerla en tu mano."
+    },
+    {
+        "name": "Locura de Heracles",
+        "image_path": "https://api.myl.cl/static/cards/20/131.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Heracles gana 2 a la fuerza permanentemente."
+    },
+    {
+        "name": "Cadenas de Andromeda",
+        "image_path": "https://api.myl.cl/static/cards/20/132.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a que uno de tus Aliados sea destruido, juega Cadenas de Andrómeda para destruir un Aliado oponente."
+    },
+    {
+        "name": "Llamar al Fuego",
+        "image_path": "https://api.myl.cl/static/cards/20/133.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Busca un Talismán en tu Cementerio y ponlo en tu mano."
+    },
+    {
+        "name": "Espada de Infanteria",
+        "image_path": "https://api.myl.cl/static/cards/20/134.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Su portador gana 2 a la fuerza y puede portar un arma extra."
+    },
+    {
+        "name": "Espada Macedonia",
+        "image_path": "https://api.myl.cl/static/cards/20/135.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Su portador gana 1 a la fuerza y es imbloqueable."
+    },
+    {
+        "name": "Espada Noble",
+        "image_path": "https://api.myl.cl/static/cards/20/136.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Si su portador es destruido, tu oponente debe botar 3 cartas."
+    },
+    {
+        "name": "Escudo Ateniense",
+        "image_path": "https://api.myl.cl/static/cards/20/137.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Su portador gana 3 a la fuerza cuando bloquea."
+    },
+    {
+        "name": "Espada de Caballeria",
+        "image_path": "https://api.myl.cl/static/cards/20/138.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Su portador gana 1 a la fuerza por cada Aliado oponente en juego."
+    },
+    {
+        "name": "Tormento",
+        "image_path": "https://api.myl.cl/static/cards/20/139.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que uno de tus Tótem sea destruido, puedes salvarlo si destierras a Tormento."
+    },
+    {
+        "name": "Totem de Fenix",
+        "image_path": "https://api.myl.cl/static/cards/20/140.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Tótem de Fénix esté en juego, en tu Fase de Vigilia y sólo una vez por turno, puedes pagar 2 de oro para barajar 2 cartas del Cementerio en tu Mazo Castillo."
+    },
+    {
+        "name": "Templo de Apolo",
+        "image_path": "https://api.myl.cl/static/cards/20/141.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a que uno de tus Aliados de raza Olímpico sea destruido, puedes pagar 3 de oro para salvarlo."
+    },
+    {
+        "name": "Casa de Hestia",
+        "image_path": "https://api.myl.cl/static/cards/20/142.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Mientras Casa de Hestia esté en juego, tus oros no pueden ser destruidos."
+    },
+    {
+        "name": "Partenon",
+        "image_path": "https://api.myl.cl/static/cards/20/143.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Partenón esté en juego, tus armas no podrán ser destruidas."
+    },
+    {
+        "name": "Alejandria",
+        "image_path": "https://api.myl.cl/static/cards/20/144.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 3 de oro para subir un Aliado oponente a la mano."
+    },
+    {
+        "name": "Templo de la Cazadora",
+        "image_path": "https://api.myl.cl/static/cards/20/145.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Templo de la Cazadora esté en juego, todos tus Aliados ganan 1 a la fuerza."
+    },
+    {
+        "name": "Templo de la gran Hera",
+        "image_path": "https://api.myl.cl/static/cards/20/146.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras Templo de la Gran Hera esté en juego, no se pueden bajar armas. Todas las armas en juego pierden su habilidad."
+    },
+    {
+        "name": "Meleagro",
+        "image_path": "https://api.myl.cl/static/cards/20/147.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 4,
+        "ability": "El siguiente turno que bajes a Meleagro, tu oponente no podrá poner en juego Aliados."
+    },
+    {
+        "name": "Pandora",
+        "image_path": "https://api.myl.cl/static/cards/20/148.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Pandora entra en juego, puedes barajar 1 carta de tu mano en tu Mazo Castillo y luego robar 1 carta."
+    },
+    {
+        "name": "Falange",
+        "image_path": "https://api.myl.cl/static/cards/20/149.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 1,
+        "ability": "En tu Fase de Vigilia, si tienes 3 Falange en juego, ganan 2 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Mercenario Hoplita",
+        "image_path": "https://api.myl.cl/static/cards/20/150.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En Guerra de Talismánes Mercenario Hoplita puede duplicar su fuerza. Si lo hace, al finalizar el turno debe ser destruido."
+    },
+    {
+        "name": "Ajax",
+        "image_path": "https://api.myl.cl/static/cards/20/151.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Ajáx entra en juego, puedes barajar un Aliado de raza Héroe en juego."
+    },
+    {
+        "name": "Medea",
+        "image_path": "https://api.myl.cl/static/cards/20/152.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando Medea entra en juego, todos los Aliados de raza Olímpico pierden 1 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Helena",
+        "image_path": "https://api.myl.cl/static/cards/20/153.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 0,
+        "ability": "Para bajar Helena, debes destruir uno de tus Aliados de raza Héroe."
+    },
+    {
+        "name": "Sacerdotisa",
+        "image_path": "https://api.myl.cl/static/cards/20/154.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Mientras Sacerdotisa esté en juego, el coste de Hera se reduce en 1."
+    },
+    {
+        "name": "Maestro de Armas",
+        "image_path": "https://api.myl.cl/static/cards/20/155.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En respuesta a que uno de tus Aliados que porta arma sea destruido, puedes desterrar Maestro de Armas para salvarlo."
+    },
+    {
+        "name": "Felipo",
+        "image_path": "https://api.myl.cl/static/cards/20/156.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia, puedes pagar 3 de oro para que Felipo gane 2 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Atalanta",
+        "image_path": "https://api.myl.cl/static/cards/20/157.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 4,
+        "cost": 5,
+        "ability": "Atalanta se considera un Arma."
+    },
+    {
+        "name": "Hilas",
+        "image_path": "https://api.myl.cl/static/cards/20/158.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Hilas entra en juego, puedes buscar Las Musas en tu Mazo Castillo y ponerlo en tu mano."
+    },
+    {
+        "name": "Agammenon",
+        "image_path": "https://api.myl.cl/static/cards/20/159.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Agammenon debe atacar cuando entra en juego. Al final del turno, debe ser desterrado."
+    },
+    {
+        "name": "Anceo",
+        "image_path": "https://api.myl.cl/static/cards/20/160.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 2,
+        "ability": "El turno en que Anceo entra en juego, se cancelan todos los modificadores de fuerza."
+    },
+    {
+        "name": "Lycaon",
+        "image_path": "https://api.myl.cl/static/cards/20/161.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En respuesta a que tu oponente baje un Aliado de raza Olímpico, puedes subir Lycaón a tu mano para barajar dicho Aliado oponente."
+    },
+    {
+        "name": "Persefone",
+        "image_path": "https://api.myl.cl/static/cards/20/162.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 2,
+        "ability": "Si Persefone es destruida, puedes buscar un Aliado en tu Mazo Castillo y ponerla en tu mano."
+    },
+    {
+        "name": "Nereidas",
+        "image_path": "https://api.myl.cl/static/cards/20/163.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Nereidas sólo puede ser declarada atacante si tienes Poseidón en juego."
+    },
+    {
+        "name": "Triton",
+        "image_path": "https://api.myl.cl/static/cards/20/164.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cada vez que Tritón entre o salga del juego, puedes robar 1 carta."
+    },
+    {
+        "name": "Cibeles",
+        "image_path": "https://api.myl.cl/static/cards/20/165.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Cibeles entra en juego, nombra un Aliado oponente. Este Aliado deberá atacar el próximo turno o volver a la mano."
+    },
+    {
+        "name": "Alastor",
+        "image_path": "https://api.myl.cl/static/cards/20/166.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 3,
+        "ability": "El Aliado oponente que destruya a Alastor, pierde 1 a la fuerza por el resto del juego."
+    },
+    {
+        "name": "Boreas",
+        "image_path": "https://api.myl.cl/static/cards/20/167.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 3,
+        "cost": 5,
+        "ability": "Bóreas puede atacar cuando entra en juego."
+    },
+    {
+        "name": "Lyssa",
+        "image_path": "https://api.myl.cl/static/cards/20/168.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 2,
+        "ability": "En Guerra de Talismánes, puedes destruir a Lyssa para que un Aliado atacante oponente sea devuelto a la Línea de Defensa."
+    },
+    {
+        "name": "Sileno",
+        "image_path": "https://api.myl.cl/static/cards/20/169.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, puedes pagar 2 de oro para barajar una carta de tu Cementerio con tu Mazo Castillo."
+    },
+    {
+        "name": "Pan",
+        "image_path": "https://api.myl.cl/static/cards/20/170.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 1,
+        "ability": "Cuando Pan entra en juego, puedes buscar un oro en tu Cementerio y ponerlo en tu mano."
+    },
+    {
+        "name": "Psyche",
+        "image_path": "https://api.myl.cl/static/cards/20/171.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Psyché entra en juego, puedes robar 2 cartas. Elige una de ellas y descarta la otra."
+    },
+    {
+        "name": "Nike",
+        "image_path": "https://api.myl.cl/static/cards/20/172.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, puedes destruir a Nike para que tu oponente bote 2 cartas de su Mazo Castillo."
+    },
+    {
+        "name": "Morfeo",
+        "image_path": "https://api.myl.cl/static/cards/20/173.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Puedes destruir a Morfeo para que los jugadores muestren su mano hasta el final del turno."
+    },
+    {
+        "name": "Cerbero",
+        "image_path": "https://api.myl.cl/static/cards/20/174.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 4,
+        "cost": 2,
+        "ability": "Cerbero sólo puede bloquear y no puede portar armas."
+    },
+    {
+        "name": "Pallas",
+        "image_path": "https://api.myl.cl/static/cards/20/175.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Pallas no puede ser declarado atacante si en juego hay un Aliado de raza Olímpico."
+    },
+    {
+        "name": "Talos",
+        "image_path": "https://api.myl.cl/static/cards/20/176.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Talos entra en juego, debes desterrar 1 carta de tu mano."
+    },
+    {
+        "name": "Phorkys",
+        "image_path": "https://api.myl.cl/static/cards/20/177.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Puedes destruir a Phorkys, para que los Aliados oponentes pierdan 1 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Telchines",
+        "image_path": "https://api.myl.cl/static/cards/20/178.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "El turno en que Telchines entra en juego, un Aliado oponente en juego pierde su habilidad hasta el final del turno."
+    },
+    {
+        "name": "Cecrope",
+        "image_path": "https://api.myl.cl/static/cards/20/179.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 5,
+        "ability": "Si tu oponente tiene a El Gran Zeus en juego, Cecrope gana 1 a la fuerza."
+    },
+    {
+        "name": "Basilisco Griego",
+        "image_path": "https://api.myl.cl/static/cards/20/180.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En Guerra de Talismánes, puedes pagar 3 de oro para que un Aliado oponente no pueda atacar o bloquear."
+    },
+    {
+        "name": "Ixxion",
+        "image_path": "https://api.myl.cl/static/cards/20/181.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 1,
+        "cost": 2,
+        "ability": "Puedes desterrar a Ixxion para destruir un Aliado oponente de fuerza 1 o menor."
+    },
+    {
+        "name": "Epimeteo",
+        "image_path": "https://api.myl.cl/static/cards/20/182.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Si Epimeteo está en tu Cementerio, puedes pagar 2 de oro para ponerlo en tu mano."
+    },
+    {
+        "name": "Pholo",
+        "image_path": "https://api.myl.cl/static/cards/20/183.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, puedes destruir a Pholo para bajar un Aliado reduciendo su coste en 1."
+    },
+    {
+        "name": "Coloso",
+        "image_path": "https://api.myl.cl/static/cards/20/184.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 5,
+        "cost": 3,
+        "ability": "Coloso, si ataca o bloquea, debe ser destruido."
+    },
+    {
+        "name": "Minotauro de Creta",
+        "image_path": "https://api.myl.cl/static/cards/20/185.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Minotauro de Creta sólo puede bloquear a Aliados de raza Héroe. Si lo hace, gana 1 a la fuerza."
+    },
+    {
+        "name": "Las Grayas",
+        "image_path": "https://api.myl.cl/static/cards/20/186.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 2,
+        "ability": "Si en juego tienes 3 copias de Las Grayas, puedes destruirlas para buscar 2 cartas en tu Mazo Castillo y ponerlas en tu mano."
+    },
+    {
+        "name": "Lamia",
+        "image_path": "https://api.myl.cl/static/cards/20/187.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Lamia es declarado bloqueador, el Aliado oponente atacante pierde 1 a la fuerza."
+    },
+    {
+        "name": "Flota Helenica",
+        "image_path": "https://api.myl.cl/static/cards/20/188.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Si tienes más de una copia de un Aliado en juego, estos Aliados ganan 1 a la fuerza."
+    },
+    {
+        "name": "Nyx",
+        "image_path": "https://api.myl.cl/static/cards/20/189.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a un ataque, elige un Aliado de raza Héroe que no podrá atacar o bloquear en este turno."
+    },
+    {
+        "name": "Homunculus",
+        "image_path": "https://api.myl.cl/static/cards/20/190.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Busca en el Cementerio oponente 2 cartas y luego destiérralas."
+    },
+    {
+        "name": "Hipocampo",
+        "image_path": "https://api.myl.cl/static/cards/20/191.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Si en juego está Poseidón, tus Aliados de raza Olímpico ganan 1 a la fuerza."
+    },
+    {
+        "name": "Hipalectrycon",
+        "image_path": "https://api.myl.cl/static/cards/20/192.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Hasta el final del turno, un Aliado de raza Titán no puede ser afectado por Talismánes oponentes."
+    },
+    {
+        "name": "Los Gorilai",
+        "image_path": "https://api.myl.cl/static/cards/20/193.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Un Aliado que porte arma es imbloqueable durante este turno."
+    },
+    {
+        "name": "Casta de Gigantes",
+        "image_path": "https://api.myl.cl/static/cards/20/194.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Hasta el final del turno, todos tus Aliados de raza Titán ganan 1 a la fuerza."
+    },
+    {
+        "name": "Perros Tindalos",
+        "image_path": "https://api.myl.cl/static/cards/20/195.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Si en juego tienes El Oscuro Hades, puedes jugar Perros Tíndalos para que gane 2 a la fuerza y sea imbloqueable hasta el final del turno."
+    },
+    {
+        "name": "Aspidoquelon",
+        "image_path": "https://api.myl.cl/static/cards/20/196.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia y hasta el final del turno, uno de tus Tótem pierde su habilidad y se considera Aliado. Después, en tu Fase de Ataque, puede ser declarado atacante con fuerza igual a su coste."
+    },
+    {
+        "name": "Anakelades",
+        "image_path": "https://api.myl.cl/static/cards/20/197.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En Guerra de Talismánes, uno de tus Aliados gana 2 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Alkyon",
+        "image_path": "https://api.myl.cl/static/cards/20/198.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Sólo por este turno, un Aliado que no puede atacar será declarado atacante."
+    },
+    {
+        "name": "Mercaderes Fenicios",
+        "image_path": "https://api.myl.cl/static/cards/20/199.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Ambos jugadores destruyen un Aliado en juego."
+    },
+    {
+        "name": "Estirge",
+        "image_path": "https://api.myl.cl/static/cards/20/200.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Busca en tu Zona de Destierro 2 cartas y colócalas en tu Cementerio."
+    },
+    {
+        "name": "Serpiente de Bronce",
+        "image_path": "https://api.myl.cl/static/cards/20/201.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que tu oponente destruya una de tus cartas oro, ese oro es devuelto a la mano."
+    },
+    {
+        "name": "Bestia del Caos",
+        "image_path": "https://api.myl.cl/static/cards/20/202.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Hasta el final del turno, un Aliado oponente pierde su habilidad y tiene fuerza 0."
+    },
+    {
+        "name": "Cantobele",
+        "image_path": "https://api.myl.cl/static/cards/20/203.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "Devuelve un Aliado de tu Cementerio a la Línea de Defensa."
+    },
+    {
+        "name": "Gente Insecto",
+        "image_path": "https://api.myl.cl/static/cards/20/204.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, juega Gente Insecto para destruir uno de tus Aliados en juego de fuerza 3 o superior y luego robar dos cartas."
+    },
+    {
+        "name": "Caballo de Pesadilla",
+        "image_path": "https://api.myl.cl/static/cards/20/205.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Hasta el final del turno, juega Caballo de Pesadilla para cancelar todos los modificadores de fuerza."
+    },
+    {
+        "name": "Satiros Libres",
+        "image_path": "https://api.myl.cl/static/cards/20/206.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Juega Sátiros Libres para cancelar la habilidad de un arma en juego, hasta el final del turno."
+    },
+    {
+        "name": "Lanza Espartana",
+        "image_path": "https://api.myl.cl/static/cards/20/207.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Puedes desterrar Lanza Espartana, para anular un Aliado oponente que esté entrando en juego."
+    },
+    {
+        "name": "Yelmo Arcadio",
+        "image_path": "https://api.myl.cl/static/cards/20/208.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Puedes desterrar a Yelmo Arcadio para anular un Tótem oponente que esté entrando en juego."
+    },
+    {
+        "name": "Daga Griega",
+        "image_path": "https://api.myl.cl/static/cards/20/209.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia, el portador de Daga Griega pierde 1 a la fuerza."
+    },
+    {
+        "name": "Brazaletes",
+        "image_path": "https://api.myl.cl/static/cards/20/210.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "El portador de Brazaletes gana 2 a la fuerza cuando bloquea."
+    },
+    {
+        "name": "Sandalias de Hermes",
+        "image_path": "https://api.myl.cl/static/cards/20/211.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "El portador de Sandalias de Hermes puede atacar el turno en que entra en juego, y pierde 1 a la fuerza."
+    },
+    {
+        "name": "Pertiga",
+        "image_path": "https://api.myl.cl/static/cards/20/212.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Pértiga no puede atacar."
+    },
+    {
+        "name": "Arco y Flechas Dorios",
+        "image_path": "https://api.myl.cl/static/cards/20/213.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "El portador de Arco y Flechas Dorios no puede ser desterrado."
+    },
+    {
+        "name": "Totem de Equidna",
+        "image_path": "https://api.myl.cl/static/cards/20/214.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Mientras Tótem de Equidna está en juego, todas las Armas y demás Tótem pierden su habilidad."
+    },
+    {
+        "name": "Templo de Gaia",
+        "image_path": "https://api.myl.cl/static/cards/20/215.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Mientras Templo de Gaia esté en juego, todos tus Aliados de raza Héroe no pueden ser afectados por Talismánes."
+    },
+    {
+        "name": "Altar de Cronos",
+        "image_path": "https://api.myl.cl/static/cards/20/216.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Mientras Altar de Cronos esté en juego, en tu Fase de Vigilia puedes pagar 2 de oro para subir a la mano un Aliado de raza Olímpico."
+    },
+    {
+        "name": "Altar de Ares",
+        "image_path": "https://api.myl.cl/static/cards/20/217.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Mientras Altar de Ares esté en juego, todos los Aliados destruidos son desterrados."
+    },
+    {
+        "name": "Templo Perdido",
+        "image_path": "https://api.myl.cl/static/cards/20/218.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "Mientras Templo Perdido esté en juego, los jugadores no pueden declarar ataque."
+    },
+    {
+        "name": "Santuario de Poseidon",
+        "image_path": "https://api.myl.cl/static/cards/20/219.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Mientras Santuario de Poseidón esté en juego, los jugadores no pueden declarar bloqueo."
+    },
+    {
+        "name": "Santuario Familiar",
+        "image_path": "https://api.myl.cl/static/cards/20/220.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, puedes destruir Santuario Familiar para buscar un Aliado en tu Cementerio y ponerlo en tu mano."
+    },
+    {
+        "name": "Anfiteatro",
+        "image_path": "https://api.myl.cl/static/cards/20/222.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Comedia",
+        "image_path": "https://api.myl.cl/static/cards/20/223.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "La Odisea",
+        "image_path": "https://api.myl.cl/static/cards/20/225.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Escultores",
+        "image_path": "https://api.myl.cl/static/cards/20/226.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Galeras",
+        "image_path": "https://api.myl.cl/static/cards/20/227.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Jardin de las Hesperides",
+        "image_path": "https://api.myl.cl/static/cards/20/228.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Aves Exoticas",
+        "image_path": "https://api.myl.cl/static/cards/20/230.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Corona de Laureles",
+        "image_path": "https://api.myl.cl/static/cards/20/231.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "El Agora",
+        "image_path": "https://api.myl.cl/static/cards/20/232.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Dones de Hades",
+        "image_path": "https://api.myl.cl/static/cards/20/233.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Viñas",
+        "image_path": "https://api.myl.cl/static/cards/20/234.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Frontera Oriental",
+        "image_path": "https://api.myl.cl/static/cards/20/235.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Lira",
+        "image_path": "https://api.myl.cl/static/cards/20/236.png",
+        "rarity": "Oro",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    }
+]

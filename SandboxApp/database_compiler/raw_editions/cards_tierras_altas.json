@@ -1,0 +1,1292 @@
+[
+    {
+        "name": "Tierras Altas",
+        "image_path": "https://api.myl.cl/static/cards/46/365.png",
+        "rarity": "Promo",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "https://tor.myl.cl/carta/tierras_altas/macha ",
+        "image_path": "https://api.myl.cl/static/cards//.png",
+        "rarity": null,
+        "type": null,
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Arianrhod",
+        "image_path": "https://api.myl.cl/static/cards/46/238.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Arianrhod entra en juego, puedes tomar tantas cartas de la parte superior de tu Mazo Castillo como cartas tengas en juego, y devolverlas en el orden que quieras."
+    },
+    {
+        "name": "Dewi",
+        "image_path": "https://api.myl.cl/static/cards/46/239.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, escoge entre Raza Sombra o Raza Dragón. Todos los Aliados en juego se consideran de esa Raza."
+    },
+    {
+        "name": "Mogons",
+        "image_path": "https://api.myl.cl/static/cards/46/240.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 4,
+        "cost": 5,
+        "ability": "Mogons puede atacar en el turno que entra en juego. En respuesta a finalizar el turno, puedes buscar un Arma en tu Mazo Castillo y ponerla en juego sin pagar su coste."
+    },
+    {
+        "name": "Cerridwen",
+        "image_path": "https://api.myl.cl/static/cards/46/241.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 3 Oros para descartar 1 carta de tu oponente al azar."
+    },
+    {
+        "name": "Math",
+        "image_path": "https://api.myl.cl/static/cards/46/242.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes tomar un Aliado de coste 2 o menos de tu Zona le Destierro y ponerlo en juego sin pagar su coste."
+    },
+    {
+        "name": "Macda Tho",
+        "image_path": "https://api.myl.cl/static/cards/46/243.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 3,
+        "ability": "MacDa Tho es Indestructible e Indesterrable. Mientras esté en tu Línea de Defensa, cada Aliado atacante que no sea bloqueado, tiene 1 de fuerza. Carta Única."
+    },
+    {
+        "name": "Oengus",
+        "image_path": "https://api.myl.cl/static/cards/46/244.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En Guerra de Talismanes, puedes destruir a Oengus para que tu oponente bote 2 cartas de su Mazo Castillo. En tu Fase de Vigilia, si Oengus está en tu Cementerio, puedes pagar 2 Oros para ponerlo en juego sin pagar su coste."
+    },
+    {
+        "name": "Gronw Pebyr",
+        "image_path": "https://api.myl.cl/static/cards/46/245.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Gronw Pebyr gana 1 a la fuerza por cada Tótem que tengas en juego. Si tienes 3 o más Tótem en juego, es Imbloqueable."
+    },
+    {
+        "name": "Gruagash",
+        "image_path": "https://api.myl.cl/static/cards/46/246.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 2,
+        "cost": 5,
+        "ability": "Cuando Gruagash entra en juego, todos los demás Aliados pierden su habilidad y son barajados."
+    },
+    {
+        "name": "Sonriente",
+        "image_path": "https://api.myl.cl/static/cards/46/247.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Sonriente entra en juego, puedes robar 4 cartas. Mientras Sonriente esté en juego, en cada Fase de Agrupación debes descartar 1 carta o botar 3."
+    },
+    {
+        "name": "La Serpiente Negra",
+        "image_path": "https://api.myl.cl/static/cards/46/248.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Mientras La Serpiente Negra esté en juego, en tu Fase de Vigilia, sólo una vez por turno, puedes barajar 1 carta de tu Mano para buscar 2 cartas en el Mazo Castillo oponente y desterrarlas. Carta Única e Indestructible."
+    },
+    {
+        "name": "La Serpiente Roja",
+        "image_path": "https://api.myl.cl/static/cards/46/249.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Mientras La Serpiente Roja esté en tu Línea de Defensa, los Aliados de cada jugador no pueden salir del juego. Carta Única."
+    },
+    {
+        "name": "Bridei",
+        "image_path": "https://api.myl.cl/static/cards/46/250.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 3,
+        "cost": 3,
+        "ability": "Si Bridei sale del juego, tu oponente destruye uno de sus Aliados."
+    },
+    {
+        "name": "Fergus Mor Maceric",
+        "image_path": "https://api.myl.cl/static/cards/46/251.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Mientras Fergus Mor MacEric esté en juego, tus demás Aliados de Raza Defensor son Imbloqueables y pueden atacar en el turno que entran en juego."
+    },
+    {
+        "name": "Aedan Mac Gabrain",
+        "image_path": "https://api.myl.cl/static/cards/46/252.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Mientras Aedán Mac Gabráin esté en juego, tus demás Aliados de Raza Defensor ganan 2 a la fuerza."
+    },
+    {
+        "name": "Aed",
+        "image_path": "https://api.myl.cl/static/cards/46/253.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 5,
+        "ability": "Cuando Aed entra en juego, puedes subir a la Mano de tu oponente dos de sus Aliados."
+    },
+    {
+        "name": "Brian O Grady",
+        "image_path": "https://api.myl.cl/static/cards/46/254.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 4,
+        "cost": 4,
+        "ability": "Brian O Grady es Imbloqueable."
+    },
+    {
+        "name": "Pwyll",
+        "image_path": "https://api.myl.cl/static/cards/46/255.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Mientras Pwyll esté en juego, no se podrá declarar ataque. En respuesta a que Pwyll sea enviado al Cementerio o Zona de Destierro desde el juego, puedes pagar su coste para ponerlo en tu Línea de Defensa."
+    },
+    {
+        "name": "Pryderi",
+        "image_path": "https://api.myl.cl/static/cards/46/256.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 3,
+        "ability": "Pryderi puede ser declarado Atacante en el turno en que entra en juego. Cuando Pryderi entra en juego, tu oponente debe botar 3 cartas."
+    },
+    {
+        "name": "Kenneth I",
+        "image_path": "https://api.myl.cl/static/cards/46/257.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 2,
+        "ability": "Puedes desterrar Kenneth I para anular la habilidad de una carta y todas sus copias, hasta la Fase Final."
+    },
+    {
+        "name": "Ejercito de la Noche",
+        "image_path": "https://api.myl.cl/static/cards/46/258.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Destruye 1 carta Indestructible que no sea una carta Oro. En la Fase Final, roba 1 carta."
+    },
+    {
+        "name": "Hijos de Plata",
+        "image_path": "https://api.myl.cl/static/cards/46/259.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a declarar bloqueo, juega Hijos de Plata para buscar un Talismán en tu Mazo Castillo y ponerlo en tu Mano."
+    },
+    {
+        "name": "Despertar",
+        "image_path": "https://api.myl.cl/static/cards/46/260.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Descarta un Talismán para mirar la Mano de tu Oponente y descartarle todos los Talismanes que tenga."
+    },
+    {
+        "name": "Sacrificio",
+        "image_path": "https://api.myl.cl/static/cards/46/261.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Elige dos de tus Aliados. Destruye uno de ellos para que el otro sea Indestructible por el resto del juego."
+    },
+    {
+        "name": "La Traición de Mac Alpin",
+        "image_path": "https://api.myl.cl/static/cards/46/262.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "En respuesta a que uno de tus Aliados salga del juego, juega La Traición de Mac Alpin para salvarlo."
+    },
+    {
+        "name": "Envenenar la Tierra",
+        "image_path": "https://api.myl.cl/static/cards/46/263.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Si tienes uno o más Aliados de Raza Sombra en juego, destierra hasta 2 Tótem oponentes."
+    },
+    {
+        "name": "Cuatro Aceros",
+        "image_path": "https://api.myl.cl/static/cards/46/264.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, si tienes 4 o más Razas distintas en juego, juega Cuatro Aceros para que tu oponente destruya 4 cartas a su elección.Cuatro Aceros no afecta cartas Oro."
+    },
+    {
+        "name": "Animar los Elementos",
+        "image_path": "https://api.myl.cl/static/cards/46/265.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Tu oponente bota tantas cartas de su Mazo Castillo como cartas tenga en su Mano."
+    },
+    {
+        "name": "León Blanco",
+        "image_path": "https://api.myl.cl/static/cards/46/266.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Cancela un ataque oponente y baraja tantas cartas de tu Cementerio a tu Mazo Castillo como Aliados te hayan atacado."
+    },
+    {
+        "name": "La Cabeza del Mal",
+        "image_path": "https://api.myl.cl/static/cards/46/267.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Un Aliado oponente de Raza Sombra pierde su habilidad y es desterrado. Roba 1 carta."
+    },
+    {
+        "name": "Dalriada",
+        "image_path": "https://api.myl.cl/static/cards/46/268.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Dalriada esté en juego, los Aliados oponentes no tienen Raza."
+    },
+    {
+        "name": "Ulster",
+        "image_path": "https://api.myl.cl/static/cards/46/269.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Mientras Ulster esté en juego, todos tus Aliados de Raza Defensor ganan 2 a la fuerza."
+    },
+    {
+        "name": "Tótem del León",
+        "image_path": "https://api.myl.cl/static/cards/46/270.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia,, sólo una vez por turno, tu oponente bota 2 cartas de su Mazo Castillo. Sólo puedes tener 1 Tótem del León en juego."
+    },
+    {
+        "name": "Caledonia",
+        "image_path": "https://api.myl.cl/static/cards/46/271.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Mientras Caledonia esté en juego, el límite máximo de cartas de la Mano de ambos jugadores aumenta en 2."
+    },
+    {
+        "name": "Orkney",
+        "image_path": "https://api.myl.cl/static/cards/46/272.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, mientras Orkney esté en juego, nombra una Raza. No se pueden jugar Aliados de esa Raza."
+    },
+    {
+        "name": "Espada Lunar",
+        "image_path": "https://api.myl.cl/static/cards/46/273.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Espada Lunar esté en juego, destierra cualquier carta que entre en juego sin que se haya pagado su coste."
+    },
+    {
+        "name": "Arabar",
+        "image_path": "https://api.myl.cl/static/cards/46/274.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Arabar sólo puede ser portada por un Aliado de Raza Defensor. En respuesta a que el portador de Arabar salga del juego, puedes desterrar Arabar para subirlo a tu Mano."
+    },
+    {
+        "name": "Eclipse",
+        "image_path": "https://api.myl.cl/static/cards/46/275.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Sólo puede ser portada por un Aliado oponente. Para que el Aliado sea declarado Atacante, tu oponente debe botar 4 cartas."
+    },
+    {
+        "name": "Espada Necrofagia",
+        "image_path": "https://api.myl.cl/static/cards/46/276.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Espada Necrófaga gana 1 a la fuerza. Si el portador de Espada Necrófaga hace daño al Mazo Castillo oponente, puedes tomar un Aliado de su Cementerio y ponerlo en su Zona de Destierro."
+    },
+    {
+        "name": "Yelmo Carnívoro",
+        "image_path": "https://api.myl.cl/static/cards/46/277.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "El portador de Yelmo Carnívoro gana tanta fuerza como cartas tengas en tu Zona de Destierro, hasta un máximo de 4."
+    },
+    {
+        "name": "Ogham",
+        "image_path": "https://api.myl.cl/static/cards/46/278.png",
+        "rarity": "Real",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "Errata."
+    },
+    {
+        "name": "Gaitas",
+        "image_path": "https://api.myl.cl/static/cards/46/279.png",
+        "rarity": "Real",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En la Fase Final puedes agrupar este Oro"
+    },
+    {
+        "name": "Carmix",
+        "image_path": "https://api.myl.cl/static/cards/46/280.png",
+        "rarity": "Real",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "Mientras Carmix esté en tu Reserva, los Oros en juego no pueden ser desterrados."
+    },
+    {
+        "name": "Finvarra",
+        "image_path": "https://api.myl.cl/static/cards/46/281.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 3,
+        "ability": "En respuesta a que Finvarra sea declarado Atacante, puedes elegir un Aliado oponente. Este Aliado no podrá ser declarado Bloqueador."
+    },
+    {
+        "name": "Cliodna",
+        "image_path": "https://api.myl.cl/static/cards/46/282.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes ver la primera carta de tu Mazo Castillo. Si es un Aliado, puedes ponerlo en tu mano, si no, la carta es barajada."
+    },
+    {
+        "name": "Creide",
+        "image_path": "https://api.myl.cl/static/cards/46/283.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En respuesta a declarar Bloqueador a Creide, puedes elegir un Aliado Atacante oponente para que vuelva a la Línea de Defensa."
+    },
+    {
+        "name": "Ratis",
+        "image_path": "https://api.myl.cl/static/cards/46/284.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 4,
+        "cost": 2,
+        "ability": "Ratis no puede ser declarado Atacante. En respuesta a que tu oponente declare ataque, todos sus Aliados de Raza Sombra pierden 1 a la fuerza."
+    },
+    {
+        "name": "Donn",
+        "image_path": "https://api.myl.cl/static/cards/46/285.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 0,
+        "cost": 3,
+        "ability": "Donn tiene fuerza igual al número de Talismanes que haya en tu Cementerio."
+    },
+    {
+        "name": "Nechtan",
+        "image_path": "https://api.myl.cl/static/cards/46/286.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En respuesta a que tu oponente utilice una habilidad de carta para ver tu Mano, puedes destruir a Nechtan para Anular o Destruir esa carta."
+    },
+    {
+        "name": "Nemhain",
+        "image_path": "https://api.myl.cl/static/cards/46/287.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 3,
+        "ability": "Nemhain puede ser declarado Atacante en el turno en que entra en juego. Al finalizar tu turno, súbelo a tu Mano."
+    },
+    {
+        "name": "Dando",
+        "image_path": "https://api.myl.cl/static/cards/46/288.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En respuesta a que Dando sea destruido, puedes buscar 1 Aliado en tu Cementerio y ponerlo en tu Mano."
+    },
+    {
+        "name": "Gusano de Lambton",
+        "image_path": "https://api.myl.cl/static/cards/46/289.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Gusano de Lambton entra en juego, gana Permanentemente 1 a la fuerza por cada Aliado en tu Zona de Destierro."
+    },
+    {
+        "name": "Bocan",
+        "image_path": "https://api.myl.cl/static/cards/46/290.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 1,
+        "cost": 2,
+        "ability": "Mientras Bocan esté en juego, en tu Fase de Vigilia, sólo una vez por turno, si todos tus Aliados son de Raza Sombra, tu oponente bota 2 cartas."
+    },
+    {
+        "name": "Talurc",
+        "image_path": "https://api.myl.cl/static/cards/46/291.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 4,
+        "cost": 1,
+        "ability": "Mientras Talurc esté en juego, en Guerra de Talismanes debes destruir uno de tus Aliados. Si no lo haces, Talurc es desterrado."
+    },
+    {
+        "name": "Hombre Vacío",
+        "image_path": "https://api.myl.cl/static/cards/46/292.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Hombre Vacío entra en juego, todos los Aliados pierden su Raza hasta la Fase Final."
+    },
+    {
+        "name": "Necrófagos",
+        "image_path": "https://api.myl.cl/static/cards/46/293.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Si Necrófagos hace daño al Mazo Castillo oponente, puedes destruir un Aliado en juego."
+    },
+    {
+        "name": "Carroñeros",
+        "image_path": "https://api.myl.cl/static/cards/46/294.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 1,
+        "cost": 3,
+        "ability": "El Aliado que sea bloqueado por Carroñeros debe ser desterrado en la Fase Final."
+    },
+    {
+        "name": "Aed Finn",
+        "image_path": "https://api.myl.cl/static/cards/46/295.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 2,
+        "ability": "En tu Fase Final puedes agrupar a Aed Finn."
+    },
+    {
+        "name": "Ruthven",
+        "image_path": "https://api.myl.cl/static/cards/46/296.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 3,
+        "ability": "Cuando Ruthven entra en juego, puedes agrupar un Oro."
+    },
+    {
+        "name": "Ogilvie",
+        "image_path": "https://api.myl.cl/static/cards/46/297.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 2,
+        "ability": "Si Ogilvie es declarado atacante junto a Angus Og, gana 4 a la fuerza."
+    },
+    {
+        "name": "https://tor.myl.cl/carta/tierras_altas/aethelfrid ",
+        "image_path": "https://api.myl.cl/static/cards//.png",
+        "rarity": null,
+        "type": null,
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Niall",
+        "image_path": "https://api.myl.cl/static/cards/46/299.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 4,
+        "cost": 4,
+        "ability": "Niall no puede ser bloqueado por Aliados de Raza Héroe ni de Raza Sombra."
+    },
+    {
+        "name": "Myghin",
+        "image_path": "https://api.myl.cl/static/cards/46/300.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En respuesta a que uno de tus Aliados sea desterrado, puedes desterrar a Myghin para salvarlo."
+    },
+    {
+        "name": "Lilias",
+        "image_path": "https://api.myl.cl/static/cards/46/301.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Si Lilias porta un Arma, tus Aliados de Raza Defensor son Indestructibles."
+    },
+    {
+        "name": "Robar la Memoria",
+        "image_path": "https://api.myl.cl/static/cards/46/302.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "En tu Fase de Vigilia, puedes copiar la habilidad de un Talismán del Cementerio oponente y jugarlo sin pagar su coste."
+    },
+    {
+        "name": "Alma Animal",
+        "image_path": "https://api.myl.cl/static/cards/46/303.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a un ataque oponente, juega Alma Animal para que uno de tus Aliados tenga fuerza igual a la del Aliado de mayor fuerza en juego, hasta la Fase Final."
+    },
+    {
+        "name": "Crear Necrófagos",
+        "image_path": "https://api.myl.cl/static/cards/46/304.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que uno de tus Aliados sea destruido, puedes jugar Crear Necrófagos y botar 2 cartas para salvarlo."
+    },
+    {
+        "name": "Las Tres Olas",
+        "image_path": "https://api.myl.cl/static/cards/46/305.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a un ataque oponente, juega Las Tres Olas para cancelarlo."
+    },
+    {
+        "name": "Tatuaje",
+        "image_path": "https://api.myl.cl/static/cards/46/306.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Juega Tatuaje para que uno de tus Aliados de Raza Sombra gane 3 a la fuerza por el resto del juego."
+    },
+    {
+        "name": "Forja Siniestra",
+        "image_path": "https://api.myl.cl/static/cards/46/307.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Juega Forja Siniestra para buscar un Arma en tu Mazo Castillo y ponerla en juego sin pagar su coste."
+    },
+    {
+        "name": "La Caída",
+        "image_path": "https://api.myl.cl/static/cards/46/308.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Juega La Caída para desterrar un Tótem en juego."
+    },
+    {
+        "name": "Levantar Castillo",
+        "image_path": "https://api.myl.cl/static/cards/46/309.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Juega Levantar Castillo para poner un Tótem de tu Cementerio en tu Línea de Apoyo sin pagar su coste."
+    },
+    {
+        "name": "Las Tres Plagas",
+        "image_path": "https://api.myl.cl/static/cards/46/310.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Juega Las Tres Plagas y destruye 2 de tus Aliados para desterrar un Aliado oponente."
+    },
+    {
+        "name": "Ácido de Gusano",
+        "image_path": "https://api.myl.cl/static/cards/46/311.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Juega Ácido de Gusano para desterrar un Aliado oponente que porte un Arma."
+    },
+    {
+        "name": "Red de Plata",
+        "image_path": "https://api.myl.cl/static/cards/46/312.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Juega Red de Plata para anular un Aliado que esté entrando en juego."
+    },
+    {
+        "name": "Fuente del Saber",
+        "image_path": "https://api.myl.cl/static/cards/46/313.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, puedes descartar un Talismán para buscar otro en tu Mazo Castillo o Cementerio y ponerlo en tu Mano."
+    },
+    {
+        "name": "Tótem Salvaje",
+        "image_path": "https://api.myl.cl/static/cards/46/314.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a jugar un Aliado, puedes pagar 2 de Oro para que pueda atacar el turno en que entra en juego."
+    },
+    {
+        "name": "Santuario de Math",
+        "image_path": "https://api.myl.cl/static/cards/46/315.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Santuario de Math esté en juego, no se podrá jugar con la Zona de Destierro ni con el Cementerio."
+    },
+    {
+        "name": "Santuario del Norte",
+        "image_path": "https://api.myl.cl/static/cards/46/316.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras Santuario del Norte esté en juego, todos los bonificadores de fuerza se aplican negativamente."
+    },
+    {
+        "name": "Templo de Gruagash",
+        "image_path": "https://api.myl.cl/static/cards/46/317.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 2 Oros para destruir un Tótem oponente."
+    },
+    {
+        "name": "Sigian Dubh",
+        "image_path": "https://api.myl.cl/static/cards/46/318.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "El portador de Sigian Dubh gana 1 a la fuerza. El Aliado que bloquee al portador de Sigian Dubh debe ser destruido en la Fase Final."
+    },
+    {
+        "name": "Dirk",
+        "image_path": "https://api.myl.cl/static/cards/46/319.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Dirk gana 1 a la fuerza por cada Arma en juego."
+    },
+    {
+        "name": "Targe",
+        "image_path": "https://api.myl.cl/static/cards/46/320.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Targe gana 4 a la fuerza. Por cada otro Aliado que controles, el portador de Targe pierde 1 a la fuerza."
+    },
+    {
+        "name": "Gran Espada",
+        "image_path": "https://api.myl.cl/static/cards/46/321.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Gran Espada sólo puede ser portada por Aliados únicos. El portador de Gran Espada gana 3 a la fuerza."
+    },
+    {
+        "name": "Caballo de Arrastre",
+        "image_path": "https://api.myl.cl/static/cards/46/322.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "El portador de Caballo de Arrastre puede atacar en el turno en que entra en juego. Si lo hace y es destruido, tu oponente bota tantas cartas como fuerza tenga este Aliado."
+    },
+    {
+        "name": "Roane",
+        "image_path": "https://api.myl.cl/static/cards/46/323.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Roane entra en juego, puedes botar 2 cartas de tu Mazo Castillo para que un oponente se descarte de una carta."
+    },
+    {
+        "name": "Ghillie Dhu",
+        "image_path": "https://api.myl.cl/static/cards/46/324.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Cuando Ghillie Dhu entra en juego, puedes buscar un aliado en tu cementerio y barajarlo en tu mazo castillo."
+    },
+    {
+        "name": "Spunky",
+        "image_path": "https://api.myl.cl/static/cards/46/325.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Mientras Spunky esté en juego, puedes barajar 2 cartas de tu mano en tu Mazo Castillo para robar 1 carta."
+    },
+    {
+        "name": "Ashrays",
+        "image_path": "https://api.myl.cl/static/cards/46/326.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 1,
+        "ability": "Para que Ashrays pueda ser declarado Atacante, debes botar 2 cartas de tu Mazo Castillo."
+    },
+    {
+        "name": "Facham",
+        "image_path": "https://api.myl.cl/static/cards/46/327.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En Guerra de Talismanes puedes destruir a Facham para robar una carta"
+    },
+    {
+        "name": "Boobrie",
+        "image_path": "https://api.myl.cl/static/cards/46/328.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 2,
+        "ability": "En respuesta a que tu oponente declare ataque, si boobrie esta en tu cementerio, puedes pagar 2 oros para ponerlo en tu linea de Defensa sin pagar su coste y declararlo como un Aliado bloqueador. En la fase Final debe ser destruido."
+    },
+    {
+        "name": "Fenodoree",
+        "image_path": "https://api.myl.cl/static/cards/46/329.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Fenodoree entra en juego, si tu oponente tiene en juego Afrodita, puedes tomarla y ponerla en tu linea de defensa. En la face final Afrodita vuelve a la Linea de Ataque oponente y Fenodoree debe ser desterrado."
+    },
+    {
+        "name": "Ly Erg",
+        "image_path": "https://api.myl.cl/static/cards/46/330.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 3,
+        "cost": 4,
+        "ability": "El Aliado que destruya a Ly Erg debe ser destruido en la Fase Final"
+    },
+    {
+        "name": "Cailleac",
+        "image_path": "https://api.myl.cl/static/cards/46/331.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Cailleac entra en juego, puedes barajar 2 aliados de Raza Sombra de tu cementerio en tu Mazo Castillo."
+    },
+    {
+        "name": "Hombre Azul",
+        "image_path": "https://api.myl.cl/static/cards/46/332.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 1,
+        "ability": "Para que Hombre Azul entre en juego, debes barajar una de tus cartas Oro."
+    },
+    {
+        "name": "Cultista Picto",
+        "image_path": "https://api.myl.cl/static/cards/46/333.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Puedes destruir a Cultista Picto para que uno de tus Aliados de raza Sombra gane 2 a la fuerza hasta la Fase Final."
+    },
+    {
+        "name": "Fanático Picto",
+        "image_path": "https://api.myl.cl/static/cards/46/334.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Fanático Picto entra en juego, elige un Aliado oponente de Raza Defensor. Este aliado no podrá ser declarado atacante en su próximo turno."
+    },
+    {
+        "name": "Hechiceros del Caos",
+        "image_path": "https://api.myl.cl/static/cards/46/335.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Mientras Hechiceros del Caos esté en juego, jugar Aliados de Raza Sombra cuesta 1 oro menos."
+    },
+    {
+        "name": "Tropa Esqueleto",
+        "image_path": "https://api.myl.cl/static/cards/46/336.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Sombra",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando Tropa Esqueleto entra en juego, puedes buscar otra copia de Tropa Esqueleto en tu Mazo Castillo y ponerla en juego sin pagar su coste."
+    },
+    {
+        "name": "Domhnall",
+        "image_path": "https://api.myl.cl/static/cards/46/337.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En la fase Final puede ser agrupado."
+    },
+    {
+        "name": "Duque Owen",
+        "image_path": "https://api.myl.cl/static/cards/46/338.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Si Duque Owen es declarado bloqueador, cambia su fuerza por su coste."
+    },
+    {
+        "name": "Montañes",
+        "image_path": "https://api.myl.cl/static/cards/46/339.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Montañes es Indestructible."
+    },
+    {
+        "name": "Sanador",
+        "image_path": "https://api.myl.cl/static/cards/46/340.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando Sanador entra en juego, puedes elegir un Aliado de tu Cementerio de Fuerza 1 y ponerla en tu mano."
+    },
+    {
+        "name": "Guerrero Scot",
+        "image_path": "https://api.myl.cl/static/cards/46/341.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 3,
+        "cost": 3,
+        "ability": "GuerreroScot puede atacar el turno que entra en juego. Si lo hace, en la fase final debe ser destruido."
+    },
+    {
+        "name": "macCallum",
+        "image_path": "https://api.myl.cl/static/cards/46/342.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Cuando MacCallum es declarado atacante, gana 2 a la Fuerza."
+    },
+    {
+        "name": "MacInnes",
+        "image_path": "https://api.myl.cl/static/cards/46/343.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Mientras MacInnes esté en juego, ambos jugadores juegan con su mano descubierta."
+    },
+    {
+        "name": "Duelo Eterno",
+        "image_path": "https://api.myl.cl/static/cards/46/344.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Destrye un Aliado Indestructible de Raza Sombra."
+    },
+    {
+        "name": "Sidhes del Bosque",
+        "image_path": "https://api.myl.cl/static/cards/46/345.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "En tu fase de vigilia, juega sidhes del bosque para buscar todas las copias de Armada elfica en tu mazo castillo y ponerlas en juego sin pagar su coste"
+    },
+    {
+        "name": "Temor",
+        "image_path": "https://api.myl.cl/static/cards/46/346.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Todos los Aliados de Raza Sombra en juego ganan 2 a la fuerza hasta la fase final."
+    },
+    {
+        "name": "Behir",
+        "image_path": "https://api.myl.cl/static/cards/46/347.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Un aliado de Raza dragon gana 2 a la fuerza por el resto del juego"
+    },
+    {
+        "name": "Fantasmas Dorados",
+        "image_path": "https://api.myl.cl/static/cards/46/348.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Todos tus aliados pueden ser declarados Atacantes. Al finalizar el turno deben ser destruidos."
+    },
+    {
+        "name": "Cazador Invisible",
+        "image_path": "https://api.myl.cl/static/cards/46/349.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Puedes buscar una carta en tu mazo castillo, ponerla en tu mano y jugarla el mismo turno. Si no es jugada, debes botar 3 cartas de tu mazo castillo."
+    },
+    {
+        "name": "Tácticas de Guerra",
+        "image_path": "https://api.myl.cl/static/cards/46/350.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a un ataque oponente, juega Tácticas de Guerra para que tus Aliados que porten algún Arma vuelvan a la Línea de Defensa y puedan ser declarados Bloqueadores"
+    },
+    {
+        "name": "Cadenas Eternas",
+        "image_path": "https://api.myl.cl/static/cards/46/351.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Un aliado de Raza Sombra que porte algun Arma es indestructible por el resto del juego."
+    },
+    {
+        "name": "Colmillos de Plata",
+        "image_path": "https://api.myl.cl/static/cards/46/352.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mira las primeras 3 cartas del mazo castillo oponente, elige una de ellas y enviala al Cementerio. Tu oponente debe barajar su mazo Castillo-"
+    },
+    {
+        "name": "Ejército del Sur",
+        "image_path": "https://api.myl.cl/static/cards/46/353.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a que 3 copias de tropa esqueleto sean declarados atacantes, juega Ejército del Sur para que ganen 2 a la fuerza hasta la Fase Final."
+    },
+    {
+        "name": "Aguilas Azules",
+        "image_path": "https://api.myl.cl/static/cards/46/354.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a que todos tus aliados sean declarados atacantes, ganan 1 a la fuerza."
+    },
+    {
+        "name": "Tótem de la Serpiente",
+        "image_path": "https://api.myl.cl/static/cards/46/355.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Mientras tótem de la sierpiente está en juego, tus aliados de raza sombra ganan 1 a la fuerza."
+    },
+    {
+        "name": "Campo de Juego",
+        "image_path": "https://api.myl.cl/static/cards/46/356.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras campo de juego este en juego. Todos tus aliados ganan 1 a la fuerza"
+    },
+    {
+        "name": "Tótem de Macha",
+        "image_path": "https://api.myl.cl/static/cards/46/357.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras Tótem de Macha esté en juego, Macha gana 2 a la fuerza y es imbloqueable."
+    },
+    {
+        "name": "Gwann",
+        "image_path": "https://api.myl.cl/static/cards/46/358.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras Dwann este en juego. Tus aliados que porten algun Arma no pueden ser afectados por talismanes oponentes."
+    },
+    {
+        "name": "Totem de Dewi",
+        "image_path": "https://api.myl.cl/static/cards/46/359.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Totem de Dewi este en juego en tu fase de vigilia, solo una vez por turno, puedes nombrar un aliado oponente para que no pueda ser declarado atacante en el proximo turno."
+    },
+    {
+        "name": "Espada Picta",
+        "image_path": "https://api.myl.cl/static/cards/46/360.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "El portador de Espada Picta gana 3 a la fuerza. Si es declarada atacante, debe ser desterrado en la Fase Final."
+    },
+    {
+        "name": "Martillo Pesado",
+        "image_path": "https://api.myl.cl/static/cards/46/361.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "El portador de martillo pesado solo puede ser Agrupado si pagas 3 Oros."
+    },
+    {
+        "name": "Hacha Doble",
+        "image_path": "https://api.myl.cl/static/cards/46/362.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "El aliado oponente que destruya al portador de hacha doble, no hace da–o al mazo castillo."
+    },
+    {
+        "name": "Sigian Dei",
+        "image_path": "https://api.myl.cl/static/cards/46/363.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "El portador de Sigian Dei no puede ser declarado bloqueador."
+    },
+    {
+        "name": "Yelmo Scot",
+        "image_path": "https://api.myl.cl/static/cards/46/364.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Yelmo Scot gana 2 a la fuerza."
+    }
+]

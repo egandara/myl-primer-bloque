@@ -1,0 +1,216 @@
+﻿@inject IWebHostEnvironment Env
+@using System.Text.Json
+@using System.IO
+@using static SandboxApp.Components.Pages.Home
+
+@if (Open)
+{
+    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(5,5,5,0.95); backdrop-filter: blur(5px); z-index: 99999; display: flex; padding: 20px; box-sizing: border-box; gap: 20px; font-family: sans-serif; user-select: none;">
+
+        <div style="width: 60%; height: 100%; display: flex; flex-direction: column; background: #111; border: 2px solid #b89047; border-radius: 8px; padding: 15px; box-sizing: border-box;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 8px; margin-bottom: 10px;">
+                <h2 style="margin: 0; color: #b89047; text-transform: uppercase; font-size: 1.1rem; font-family: serif;">⚙️ Mantenedor Interno de Cartas</h2>
+                <button @onclick="CerrarMantenedor" style="background: #5c1d24; color: white; border: none; padding: 5px 12px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.7rem;">✕ Cerrar</button>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-bottom: 12px; background: #070707; padding: 8px; border-radius: 4px; border: 1px solid #222;">
+                <input type="text" placeholder="Filtrar por nombre en editor..." @bind="FiltroMantenedorTexto" @bind:event="oninput" style="flex: 2; padding: 6px; background: #181818; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;" />
+                <select @bind="FiltroMantenedorEstado" style="flex: 1; padding: 6px; background: #181818; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;">
+                    <option value="Todas">Ver Todas las Cartas</option>
+                    <option value="SinImagen">⚠️ Alertas: Solo sin Imagen (Ruta Rota)</option>
+                </select>
+                <button @onclick="GuardarBaseDatosJsonA_Disco" style="background: #1c3d25; color: #44ff44; border: 1px solid #2e6b3b; font-weight: bold; padding: 0 15px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; text-transform: uppercase;">💾 Sobrescribir cartas.json</button>
+            </div>
+
+            <div style="flex-grow: 1; overflow-y: auto; border: 1px solid #222; border-radius: 4px; background: #070707;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.75rem; text-align: left; color: #ccc;">
+                    <thead style="background: #1a1a1a; color: #b89047; position: sticky; top: 0; z-index: 10;">
+                        <tr>
+                            <th style="padding: 8px; border-bottom: 1px solid #333; width: 50px;">Miniatura</th>
+                            <th style="padding: 8px; border-bottom: 1px solid #333;">Nombre</th>
+                            <th style="padding: 8px; border-bottom: 1px solid #333; width: 100px;">Edición</th>
+                            <th style="padding: 8px; border-bottom: 1px solid #333; width: 80px;">Tipo</th>
+                            <th style="padding: 8px; border-bottom: 1px solid #333; width: 80px;">Rareza</th>
+                            <th style="padding: 8px; border-bottom: 1px solid #333; width: 60px;">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var carta in CatalogoMaestro.Where(c =>
+                            (string.IsNullOrWhiteSpace(FiltroMantenedorTexto) || c.Nombre.Contains(FiltroMantenedorTexto, StringComparison.OrdinalIgnoreCase)) &&
+                            (FiltroMantenedorEstado == "Todas" || (FiltroMantenedorEstado == "SinImagen" && AlertIds.Contains(c.Id)))
+                        ))
+                        {
+                            bool faltaImg = AlertIds.Contains(carta.Id);
+                            <tr style="border-bottom: 1px solid #1a1a1a; background: @(CartaSeleccionadaParaEditar?.Id == carta.Id ? "#2a1e12" : "transparent");">
+                                <td style="padding: 4px; text-align: center;">
+                                    @if (faltaImg)
+                                    {
+                                        <span title="No se encontró el archivo físico" style="color: #ff3333; font-weight: bold; font-size: 0.9rem; cursor: help;">⚠️</span>
+                                    }
+                                    else
+                                    {
+                                        <img src="@carta.RutaImagen" style="height: 35px; width: auto; object-fit: contain; border-radius: 2px; background: black;" />
+                                    }
+                                </td>
+                                <td style="padding: 8px; font-weight: bold; color: @(faltaImg ? "#ff9999" : "#fff");">@carta.Nombre</td>
+                                <td style="padding: 8px; color: #888;">@carta.Edicion</td>
+                                <td style="padding: 8px;">@carta.Tipo</td>
+                                <td style="padding: 8px; color: #b89047;">@carta.Rareza</td>
+                                <td style="padding: 8px;">
+                                    <button @onclick="() => SeleccionarCartaParaEditar(carta)" style="background: #a1582c; color: white; border: none; padding: 3px 8px; font-size: 0.65rem; font-weight: bold; border-radius: 3px; cursor: pointer; text-transform: uppercase;">Editar</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @if (!string.IsNullOrEmpty(MensajeEstadoMantenedor))
+            {
+                <span style="color: #44ff44; font-size: 0.8rem; font-weight: bold; margin-top: 8px; text-align: center; display: block; font-style: italic;">@MensajeEstadoMantenedor</span>
+            }
+        </div>
+
+        <div style="width: 40%; height: 100%; background: #161616; border: 2px solid #333; border-radius: 8px; padding: 15px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+            @if (CartaSeleccionadaParaEditar != null)
+            {
+                <div style="display: flex; flex-direction: column; gap: 10px; overflow-y: auto; flex-grow: 1; padding-right: 4px;">
+                    <h3 style="margin: 0 0 5px 0; color: #b89047; font-family: serif; font-size: 1rem; border-bottom: 1px solid #333; padding-bottom: 4px; text-transform: uppercase;">📝 Editando: @CartaSeleccionadaParaEditar.Nombre</h3>
+
+                    <div style="display: flex; gap: 10px; align-items: center; background: #0a0a0a; padding: 8px; border-radius: 4px;">
+                        <img src="@CartaSeleccionadaParaEditar.RutaImagen" style="height: 90px; width: auto; object-fit: contain; background: black; border-radius: 4px; border: 1px solid #222;" />
+                        <div>
+                            <span style="font-size: 0.65rem; color: #666; display: block;">ID INTERNO:</span>
+                            <span style="font-size: 0.75rem; font-family: monospace; color: #aaa;">@CartaSeleccionadaParaEditar.Id</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 2px;">Nombre de la Carta:</label>
+                        <input type="text" @bind="CartaSeleccionadaParaEditar.Nombre" style="width: 100%; padding: 6px; background: #070707; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;" />
+                    </div>
+
+                    <div style="display: flex; gap: 8px;">
+                        <div style="flex: 1;">
+                            <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 2px;">Edición:</label>
+                            <input type="text" @bind="CartaSeleccionadaParaEditar.Edicion" style="width: 100%; padding: 6px; background: #070707; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;" />
+                        </div>
+                        <div style="flex: 1;">
+                            <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 2px;">Tipo:</label>
+                            <input type="text" @bind="CartaSeleccionadaParaEditar.Tipo" style="width: 100%; padding: 6px; background: #070707; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;" />
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+                        <div>
+                            <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 2px;">Rareza:</label>
+                            <input type="text" @bind="CartaSeleccionadaParaEditar.Rareza" style="width: 100%; padding: 6px; background: #070707; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;" />
+                        </div>
+                        <div>
+                            <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 2px;">Fuerza:</label>
+                            <input type="number" @bind="CartaSeleccionadaParaEditar.Fuerza" style="width: 100%; padding: 6px; background: #070707; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;" />
+                        </div>
+                        <div>
+                            <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 2px;">Coste Oro:</label>
+                            <input type="number" @bind="CartaSeleccionadaParaEditar.Costo" style="width: 100%; padding: 6px; background: #070707; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 2px;">Ruta de Imagen:</label>
+                        <input type="text" @bind="CartaSeleccionadaParaEditar.RutaImagen" style="width: 100%; padding: 6px; background: #070707; border: 1px solid #333; color: #44ccff; font-family: monospace; border-radius: 4px; font-size: 0.75rem;" />
+                    </div>
+
+                    <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                        <label style="font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 2px;">Texto de la Habilidad:</label>
+                        <textarea @bind="CartaSeleccionadaParaEditar.Habilidad" style="width: 100%; flex-grow: 1; min-height: 120px; padding: 8px; background: #070707; border: 1px solid #333; color: #ccc; border-radius: 4px; font-size: 0.8rem; font-family: sans-serif; resize: none; line-height: 14px;"></textarea>
+                    </div>
+                </div>
+
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                    <button @onclick="ConfirmarCambiosFichaEnMemoria" style="width: 100%; background: #1c2e24; color: #44ff44; border: 1px solid #287a48; padding: 10px; font-size: 0.8rem; border-radius: 4px; font-weight: bold; cursor: pointer; text-transform: uppercase;">✔️ Aplicar Ficha</button>
+                </div>
+            }
+            else
+            {
+                <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; border: 1px dashed #333; border-radius: 6px; color: #555; font-size: 0.85rem; text-align: center; padding: 20px; box-sizing: border-box;">
+                    Selecciona una carta de la lista izquierda para corregir sus propiedades.
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public bool Open { get; set; }
+    [Parameter] public List<CartaJuego> CatalogoMaestro { get; set; } = new();
+    [Parameter] public HashSet<string> AlertIds { get; set; } = new();
+    [Parameter] public EventCallback OnClose { get; set; }
+    [Parameter] public EventCallback OnSaved { get; set; }
+
+    private CartaJuego? CartaSeleccionadaParaEditar = null;
+    private string FiltroMantenedorTexto = "";
+    private string FiltroMantenedorEstado = "Todas";
+    private string MensajeEstadoMantenedor = "";
+
+    private void CerrarMantenedor()
+    {
+        CartaSeleccionadaParaEditar = null;
+        OnClose.InvokeAsync();
+    }
+
+    private void SeleccionarCartaParaEditar(CartaJuego carta)
+    {
+        CartaSeleccionadaParaEditar = new CartaJuego
+        {
+            Id = carta.Id,
+            Nombre = carta.Nombre,
+            Edicion = carta.Edicion,
+            Tipo = carta.Tipo,
+            Rareza = carta.Rareza,
+            RutaImagen = carta.RutaImagen,
+            Fuerza = carta.Fuerza,
+            Costo = carta.Costo,
+            Habilidad = carta.Habilidad
+        };
+        MensajeEstadoMantenedor = "";
+    }
+
+    private void ConfirmarCambiosFichaEnMemoria()
+    {
+        if (CartaSeleccionadaParaEditar != null)
+        {
+            var original = CatalogoMaestro.FirstOrDefault(c => c.Id == CartaSeleccionadaParaEditar.Id);
+            if (original != null)
+            {
+                original.Nombre = CartaSeleccionadaParaEditar.Nombre;
+                original.Edicion = CartaSeleccionadaParaEditar.Edicion;
+                original.Tipo = CartaSeleccionadaParaEditar.Tipo;
+                original.Rareza = CartaSeleccionadaParaEditar.Rareza;
+                original.RutaImagen = CartaSeleccionadaParaEditar.RutaImagen;
+                original.Fuerza = CartaSeleccionadaParaEditar.Fuerza;
+                original.Costo = CartaSeleccionadaParaEditar.Costo;
+                original.Habilidad = CartaSeleccionadaParaEditar.Habilidad;
+
+                MensajeEstadoMantenedor = "✔️ Modificado en memoria. Presiona 'Sobrescribir cartas.json' para consolidar.";
+            }
+        }
+    }
+
+    private async Task GuardarBaseDatosJsonA_Disco()
+    {
+        try
+        {
+            string rutaArchivoMaster = Path.Combine(Env.WebRootPath, "data", "cartas.json");
+            var opciones = new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping };
+            string jsonStringNuevo = JsonSerializer.Serialize(CatalogoMaestro, opciones);
+            await File.WriteAllTextAsync(rutaArchivoMaster, jsonStringNuevo);
+
+            MensajeEstadoMantenedor = "💾 ¡BASE DE DATOS SOBREESCRITA CON ÉXITO!";
+            await OnSaved.InvokeAsync();
+        }
+        catch (Exception ex)
+        {
+            MensajeEstadoMantenedor = $"❌ Error: {ex.Message}";
+        }
+    }
+}

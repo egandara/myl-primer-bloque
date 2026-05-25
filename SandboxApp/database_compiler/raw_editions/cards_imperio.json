@@ -1,0 +1,642 @@
+[
+    {
+        "name": "Julio Cesar",
+        "image_path": "https://api.myl.cl/static/cards/44/001.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Carta Única. Mientras Julio César esté en juego, todos tus demás Aliados ganan 1 a la fuerza y son imbloqueables."
+    },
+    {
+        "name": "Espartaco",
+        "image_path": "https://api.myl.cl/static/cards/44/002.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes barajar de tu Cementerio a tu Mazo Castillo tantas cartas como fuerza tenga Espartaco."
+    },
+    {
+        "name": "Cesar Augusto",
+        "image_path": "https://api.myl.cl/static/cards/44/003.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En respuesta a que tu oponente baje una carta, puedes subir César Augusto a tu mano para anularla."
+    },
+    {
+        "name": "Júpiter",
+        "image_path": "https://api.myl.cl/static/cards/44/004.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 5,
+        "cost": 5,
+        "ability": "Cuando Júpiter entra en juego, puedes buscar hasta 2 Aliados de Raza Olímpico en tu Mazo Castillo y ponerlos en tu mano."
+    },
+    {
+        "name": "Jano",
+        "image_path": "https://api.myl.cl/static/cards/44/005.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 4,
+        "ability": "El turno que Jano entra en juego, genera 2 Oros. Cuando Jano sale del juego, puedes subir un Oro oponente a su mano."
+    },
+    {
+        "name": "Neptuno",
+        "image_path": "https://api.myl.cl/static/cards/44/006.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 3,
+        "cost": 5,
+        "ability": "Carta Única. En respuesta a finalizar tu turno, puedes agrupar tu Oro pagado."
+    },
+    {
+        "name": "Leucrota",
+        "image_path": "https://api.myl.cl/static/cards/44/007.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 4,
+        "cost": 5,
+        "ability": "Cuando Leucrota entra en juego, destruye todos los Aliados de fuerza 3 o menos."
+    },
+    {
+        "name": "Dragón Ceniza",
+        "image_path": "https://api.myl.cl/static/cards/44/008.png",
+        "rarity": "Real",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 0,
+        "cost": 3,
+        "ability": "Dragón Ceniza no puede ser declarado atacante. En respuesta a declararlo bloqueador, Dragón Ceniza tiene fuerza igual al Aliado que bloquee."
+    },
+    {
+        "name": "Gladius",
+        "image_path": "https://api.myl.cl/static/cards/44/030.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "El portador de Gladius gana 1 a la fuerza. Si hace daño al Mazo Castillo oponente, éste debe destruir a su elección uno de sus Aliados y debe botar 3 cartas."
+    },
+    {
+        "name": "Maquinaria de Guerra",
+        "image_path": "https://api.myl.cl/static/cards/44/031.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Juega Maquinaria de Guerra en tu Línea de Apoyo. En tu Fase de Vigilia, sólo una vez por turno puedes pagar 2 Oros para que tu oponente bote 3 cartas de su Mazo Castillo."
+    },
+    {
+        "name": "Coliseo",
+        "image_path": "https://api.myl.cl/static/cards/44/039.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras tengas Coliseo en juego, en respuesta a declarar tu ataque, puedes robar una carta por cada Aliado atacante."
+    },
+    {
+        "name": "Templo de Júpiter",
+        "image_path": "https://api.myl.cl/static/cards/44/040.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras tengas Templo de Júpiter en juego, tus Aliados declarados atacantes son indestructibles."
+    },
+    {
+        "name": "Rómulo y Remo",
+        "image_path": "https://api.myl.cl/static/cards/44/046.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 0,
+        "ability": "Carta Única. Rómulo y Remo genera 2 Oros. Al finalizar tu turno, puedes robar una carta extra."
+    },
+    {
+        "name": "Ambrosia",
+        "image_path": "https://api.myl.cl/static/cards/44/047.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Toma un Tótem de la Línea de Apoyo oponente y ponlo en tu Línea de Apoyo. Se considera uno de tus Tótem mientras permanezca en juego."
+    },
+    {
+        "name": "Ataque de Aníbal",
+        "image_path": "https://api.myl.cl/static/cards/44/048.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Destruye uno de tus Aliados de raza Héroe, y tu oponente debe botar 6 cartas."
+    },
+    {
+        "name": "El Vesubio",
+        "image_path": "https://api.myl.cl/static/cards/44/049.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "En respuesta a que tu oponente juegue o active una carta que destruya sus Oros, ésta es anulada o destruida. Tu oponente bota 3 cartas."
+    },
+    {
+        "name": "Formación de Tortuga",
+        "image_path": "https://api.myl.cl/static/cards/44/050.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a declarar tu ataque, por cada Aliado declarado atacante, tu oponente debe botar 2 cartas."
+    },
+    {
+        "name": "Constantino",
+        "image_path": "https://api.myl.cl/static/cards/44/009.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Mientras Constantino esté en juego, si todos tus Aliados son de Raza Héroe, ganan 2 a la fuerza."
+    },
+    {
+        "name": "Caligula",
+        "image_path": "https://api.myl.cl/static/cards/44/010.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 1,
+        "cost": 5,
+        "ability": "El turno que Calígula entra en juego todas las cartas en juego se consideran aliados de fuerza 1 de habilidad Indestructible. Éstos deben atacar o bloquear. En la Fase Final, todas las cartas vuelven a su posición anterior."
+    },
+    {
+        "name": "Nerón",
+        "image_path": "https://api.myl.cl/static/cards/44/011.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 6,
+        "ability": "Cuando Nerón entra en juego debes destruir todos tus Oros y tu oponente debe botar 6 cartas."
+    },
+    {
+        "name": "Marte",
+        "image_path": "https://api.myl.cl/static/cards/44/012.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Si Marte es declarado atacante o bloqueador, los jugadores se saltan la Fase de Guerra de Talismanes en este turno."
+    },
+    {
+        "name": "Las Erinias",
+        "image_path": "https://api.myl.cl/static/cards/44/013.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 4,
+        "ability": "Cuando Las Erinias entra en juego, destruye el Aliado oponente de mayor fuerza."
+    },
+    {
+        "name": "Venus",
+        "image_path": "https://api.myl.cl/static/cards/44/014.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes ver las tres cartas superiores del Mazo Castillo oponente y devolverlas en el orden que quieras."
+    },
+    {
+        "name": "Mercurio",
+        "image_path": "https://api.myl.cl/static/cards/44/015.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 3,
+        "cost": 4,
+        "ability": "En respuesta a declarar tu ataque, puedes pagar 1 Oro para que un Aliado de Raza Héroe sea imbloqueable hasta el final del turno."
+    },
+    {
+        "name": "Dragón Oscuro",
+        "image_path": "https://api.myl.cl/static/cards/44/016.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Si Dragón Oscuro es declarado atacante, los Aliados que lo acompañen ganan 1 a la fuerza."
+    },
+    {
+        "name": "Gigante de la Niebla",
+        "image_path": "https://api.myl.cl/static/cards/44/017.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 8,
+        "cost": 6,
+        "ability": "Gigante de la Niebla no puede ser agrupado. En tu Fase de Agrupación, puedes pagar 4 Oros para agruparlo."
+    },
+    {
+        "name": "Manticora",
+        "image_path": "https://api.myl.cl/static/cards/44/018.png",
+        "rarity": "Cortesano",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 5,
+        "ability": "En respuesta a que tu oponente baje un Aliado, puedes pagar su coste para destruirlo."
+    },
+    {
+        "name": "Escudo Romano",
+        "image_path": "https://api.myl.cl/static/cards/44/033.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Si el portador de Escudo Romano es destruido, genera tantos Oros como fuerza tenga."
+    },
+    {
+        "name": "Armadura Legionaria",
+        "image_path": "https://api.myl.cl/static/cards/44/034.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Si el portador de Armadura Legionaria es un Aliado de Raza Héroe puede bloquear a más de un Aliado. Si el portador de Armadura Legionaria es de otra Raza, puede bloquear hasta 2 Aliados."
+    },
+    {
+        "name": "Ariete",
+        "image_path": "https://api.myl.cl/static/cards/44/035.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Juega a Ariete en tu Línea de Apoyo. En la Fase de Vigilia, sólo una vez por turno, puedes pagar 2 de Oro para que un Aliado gane 2 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Pilum",
+        "image_path": "https://api.myl.cl/static/cards/44/036.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Si el portador de Pilum es declarado atacante o bloqueador, tu oponente debe botar una carta."
+    },
+    {
+        "name": "Tótem Etrusco",
+        "image_path": "https://api.myl.cl/static/cards/44/041.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Mientras tengas Tótem Etrusco en juego, en tu Fase de Vigilia puedes pagar 3 de Oro para destruir cualquier carta oponente que no sea un Oro. En su Fase de Vigilia, tu oponente puede pagar 5 de Oro para destruir Tótem Etrusco."
+    },
+    {
+        "name": "Panteón",
+        "image_path": "https://api.myl.cl/static/cards/44/043.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras tengas Panteón en juego, si tienes uno o más Aliados de Raza Olímpico en juego, tus Aliados ganan 2 a la fuerza."
+    },
+    {
+        "name": "Conspiradores",
+        "image_path": "https://api.myl.cl/static/cards/44/052.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En respuesta a un ataque oponente, puedes tomar uno de sus Aliados en Línea de Ataque y ponerlo en tu Línea de Defensa para declararlo bloqueador. Si no es destruido, en la Fase Final vuelve a la Línea de Defensa oponente."
+    },
+    {
+        "name": "Nombrado Emperador",
+        "image_path": "https://api.myl.cl/static/cards/44/053.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Baraja 3 cartas de tu Cementerio a tu Mazo Castillo."
+    },
+    {
+        "name": "Ataque Fulminante",
+        "image_path": "https://api.myl.cl/static/cards/44/054.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Nombra una Raza de Aliado. Todos los Aliados en juego, de esa Raza, deben ser barajados en su Mazo Castillo."
+    },
+    {
+        "name": "Animales del Circo",
+        "image_path": "https://api.myl.cl/static/cards/44/055.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Busca un Aliado en tu Mazo Castillo y ponlo en tu mano."
+    },
+    {
+        "name": "Deva",
+        "image_path": "https://api.myl.cl/static/cards/44/019.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 5,
+        "ability": "Deva no puede ser declarado atacante. En tu Fase de Vigilia, sólo una vez por turno, puedes pagar 2 Oros para subir un Aliado oponente a su mano."
+    },
+    {
+        "name": "Legionario",
+        "image_path": "https://api.myl.cl/static/cards/44/020.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 2,
+        "cost": 4,
+        "ability": "Puedes tener más de 3 Legionario en tu Mazo Castillo. Cuando Legionario entra en juego, puedes buscar Legionario en tu Mazo Castillo y ponerlo en tu mano."
+    },
+    {
+        "name": "Pretoriano",
+        "image_path": "https://api.myl.cl/static/cards/44/021.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 3,
+        "cost": 1,
+        "ability": "Pretoriano no puede ser declarado atacante."
+    },
+    {
+        "name": "Gladiador",
+        "image_path": "https://api.myl.cl/static/cards/44/022.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Héroe",
+        "attack": 3,
+        "cost": 3,
+        "ability": "Si Gladiador hace daño al Mazo Castillo oponente, puedes robar una carta."
+    },
+    {
+        "name": "Minerva",
+        "image_path": "https://api.myl.cl/static/cards/44/023.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno y si tienes a Júpiter en juego, puedes mostrar tu mano para descartar 2 cartas de tu oponente al azar."
+    },
+    {
+        "name": "Ondinas",
+        "image_path": "https://api.myl.cl/static/cards/44/024.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Durante el turno que Ondinas entra en juego, todos los Aliados en juego son de Raza Olímpico."
+    },
+    {
+        "name": "Vulcano",
+        "image_path": "https://api.myl.cl/static/cards/44/025.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Vulcano puede portar más de un Arma, si porta más de 2 Armas es indestructible."
+    },
+    {
+        "name": "Criaturas del Caos",
+        "image_path": "https://api.myl.cl/static/cards/44/026.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 3,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia, tu oponente puede pagar el coste de Criaturas del Caos y ponerlo en su Línea de Defensa. Se considera uno de sus Aliados hasta salir del juego."
+    },
+    {
+        "name": "Atlante",
+        "image_path": "https://api.myl.cl/static/cards/44/027.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 3,
+        "cost": 2,
+        "ability": "Cuando Atlante entra en juego, tu oponente debe botar una carta."
+    },
+    {
+        "name": "Hipogrifo",
+        "image_path": "https://api.myl.cl/static/cards/44/028.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 1,
+        "cost": 3,
+        "ability": "Cuando Hipogrifo entra en juego, puedes buscar un Talismán en tu Cementerio y ponerlo en tu mano."
+    },
+    {
+        "name": "Pantera de Niebla",
+        "image_path": "https://api.myl.cl/static/cards/44/029.png",
+        "rarity": "Vasallo",
+        "type": "Aliado",
+        "race": "Titán",
+        "attack": 2,
+        "cost": 3,
+        "ability": "Mientras Pantera de Niebla esté en juego, tu oponente sólo puede declarar ataque con 2 o más Aliados."
+    },
+    {
+        "name": "Yelmo de Legionario",
+        "image_path": "https://api.myl.cl/static/cards/44/032.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Yelmo de Legionario sólo puede ser portada por un Aliado de Raza Héroe. En respuesta a que tu oponente tenga 5 o menos cartas en su Mazo Castillo, puedes desterrar Yelmo de Legionario para que tu oponente bote las cartas."
+    },
+    {
+        "name": "Daga Envenenada",
+        "image_path": "https://api.myl.cl/static/cards/44/037.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Daga Envenenada no puede ser declarado atacante o bloqueador a menos que pagues 2 Oros."
+    },
+    {
+        "name": "Red de Gladiador",
+        "image_path": "https://api.myl.cl/static/cards/44/038.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Si el portador de Red de Gladiador no es declarado atacante, los jugadores descartan 1 carta."
+    },
+    {
+        "name": "Catacumbas",
+        "image_path": "https://api.myl.cl/static/cards/44/042.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Mientras tengas Catacumbas en juego, los Aliados oponentes imbloqueables no hacen daño a tu Mazo Castillo."
+    },
+    {
+        "name": "Termas",
+        "image_path": "https://api.myl.cl/static/cards/44/044.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras tengas Termas en juego, en respuesta a que una de tus cartas Oro sea destruida, puedes buscar 2 Oros en tu Cementerio y ponerlos en tu mano."
+    },
+    {
+        "name": "Murallas de Adriano",
+        "image_path": "https://api.myl.cl/static/cards/44/045.png",
+        "rarity": "Vasallo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Mientras tengas Murallas de Adriano en juego, en tu Fase de Vigilia puedes nombrar una Raza de Aliado que tengas en juego. Durante el turno todos tus Aliados serán de esa Raza."
+    },
+    {
+        "name": "Los Caminos de Roma",
+        "image_path": "https://api.myl.cl/static/cards/44/051.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Destruye una carta oponente. Tu oponente bota 2 cartas."
+    },
+    {
+        "name": "Tribus Germanas",
+        "image_path": "https://api.myl.cl/static/cards/44/056.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 6,
+        "ability": "Los Aliados que controles ganan 2 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Hunos",
+        "image_path": "https://api.myl.cl/static/cards/44/057.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a declarar tu ataque, busca un Aliado en tu Cementerio y ponlo en juego. Debe ser declarado atacante."
+    },
+    {
+        "name": "Celtas del Oeste",
+        "image_path": "https://api.myl.cl/static/cards/44/058.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 0,
+        "ability": "Anula o destruye a Julio César."
+    },
+    {
+        "name": "Carrera de Carros",
+        "image_path": "https://api.myl.cl/static/cards/44/059.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a la Fase Final, dos de tus Aliados atacantes que no hayan sido bloqueados son agrupados."
+    },
+    {
+        "name": "¡Rebelión!",
+        "image_path": "https://api.myl.cl/static/cards/44/060.png",
+        "rarity": "Vasallo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Todos los Aliados que son declarados atacantes junto a Espartaco ganan 1 a la fuerza hasta el final del turno."
+    },
+    {
+        "name": "Aceite de Oliva",
+        "image_path": "https://api.myl.cl/static/cards/44/061.png",
+        "rarity": "Vasallo",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En tu Fase de Vigilia, si Aceite de Oliva está en tu reserva, puedes desterrarlo para buscar 1 Oro en tu Mazo Castillo y ponerlo en juego."
+    },
+    {
+        "name": "Arcas del Imperio",
+        "image_path": "https://api.myl.cl/static/cards/44/062.png",
+        "rarity": "Vasallo",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En Guerra de Talismanes, puedes destruir Arcas del Imperio para generar 2 Oros."
+    },
+    {
+        "name": "Águila Imperial",
+        "image_path": "https://api.myl.cl/static/cards/44/063.png",
+        "rarity": "Vasallo",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "Mientras Águila Imperial esté en tu Reserva, los Aliados de fuerza 1 pierden su habilidad."
+    },
+    {
+        "name": "Festín",
+        "image_path": "https://api.myl.cl/static/cards/44/064.png",
+        "rarity": "Vasallo",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En tu Fase de Vigilia, si Festín está en tu reserva, puedes descartar dos cartas para robar una carta."
+    }
+]

@@ -1,0 +1,691 @@
+﻿@page "/tienda-sobres"
+@inject IWebHostEnvironment Env
+@using System.Text.Json
+@using System.IO
+@using SandboxApp.Models
+@using static SandboxApp.Components.Pages.Home
+
+<div style="display: flex; width: 100vw; height: 100vh; background: radial-gradient(circle at center, #14110f 0%, #050505 100%); color: white; font-family: 'Georgia', serif; padding: 20px; box-sizing: border-box; gap: 20px; user-select: none; overflow: hidden;">
+
+    <div style="width: 25%; height: 100%; background: #111; border: 2px solid #222; border-radius: 8px; padding: 15px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; z-index: 10;">
+        <div>
+            <h2 style="margin: 0 0 5px 0; color: #b89047; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px; text-align: center;">🛡️ Modo Carrera</h2>
+            <div style="border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 15px; text-align: center;">
+                <span style="font-size: 0.85rem; color: #aaa; display: block;">Gladiador: <b>@Perfil.NombreGladiador</b></span>
+                <span style="font-size: 1.3rem; font-weight: bold; color: #ffcc00; display: block; margin-top: 5px;">🪙 @Perfil.Oro <span style="font-size: 0.75rem; color: #666;">Oros</span></span>
+            </div>
+
+            <div style="background: #070707; border: 1px solid #1a1a1a; padding: 10px; border-radius: 6px; font-size: 0.8rem; font-family: sans-serif; display: flex; flex-direction: column; gap: 5px; color: #888;">
+                <div style="display: flex; justify-content: space-between;"><span>⚔️ Victorias:</span><span style="color: #00ff55; font-weight: bold;">@Perfil.Victorias</span></div>
+                <div style="display: flex; justify-content: space-between;"><span>💀 Derrotas:</span><span style="color: #ff4d4d; font-weight: bold;">@Perfil.Derrotas</span></div>
+                <div style="display: flex; justify-content: space-between; border-top: 1px dashed #222; margin-top: 4px; padding-top: 4px;"><span>🎴 Álbum Colección:</span><span style="color: #eee; font-weight: bold;">@Perfil.Coleccion.Values.Sum() <span style="font-size: 0.65rem; color: #555;">cartas</span></span></div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(MensajeNotificacionMazo))
+            {
+                <div style="background: #0c1a12; border: 1px solid #28a745; color: #55ff77; font-size: 0.75rem; padding: 8px; border-radius: 5px; margin-top: 15px; text-align: center; animation: fadeIn 0.15s ease-out;">
+                    @MensajeNotificacionMazo
+                </div>
+            }
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <button @onclick='() => { MostrarGestorVitrina = !MostrarGestorVitrina; CancelarEdicionProducto(); MensajeNotificacionMazo = string.Empty; }' style="background: #2b1d11; color: #ffb84d; border: 1px solid #734d1a; padding: 8px; font-size: 0.75rem; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase;">⚙️ Gestionar Vitrina</button>
+            <button @onclick="ResetearProgreso" style="background: #31181a; color: #ff4d4d; border: 1px solid #6b2125; padding: 6px; font-size: 0.7rem; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase;">⚠ Reiniciar Cuenta</button>
+        </div>
+    </div>
+
+    <div style="width: 75%; height: 100%; background: #111; border: 2px solid #222; border-radius: 8px; padding: 15px; box-sizing: border-box; display: flex; flex-direction: column; position: relative; justify-content: center; align-items: center; z-index: 10;">
+
+        @if (!ModoAperturaActivo)
+        {
+            @if (MostrarGestorVitrina)
+            {
+                <div style="width: 100%; height: 100%; display: flex; flex-direction: column; background: #0a0a0a; border: 1px solid #222; border-radius: 6px; padding: 15px; box-sizing: border-box; animation: fadeIn 0.1s ease-out; overflow-y: auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 6px; margin-bottom: 12px;">
+                        <h3 style="margin: 0; color: #ffb84d; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">
+                            @(string.IsNullOrEmpty(ProductoEditandoId) ? "⚙️ Consola de Inventario de la Tienda" : "✏️ Modificando Producto Existente")
+                        </h3>
+                        <button @onclick="() => { MostrarGestorVitrina = false; CancelarEdicionProducto(); }" style="background: #222; color: #bbb; border: none; padding: 4px 10px; font-size: 0.7rem; border-radius: 3px; cursor: pointer;">Cerrar Panel</button>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background: #141414; padding: 10px; border-radius: 5px; border: 1px solid #222; margin-bottom: 15px;">
+                        <div style="display: flex; flex-direction: column; gap: 3px;">
+                            <label style="font-size: 0.65rem; color: #b89047; font-weight: bold; text-transform: uppercase;">Tipo Producto:</label>
+                            <select @bind="FormTipo" style="padding: 5px; background: #222; border: 1px solid #444; color: white; font-size: 0.75rem; border-radius: 3px;">
+                                <option value="Sobre">Sobre de Expansión (Aleatorio)</option>
+                                <option value="Mazo">Mazo Estructurado (Fijo Completo)</option>
+                            </select>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 3px;">
+                            <label style="font-size: 0.65rem; color: #b89047; font-weight: bold; text-transform: uppercase;">Nombre Comercial:</label>
+                            <input type="text" @bind="FormNombre" placeholder="ej: Sobre Helénica, Mazo Bárbaro" style="padding: 5px; background: #222; border: 1px solid #444; color: white; font-size: 0.75rem; border-radius: 3px;" />
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 3px;">
+                            <label style="font-size: 0.65rem; color: #b89047; font-weight: bold; text-transform: uppercase;">Seleccionar Edición:</label>
+                            <select @bind="FormEdicion" style="padding: 5px; background: #222; border: 1px solid #444; color: white; font-size: 0.75rem; border-radius: 3px;">
+                                <option value="">[ Elije una edición... ]</option>
+                                @foreach (var ed in CatalogoCompleto.Select(c => c.Edicion).Distinct().OrderBy(e => e))
+                                {
+                                    <option value="@ed">@ed</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 3px;">
+                            <label style="font-size: 0.65rem; color: #b89047; font-weight: bold; text-transform: uppercase;">Precio (Monedas):</label>
+                            <input type="number" @bind="FormPrecio" style="padding: 5px; background: #222; border: 1px solid #444; color: white; font-size: 0.75rem; border-radius: 3px;" />
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 3px;">
+                            <label style="font-size: 0.65rem; color: #b89047; font-weight: bold; text-transform: uppercase;">Ruta Imagen Asset:</label>
+                            <input type="text" @bind="FormRutaImagen" placeholder="images/sobres/helenica.png" style="padding: 5px; background: #222; border: 1px solid #444; color: white; font-size: 0.75rem; border-radius: 3px;" />
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 3px;">
+                            <label style="font-size: 0.65rem; color: #b89047; font-weight: bold; text-transform: uppercase;">Breve Descripción:</label>
+                            <input type="text" @bind="FormDescripcion" placeholder="Contiene las cartas oficiales..." style="padding: 5px; background: #222; border: 1px solid #444; color: white; font-size: 0.75rem; border-radius: 3px;" />
+                        </div>
+
+                        <div style="grid-column: span 3; display: flex; gap: 10px; border-top: 1px solid #333; padding-top: 8px; margin-top: 4px; justify-content: space-between; align-items: center;">
+                            @if (FormTipo == "Sobre")
+                            {
+                                <div style="display: flex; flex-direction: column; gap: 2px; text-align: center;"><label style="font-size: 0.6rem; color: #888;">🪙 OROS</label><input type="number" @bind="FormCantOros" style="width: 50px; padding: 4px; background: #222; border: 1px solid #444; color: white; text-align: center; font-size: 0.75rem;" /></div>
+                                <div style="display: flex; flex-direction: column; gap: 2px; text-align: center;"><label style="font-size: 0.6rem; color: #888;">🗡️ VASALLOS</label><input type="number" @bind="FormCantVasallos" style="width: 50px; padding: 4px; background: #222; border: 1px solid #444; color: white; text-align: center; font-size: 0.75rem;" /></div>
+                                <div style="display: flex; flex-direction: column; gap: 2px; text-align: center;"><label style="font-size: 0.6rem; color: #888;">✨ CORTESANOS</label><input type="number" @bind="FormCantCortesanos" style="width: 50px; padding: 4px; background: #222; border: 1px solid #444; color: white; text-align: center; font-size: 0.75rem;" /></div>
+                                <div style="display: flex; flex-direction: column; gap: 2px; text-align: center;"><label style="font-size: 0.6rem; color: #888;">👑 REALES</label><input type="number" @bind="FormCantReales" style="width: 50px; padding: 4px; background: #222; border: 1px solid #444; color: white; text-align: center; font-size: 0.75rem;" /></div>
+                                <div style="display: flex; flex-direction: column; gap: 2px; text-align: center;">
+                                    <label style="font-size: 0.6rem; color: #ffcc00; font-weight: bold;">💎 PROB. UPGRADE REAL (%)</label>
+                                    <input type="number" @bind="FormProbabilidadUpgrade" min="0" max="100" style="width: 80px; padding: 4px; background: #222; border: 1px solid #ffcc00; color: #ffcc00; text-align: center; font-weight: bold; font-size: 0.75rem;" />
+                                </div>
+                            }
+                            else
+                            {
+                                <span style="font-size: 0.75rem; color: #44aaff; font-style: italic; max-width: 70%;">💡 Los Mazos Estructurados otorgan automáticamente 1 copia de todo el set de la edición y crean su archivo de mazo de respaldo `.json`.</span>
+                            }
+
+                            <div style="display: flex; gap: 6px; align-items: flex-end; margin-left: auto;">
+                                @if (!string.IsNullOrEmpty(ProductoEditandoId))
+                                {
+                                    <button @onclick="CancelarEdicionProducto" style="background: #444; color: white; border: none; padding: 6px 12px; font-size: 0.75rem; font-weight: bold; border-radius: 3px; cursor: pointer; text-transform: uppercase;">Cancelar</button>
+                                    <button @onclick="AgregarProductoAVitrinaJson" style="background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: white; border: none; padding: 6px 15px; font-size: 0.75rem; font-weight: bold; border-radius: 3px; cursor: pointer; text-transform: uppercase;">💾 Guardar Cambios</button>
+                                }
+                                else
+                                {
+                                    <button @onclick="AgregarProductoAVitrinaJson" style="background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%); color: white; border: none; padding: 6px 15px; font-size: 0.75rem; font-weight: bold; border-radius: 3px; cursor: pointer; text-transform: uppercase;">➕ Añadir a Tienda</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <span style="font-size: 0.7rem; color: #666; font-weight: bold; text-transform: uppercase; margin-bottom: 4px; display: block;">Productos Activos en Vitrina JSON:</span>
+                    <div style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 5px;">
+                        @foreach (var prod in VitrinaProductos)
+                        {
+                            <div style="background: #141414; border: 1px solid #222; padding: 6px 12px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <span style="font-size: 0.6rem; background: @(prod.Tipo == "Mazo" ? "#007bff" : "#b89047"); color: white; padding: 2px 5px; border-radius: 3px; font-weight: bold; text-transform: uppercase;">@prod.Tipo</span>
+                                    <span style="color: #eee; font-weight: bold;">@prod.Nombre <span style="font-weight: normal; color: #555;">(@prod.Edicion)</span></span>
+                                    <span style="color: #ffcc00; font-family: monospace;">🪙 @prod.Precio</span>
+                                    @if (prod.Tipo == "Sobre")
+                                    {
+                                        <span style="font-size: 0.65rem; color: #666;">(Algoritmo: O:@prod.CantidadOros | V:@prod.CantidadVasallos | C:@prod.CantidadCortesanos | R:@prod.CantidadReales | Up:@prod.ProbabilidadUpgrade%)</span>
+                                    }
+                                </div>
+                                <div style="display: flex; gap: 6px;">
+                                    <button @onclick="() => CargarProductoParaEditar(prod)" style="background: #172535; color: #44ccff; border: 1px solid #25476a; font-size: 0.65rem; padding: 2px 10px; border-radius: 3px; cursor: pointer; font-weight: bold;">✏ Editar</button>
+                                    <button @onclick="() => EliminarProductoDeVitrina(prod.Id)" style="background: #31181a; color: #ff4d4d; border: 1px solid #6b2125; font-size: 0.65rem; padding: 2px 8px; border-radius: 3px; cursor: pointer;">Eliminar</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div style="display: flex; gap: 15px; justify-content: center; align-items: stretch; flex-wrap: wrap; width: 100%; box-sizing: border-box; overflow-y: auto; padding: 10px 0;">
+                    @foreach (var prod in VitrinaProductos)
+                    {
+                        <div style="text-align: center; width: 235px; height: 440px; background: @(prod.Tipo == "Mazo" ? "#0a0d14" : "#0a0a0a"); border: 2px solid @(prod.Tipo == "Mazo" ? "#1e5fa8" : "#2d2015"); border-radius: 8px; padding: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; transition: transform 0.15s ease;"
+                             onmouseenter="this.style.transform='scale(1.03)';" onmouseleave="this.style.transform='none';">
+
+                            <div>
+                                <span style="font-size: 0.65rem; background: @(prod.Tipo == "Mazo" ? "#007bff" : "#b89047"); color: white; padding: 2px 8px; border-radius: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">
+                                    @(prod.Tipo == "Mazo" ? "📦 Mazo Estructurado" : "🦅 Booster Pack")
+                                </span>
+
+                                <img src="@prod.RutaImagen" style="width: 100%; height: 210px; object-fit: contain; margin: 10px 0; border-radius: 4px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.8));" />
+
+                                <h3 style="margin: 0; font-size: 1rem; color: #eee; text-transform: uppercase;">@prod.Nombre</h3>
+                                <span style="font-size: 0.75rem; color: #666; font-family: sans-serif; display: block; margin-top: 4px; height: 32px; overflow: hidden; line-height: 11px;">@prod.Descripcion</span>
+                            </div>
+
+                            <div>
+                                <button @onclick="() => ProcesarAdquisicionProducto(prod)" disabled="@(Perfil.Oro < prod.Precio)"
+                                        style="width: 100%; padding: 8px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; border-radius: 5px; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                                    background: @(Perfil.Oro < prod.Precio ? "#222" : (prod.Tipo == "Mazo" ? "linear-gradient(135deg, #1e5fa8 0%, #0e294a 100%)" : "linear-gradient(135deg, #b89047 0%, #8c6b30 100%)")); color: white;">
+                                    @(prod.Precio == 0 ? "🎁 Gratis ($0)" : $"🪙 Adquirir (${prod.Precio})")
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        }
+        else
+        {
+            <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; align-items: center;">
+
+                <div style="text-align: center; margin-top: 5px; z-index: 100;">
+                    <h3 style="margin: 0; color: #b89047; text-transform: uppercase; font-size: 1.4rem; letter-spacing: 3px; text-shadow: 0 2px 10px black;">🔮 Mesa de Apertura Ancestral</h3>
+                    <span style="font-size: 0.8rem; color: #777; font-family: sans-serif; letter-spacing: 0.5px;">Haz clic para voltear. Las cartas ya reveladas se pueden presionar para verlas en pantalla completa gigante.</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(5, 185px); gap: 20px; justify-content: center; align-content: center; flex-grow: 1; margin: 10px 0; z-index: 50;">
+                    @foreach (var ranura in ListaSobresAbiertos)
+                    {
+                        <div @onclick="() => ManejarClickCartaMesa(ranura)"
+                             onmousemove="let r=this.getBoundingClientRect(); let x=event.clientX-r.left; let y=event.clientY-r.top; let pctX=(x/r.width)*100; let pctY=(y/r.height)*100; this.style.transform='perspective(700px) rotateX('+((r.height/2-y)/6)+'deg) rotateY('+((x-r.width/2)/6)+'deg) scale(1.03)'; let s=this.querySelector('#foil-glow'); if(s){ s.style.opacity='0.4'; s.style.background='linear-gradient('+Math.atan2(y-r.height/2, x-r.width/2)*(180/Math.PI)+'deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) '+pctX+'%, rgba(255,255,255,0) 100%)'; }"
+                             onmouseleave="this.style.transform='none'; let s=this.querySelector('#foil-glow'); if(s) s.style.opacity='0';"
+                             style="width: 185px; height: 259px; perspective: 700px; cursor: pointer; position: relative; transition: transform 0.08s ease-out; transform-style: preserve-3d;">
+
+                            <div style="width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); transform: @(ranura.Revelada ? "rotateY(180deg)" : "none");">
+
+                                <div style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 10px; overflow: hidden; border: 1px solid #422f1d; box-shadow: 0 10px 20px rgba(0,0,0,0.8); background: #0a0a0a;">
+                                    <img src="images/back_card.png" style="width: 100%; height: 100%; object-fit: contain;" />
+                                </div>
+
+                                <div style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; transform: rotateY(180deg); border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 15px 30px rgba(0,0,0,0.9);
+                                    outline: @(ranura.Carta.Rareza == "Real" ? "2px solid #ffcc00" : "none"); filter: @(ranura.Carta.Rareza == "Real" ? "drop-shadow(0 0 12px #ffcc00)" : "none");">
+                                    <img src="@ranura.Carta.RutaImagen" style="width: 100%; height: 100%; object-fit: contain;" />
+
+                                    @if (ranura.EsNueva)
+                                    {
+                                        <div style="position: absolute; top: 8px; left: 8px; background: linear-gradient(135deg, #bd2130 0%, #85141c 100%); color: #ffcc00; font-size: 0.65rem; font-weight: bold; padding: 2px 7px; border-radius: 4px; border: 1px solid #ffcc00; box-shadow: 0 2px 5px rgba(0,0,0,0.8); z-index: 50; text-transform: uppercase; letter-spacing: 1px; animation: pulse 0.8s infinite alternate;">
+                                            ✨ Nueva ✨
+                                        </div>
+                                    }
+                                    <div id="foil-glow" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; mix-blend-mode: overlay; opacity:0; z-index: 10;"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div style="display: flex; gap: 12px; z-index: 100; margin-bottom: 5px;">
+                    @if (ListaSobresAbiertos.Any(r => !r.Revelada))
+                    {
+                        <button @onclick="RevelarTodoElSobreSincronizado"
+                                style="background: linear-gradient(135deg, #1c242b 0%, #0d1217 100%); color: #44ccff; border: 1px solid #285a7a; padding: 12px 30px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 0.85rem; box-shadow: 0 5px 15px rgba(0,0,0,0.5); font-family: 'Georgia', serif; letter-spacing: 0.5px;">
+                            ✨ Revelar Todo el Sobre
+                        </button>
+                    }
+
+                    <button @onclick="CerrarMesaSobre" disabled="@(ListaSobresAbiertos.Any(r => !r.Revelada))"
+                            style="background: @(ListaSobresAbiertos.Any(r => !r.Revelada) ? "#222" : "linear-gradient(135deg, #a1582c 0%, #6e3615 100%)"); color: white; border: none; padding: 12px 45px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 0.85rem; box-shadow: 0 5px 15px rgba(0,0,0,0.5); letter-spacing: 1px;">
+                        Recoger e Guardar en Álbum
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (MostrarAnimacionSobre)
+    {
+        <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); backdrop-filter: blur(15px); z-index: 4000; display: flex; flex-direction: column; justify-content: center; align-items: center; animation: fadeIn 0.2s ease-out;">
+            <div style="text-align: center; position: relative; width: 320px; padding: 20px; border-radius: 12px; background: #0d0d0d; border: 1px solid #2d2015; box-shadow: 0 0 50px rgba(184,144,71,0.25); min-height: 480px;">
+                <h2 style="margin: 0; color: #b89047; text-transform: uppercase; font-size: 1.3rem; letter-spacing: 2px;">⚡ Sobre Adquirido</h2>
+                <span style="font-size: 0.75rem; color: #666; display: block; margin-bottom: 15px;">El sello de la era espera tu voluntad</span>
+
+                <img src="@UrlImagenSobreCompradoAnim" style="width: 100%; height: 320px; object-fit: contain; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.9)); margin-bottom: 20px;" />
+
+                <button @onclick="RomperSelloSobreDefinitivo"
+                        style="width: 100%; padding: 12px; background: linear-gradient(135deg, #a1582c 0%, #6e3615 100%); color: white; border: none; font-size: 0.9rem; font-weight: bold; border-radius: 6px; text-transform: uppercase; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.5); letter-spacing: 1px;">
+                    💥 Romper Sello del Sobre
+                </button>
+            </div>
+        </div>
+    }
+
+    @if (MostrarZoomIndividual)
+    {
+        <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(3,2,2,0.95); backdrop-filter: blur(15px); z-index: 6000; display: flex; flex-direction: column; justify-content: center; align-items: center; animation: fadeIn 0.12s ease-out;"
+             @onclick="CerrarZoomIndividual">
+
+            <div id="zoom-chamber" @onclick:stopPropagation
+                 onmousemove="let r=this.getBoundingClientRect(); let x=event.clientX-r.left; let y=event.clientY-r.top; let pctX=(x/r.width)*100; let pctY=(y/r.height)*100; this.style.transform='perspective(900px) rotateX('+((r.height/2-y)/8)+'deg) rotateY('+((x-r.width/2)/8)+'deg) scale(1.02)'; let s=this.querySelector('#zoom-shine'); if(s){ s.style.opacity='0.45'; s.style.background='linear-gradient('+Math.atan2(y-r.height/2, x-r.width/2)*(180/Math.PI)+'deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) '+pctX+'%, rgba(255,255,255,0) 100%)'; }"
+                 onmouseleave="this.style.transform='none'; let s=this.querySelector('#zoom-shine'); if(s) s.style.opacity='0';"
+                 style="width: 390px; height: 546px; perspective: 1200px; transform-style: preserve-3d; transition: transform 0.08s ease-out; position: relative;">
+
+                <div style="width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.5s ease-out; transform: @(IsFlippedZoomIndividual ? "rotateY(180deg)" : "none");">
+
+                    <div style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 14px; overflow: hidden; box-shadow: 0 35px 80px rgba(0,0,0,0.9); background: #000; border: 1px solid rgba(184,144,71,0.3);">
+                        <img src="@UrlCartaZoomIndividual" style="width: 100%; height: 100%; object-fit: contain; pointer-events: none;" />
+                        <div id="zoom-shine" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; mix-blend-mode: overlay; opacity:0; z-index: 10;"></div>
+                    </div>
+
+                    <div style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; transform: rotateY(180deg); border-radius: 14px; overflow: hidden; box-shadow: 0 35px 80px rgba(0,0,0,0.9); background: #070504; border: 1px solid rgba(184,144,71,0.3);">
+                        <img src="images/back_card.png" style="width: 100%; height: 100%; object-fit: contain; pointer-events: none;" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 25px;" @onclick:stopPropagation>
+                <button @onclick="(() => IsFlippedZoomIndividual = !IsFlippedZoomIndividual)" style="background: linear-gradient(135deg, #1c242b 0%, #0d1217 100%); color: #44ccff; border: 1px solid #285a7a; padding: 10px 24px; font-size: 0.85rem; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">🔄 Voltear</button>
+                <button @onclick="CerrarZoomIndividual" style="background: linear-gradient(135deg, #31181a 0%, #1a0a0b 100%); color: #ff4d4d; border: 1px solid #6b2125; padding: 10px 24px; font-size: 0.85rem; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">✕ Cerrar</button>
+            </div>
+        </div>
+    }
+
+</div>
+
+@code {
+    private ProgresoJugador Perfil { get; set; } = new ProgresoJugador();
+    private List<CartaJuego> CatalogoCompleto { get; set; } = new List<CartaJuego>();
+    private List<ProductoTienda> VitrinaProductos { get; set; } = new List<ProductoTienda>();
+
+    private bool MostrarGestorVitrina = false;
+    private string MensajeNotificacionMazo = "";
+    private string ProductoEditandoId = "";
+
+    private string FormTipo = "Sobre";
+    private string FormNombre = "";
+    private string FormEdicion = "";
+    private int FormPrecio = 500;
+    private string FormRutaImagen = "";
+    private string FormDescripcion = "";
+    private int FormCantOros = 1;
+    private int FormCantVasallos = 5;
+    private int FormCantCortesanos = 3;
+    private int FormCantReales = 1;
+    private int FormProbabilidadUpgrade = 20;
+
+    private bool MostrarAnimacionSobre = false;
+    private bool ModoAperturaActivo = false;
+    private List<RanuraSobre> ListaSobresAbiertos = new List<RanuraSobre>();
+
+    private bool MostrarZoomIndividual = false;
+    private string? UrlCartaZoomIndividual = null;
+    private bool IsFlippedZoomIndividual = false;
+
+    private ProductoTienda? ProductoCompradoActual = null;
+    private string UrlImagenSobreCompradoAnim = "";
+
+    private string PathProgreso => Path.Combine(Env.WebRootPath, "data", "progreso_gladiador.json");
+    private string PathCartas => Path.Combine(Env.WebRootPath, "data", "cartas.json");
+    private string PathTiendaConfig => Path.Combine(Env.WebRootPath, "data", "tienda_config.json");
+
+    protected override void OnInitialized()
+    {
+        if (File.Exists(PathCartas))
+        {
+            string json = File.ReadAllText(PathCartas);
+            CatalogoCompleto = JsonSerializer.Deserialize<List<CartaJuego>>(json) ?? new List<CartaJuego>();
+        }
+        CargarProgresoFisico();
+        CargarVitrinaTiendaJson();
+    }
+
+    private void CargarProgresoFisico()
+    {
+        try
+        {
+            if (File.Exists(PathProgreso))
+            {
+                string json = File.ReadAllText(PathProgreso);
+                Perfil = JsonSerializer.Deserialize<ProgresoJugador>(json) ?? new ProgresoJugador();
+            }
+            else
+            {
+                Perfil = new ProgresoJugador();
+                GuardarProgresoFisico();
+            }
+        }
+        catch { Perfil = new ProgresoJugador(); }
+    }
+
+    private void GuardarProgresoFisico()
+    {
+        try
+        {
+            string json = JsonSerializer.Serialize(Perfil, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(PathProgreso, json);
+        }
+        catch { }
+    }
+
+    // CORREGIDO: El auto-reparador inyecta y ancla de forma inmutable a Acero y Honor con acero_honor.png
+    private void CargarVitrinaTiendaJson()
+    {
+        try
+        {
+            if (File.Exists(PathTiendaConfig))
+            {
+                string json = File.ReadAllText(PathTiendaConfig);
+                VitrinaProductos = JsonSerializer.Deserialize<List<ProductoTienda>>(json) ?? new List<ProductoTienda>();
+            }
+
+            if (!VitrinaProductos.Any(p => p.Nombre.Contains("Acero y Honor", StringComparison.OrdinalIgnoreCase)))
+            {
+                var aceroHonor = new ProductoTienda
+                {
+                    Id = "P-0001",
+                    Tipo = "Mazo",
+                    Nombre = "Acero y Honor",
+                    Edicion = "Espada Sagrada",
+                    Precio = 0,
+                    RutaImagen = "images/sobres/acero_honor.png",
+                    Descripcion = "Mazo Caballero Estructurado de 50 cartas",
+                    CantidadOros = 0,
+                    CantidadVasallos = 0,
+                    CantidadCortesanos = 0,
+                    CantidadReales = 0,
+                    ProbabilidadUpgrade = 0
+                };
+                VitrinaProductos.Insert(0, aceroHonor);
+                GuardarVitrinaTiendaJson();
+            }
+
+            if (!VitrinaProductos.Any(p => p.Nombre.Contains("Sobre Espada Sagrada", StringComparison.OrdinalIgnoreCase)))
+            {
+                VitrinaProductos.Add(new ProductoTienda { Id = "P-0002", Tipo = "Sobre", Nombre = "Sobre Espada Sagrada", Edicion = "Espada Sagrada", Precio = 500, RutaImagen = "images/sobres/espada-sagrada.webp", Descripcion = "Contiene 10 cartas con algoritmo real de Espada Sagrada", CantidadOros = 1, CantidadVasallos = 5, CantidadCortesanos = 3, CantidadReales = 1, ProbabilidadUpgrade = 20 });
+                GuardarVitrinaTiendaJson();
+            }
+            if (!VitrinaProductos.Any(p => p.Nombre.Contains("Cruzadas", StringComparison.OrdinalIgnoreCase)))
+            {
+                VitrinaProductos.Add(new ProductoTienda { Id = "P-0003", Tipo = "Sobre", Nombre = "Sobre Cruzadas", Edicion = "Cruzadas", Precio = 500, RutaImagen = "images/sobres/cruazadas.webp", Descripcion = "Contiene 10 cartas con algoritmo real de la edicion Cruzadas", CantidadOros = 1, CantidadVasallos = 5, CantidadCortesanos = 3, CantidadReales = 1, ProbabilidadUpgrade = 25 });
+                GuardarVitrinaTiendaJson();
+            }
+        }
+        catch { VitrinaProductos = new List<ProductoTienda>(); }
+    }
+
+    private void GuardarVitrinaTiendaJson()
+    {
+        try
+        {
+            string json = JsonSerializer.Serialize(VitrinaProductos, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(PathTiendaConfig, json);
+        }
+        catch { }
+    }
+
+    private void CargarProductoParaEditar(ProductoTienda prod)
+    {
+        ProductoEditandoId = prod.Id;
+        FormTipo = prod.Tipo;
+        FormNombre = prod.Nombre;
+        FormEdicion = prod.Edicion;
+        FormPrecio = prod.Precio;
+        FormRutaImagen = prod.RutaImagen;
+        FormDescripcion = prod.Descripcion;
+        FormCantOros = prod.CantidadOros;
+        FormCantVasallos = prod.CantidadVasallos;
+        FormCantCortesanos = prod.CantidadCortesanos;
+        FormCantReales = prod.CantidadReales;
+        FormProbabilidadUpgrade = prod.ProbabilidadUpgrade;
+        MensajeNotificacionMazo = $"✏ Modificando: '{prod.Nombre}'";
+    }
+
+    private void CancelarEdicionProducto()
+    {
+        ProductoEditandoId = string.Empty;
+        FormNombre = ""; FormRutaImagen = ""; FormDescripcion = "";
+        FormPrecio = 500; FormProbabilidadUpgrade = 20;
+    }
+
+    // ARREGLADO EXCLUSIVO: Corregidas las comas en el inicializador de ProductoTienda
+    private void AgregarProductoAVitrinaJson()
+    {
+        if (string.IsNullOrWhiteSpace(FormNombre) || string.IsNullOrWhiteSpace(FormEdicion) || string.IsNullOrWhiteSpace(FormRutaImagen)) return;
+
+        if (!string.IsNullOrEmpty(ProductoEditandoId))
+        {
+            var objetivo = VitrinaProductos.FirstOrDefault(p => p.Id == ProductoEditandoId);
+            if (objetivo != null)
+            {
+                objetivo.Tipo = FormTipo;
+                objetivo.Nombre = FormNombre.Trim();
+                objetivo.Edicion = FormEdicion.Trim();
+                objetivo.Precio = FormPrecio;
+                objetivo.RutaImagen = FormRutaImagen.Trim();
+                objetivo.Descripcion = FormDescripcion.Trim();
+                objetivo.CantidadOros = FormTipo == "Mazo" ? 0 : FormCantOros;
+                objetivo.CantidadVasallos = FormTipo == "Mazo" ? 0 : FormCantVasallos;
+                objetivo.CantidadCortesanos = FormTipo == "Mazo" ? 0 : FormCantCortesanos;
+                objetivo.CantidadReales = FormTipo == "Mazo" ? 0 : FormCantReales;
+                objetivo.ProbabilidadUpgrade = FormTipo == "Mazo" ? 0 : FormProbabilidadUpgrade;
+
+                MensajeNotificacionMazo = "✔ ¡Cambios del producto guardados de forma exitosa!";
+            }
+            ProductoEditandoId = string.Empty;
+        }
+        else
+        {
+            var nuevo = new ProductoTienda
+            {
+                Id = "P-" + Guid.NewGuid().ToString().Substring(0, 4).ToUpper(),
+                Tipo = FormTipo,
+                Nombre = FormNombre.Trim(),
+                Edicion = FormEdicion.Trim(),
+                Precio = FormPrecio,
+                RutaImagen = FormRutaImagen.Trim(),
+                Descripcion = FormDescripcion.Trim(),
+                CantidadOros = FormTipo == "Mazo" ? 0 : FormCantOros,
+                CantidadVasallos = FormTipo == "Mazo" ? 0 : FormCantVasallos,
+                CantidadCortesanos = FormTipo == "Mazo" ? 0 : FormCantCortesanos,
+                CantidadReales = FormTipo == "Mazo" ? 0 : FormCantReales,
+                ProbabilidadUpgrade = FormTipo == "Mazo" ? 0 : FormProbabilidadUpgrade
+            };
+            VitrinaProductos.Add(nuevo);
+            MensajeNotificacionMazo = "✔ ¡Nuevo producto inyectado a la vitrina con éxito!";
+        }
+
+        GuardarVitrinaTiendaJson();
+        FormNombre = ""; FormRutaImagen = ""; FormDescripcion = "";
+    }
+
+    private void EliminarProductoDeVitrina(string id)
+    {
+        var prod = VitrinaProductos.FirstOrDefault(p => p.Id == id);
+        if (prod != null)
+        {
+            VitrinaProductos.Remove(prod);
+            GuardarVitrinaTiendaJson();
+            if (ProductoEditandoId == id) CancelarEdicionProducto();
+        }
+    }
+
+    private void ProcesarAdquisicionProducto(ProductoTienda prod)
+    {
+        if (Perfil.Oro < prod.Precio) return;
+
+        if (prod.Tipo == "Mazo")
+        {
+            Perfil.Oro -= prod.Precio;
+            MensajeNotificacionMazo = $"📦 Adquirido: '{prod.Nombre}'. ¡Agregado a tu Álbum y Bóveda!";
+
+            if (prod.Nombre.Contains("Acero y Honor", StringComparison.OrdinalIgnoreCase))
+            {
+                AdquirirMazoAceroYHonorEstatico();
+                return;
+            }
+
+            var cartasEdicion = CatalogoCompleto.Where(c => c.Edicion.Trim().Equals(prod.Edicion.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
+            foreach (var carta in cartasEdicion)
+            {
+                if (Perfil.Coleccion.ContainsKey(carta.Nombre)) Perfil.Coleccion[carta.Nombre]++;
+                else Perfil.Coleccion[carta.Nombre] = 1;
+            }
+
+            try
+            {
+                var mazoDTO = new MazoGuardadoDTO { NombreMazo = prod.Nombre, NombresCartas = new List<string>(), NombreOroInicial = null };
+                var cartasRelleno = cartasEdicion.Take(50).ToList();
+                foreach (var cr in cartasRelleno) mazoDTO.NombresCartas.Add(cr.Nombre);
+                while (mazoDTO.NombresCartas.Count < 50 && cartasEdicion.Any())
+                {
+                    mazoDTO.NombresCartas.Add(cartasEdicion.First().Nombre);
+                }
+
+                string dirData = Path.Combine(Env.WebRootPath, "data");
+                string safeName = string.Concat(prod.Nombre.Split(Path.GetInvalidFileNameChars())).Replace(" ", "_");
+                File.WriteAllText(Path.Combine(dirData, $"mazo_{safeName}.json"), JsonSerializer.Serialize(mazoDTO, new JsonSerializerOptions { WriteIndented = true }));
+            }
+            catch { }
+
+            if (prod.Nombre.Contains("Acero y Honor", StringComparison.OrdinalIgnoreCase)) Perfil.RecibioKitInicial = true;
+            GuardarProgresoFisico();
+        }
+        else
+        {
+            Perfil.Oro -= prod.Precio;
+            ProductoCompradoActual = prod;
+            UrlImagenSobreCompradoAnim = prod.RutaImagen;
+            MostrarAnimacionSobre = true;
+            GuardarProgresoFisico();
+        }
+    }
+
+    private void RomperSelloSobreDefinitivo()
+    {
+        MostrarAnimacionSobre = false;
+        ListaSobresAbiertos.Clear();
+        if (ProductoCompradoActual == null) return;
+
+        var poolEdicion = CatalogoCompleto.Where(c => c.Edicion.Trim().Equals(ProductoCompradoActual.Edicion.Trim(), StringComparison.OrdinalIgnoreCase)).ToList();
+        if (!poolEdicion.Any()) return;
+
+        var oros = poolEdicion.Where(c => c.Tipo == "Oro").ToList();
+        var vasallos = poolEdicion.Where(c => c.Rareza == "Vasallo" && c.Tipo != "Oro").ToList();
+        var cortesanos = poolEdicion.Where(c => c.Rareza == "Cortesano" && c.Tipo != "Oro").ToList();
+        var reales = poolEdicion.Where(c => c.Rareza == "Real" && c.Tipo != "Oro").ToList();
+
+        var r = new Random();
+
+        for (int i = 0; i < ProductoCompradoActual.CantidadOros; i++) if (oros.Any()) InternalInyectarRanura(oros[r.Next(oros.Count)]);
+        for (int i = 0; i < ProductoCompradoActual.CantidadVasallos; i++) if (vasallos.Any()) InternalInyectarRanura(vasallos[r.Next(vasallos.Count)]);
+        for (int i = 0; i < ProductoCompradoActual.CantidadCortesanos; i++) if (cortesanos.Any()) InternalInyectarRanura(cortesanos[r.Next(cortesanos.Count)]);
+        for (int i = 0; i < ProductoCompradoActual.CantidadReales; i++)
+        {
+            if (r.Next(100) < ProductoCompradoActual.ProbabilidadUpgrade && reales.Any())
+                InternalInyectarRanura(reales[r.Next(reales.Count)]);
+            else if (reales.Any())
+                InternalInyectarRanura(reales[r.Next(reales.Count)]);
+        }
+
+        ModoAperturaActivo = true;
+    }
+
+    private void InternalInyectarRanura(CartaJuego c)
+    {
+        bool esNueva = !Perfil.Coleccion.ContainsKey(c.Nombre) || Perfil.Coleccion[c.Nombre] == 0;
+        ListaSobresAbiertos.Add(new RanuraSobre { Carta = c, Revelada = false, EsNueva = esNueva });
+    }
+
+    private void ManejarClickCartaMesa(RanuraSobre ranura)
+    {
+        if (!ranura.Revelada)
+        {
+            ranura.Revelada = true;
+            if (Perfil.Coleccion.ContainsKey(ranura.Carta.Nombre)) Perfil.Coleccion[ranura.Carta.Nombre]++;
+            else Perfil.Coleccion[ranura.Carta.Nombre] = 1;
+            GuardarProgresoFisico();
+        }
+        else
+        {
+            UrlCartaZoomIndividual = ranura.Carta.RutaImagen;
+            IsFlippedZoomIndividual = false;
+            MostrarZoomIndividual = true;
+        }
+    }
+
+    private void RevelarTodoElSobreSincronizado()
+    {
+        foreach (var ranura in ListaSobresAbiertos)
+        {
+            if (!ranura.Revelada)
+            {
+                ranura.Revelada = true;
+                if (Perfil.Coleccion.ContainsKey(ranura.Carta.Nombre)) Perfil.Coleccion[ranura.Carta.Nombre]++;
+                else Perfil.Coleccion[ranura.Carta.Nombre] = 1;
+            }
+        }
+        GuardarProgresoFisico();
+    }
+
+    private void AdquirirMazoAceroYHonorEstatico()
+    {
+        var manifiestoMazo = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+        {
+            { "Rey Arturo Pendragón", 1 }, { "Excalibur (Espada Sagrada)", 1 }, { "Mesa Redonda", 1 },
+            { "Llewelyn, Voz de Plata", 1 }, { "Sir Owen", 1 }, { "Lady Rachel", 1 }, { "Isolda", 1 },
+            { "Sir Héctor", 1 }, { "San Jorge y el Dragón", 1 }, { "Misil Mágico", 1 },
+            { "La Piedra de los Sueños", 1 }, { "Tótem Goblin", 1 }, { "Tótem de Nwyre", 1 },
+            { "Armadura Completa", 1 }, { "Morning Star", 1 },
+            { "Kay", 2 }, { "Piqueros", 2 }, { "Sir Thomas", 2 }, { "Sir Mador del Portal", 2 }, { "Sir Gaerin, El Blanco", 2 },
+            { "Asesinos en la Corte", 2 }, { "Cantrip", 2 }, { "Nombrado Escudero", 2 }, { "Argusthat", 2 }, { "Caballo de Batalla", 2 }, { "Espada Corta", 2 },
+            { "Anillo Faerie", 1 }, { "Azor", 1 }, { "Carruaje de Plata", 1 }, { "Collar de Dragón", 1 },
+            { "El Mercado de Camelot", 1 }, { "Escudo de Familia", 1 }, { "Flota Mercante", 1 },
+            { "Joyería Picta", 1 }, { "Pergamino de Bardo", 1 }, { "Tesoro Celta", 1 },
+            { "Tierras Cultivadas", 1 }, { "Votos Sagrados", 1 }, { "Árbol de los Viejos Dioses", 1 }
+        };
+
+        foreach (var par in manifiestoMazo)
+        {
+            var cartaMaestra = CatalogoCompleto.FirstOrDefault(c => c.Nombre.Trim().Equals(par.Key.Trim(), StringComparison.OrdinalIgnoreCase));
+            if (cartaMaestra != null)
+            {
+                if (Perfil.Coleccion.ContainsKey(cartaMaestra.Nombre)) Perfil.Coleccion[cartaMaestra.Nombre] += par.Value;
+                else Perfil.Coleccion[cartaMaestra.Nombre] = par.Value;
+            }
+        }
+
+        try
+        {
+            // FIJADO DE DISEÑO: NombreOroInicial = null para forzar la asignación manual por el usuario
+            var mazoDTO = new MazoGuardadoDTO { NombreMazo = "Acero y Honor", NombresCartas = new List<string>(), NombreOroInicial = null };
+            foreach (var par in manifiestoMazo) { for (int i = 0; i < par.Value; i++) mazoDTO.NombresCartas.Add(par.Key); }
+            File.WriteAllText(Path.Combine(Env.WebRootPath, "data", "mazo_Acero_y_Honor.json"), JsonSerializer.Serialize(mazoDTO, new JsonSerializerOptions { WriteIndented = true }));
+        }
+        catch { }
+
+        Perfil.RecibioKitInicial = true;
+        GuardarProgresoFisico();
+    }
+
+    private void CerrarZoomIndividual() { MostrarZoomIndividual = false; UrlCartaZoomIndividual = null; }
+    private void CerrarMesaSobre() { ModoAperturaActivo = false; ListaSobresAbiertos.Clear(); ProductoCompradoActual = null; }
+    private void ResetearProgreso() { Perfil = new ProgresoJugador(); GuardarProgresoFisico(); MensajeNotificacionMazo = "Progress Reset!"; }
+
+    public class RanuraSobre
+    {
+        public CartaJuego Carta { get; set; } = new CartaJuego();
+        public bool Revelada { get; set; } = false;
+        public bool EsNueva { get; set; } = false;
+    }
+
+    public class ProductoTienda
+    {
+        public string Id { get; set; } = "";
+        public string Tipo { get; set; } = "Sobre";
+        public string Nombre { get; set; } = "";
+        public string Edicion { get; set; } = "";
+        public int Precio { get; set; } = 500;
+        public string RutaImagen { get; set; } = "";
+        public string Descripcion { get; set; } = "";
+        public int CantidadOros { get; set; } = 1;
+        public int CantidadVasallos { get; set; } = 5;
+        public int CantidadCortesanos { get; set; } = 3;
+        public int CantidadReales { get; set; } = 1;
+        public int ProbabilidadUpgrade { get; set; } = 20;
+    }
+
+    public class MazoGuardadoDTO
+    {
+        public string NombreMazo { get; set; } = "Mitos Deck";
+        public List<string> NombresCartas { get; set; } = new List<string>();
+        public string? NombreOroInicial { get; set; }
+    }
+}

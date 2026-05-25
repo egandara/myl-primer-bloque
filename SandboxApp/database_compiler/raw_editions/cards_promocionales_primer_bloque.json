@@ -1,0 +1,505 @@
+[
+    {
+        "name": "Dragón Dorado",
+        "image_path": "https://api.myl.cl/static/cards/49/001.png",
+        "rarity": "Promo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 0,
+        "ability": "Dragón Dorado puede ser jugado en cualquier momento para anular una carta. Carta Unica."
+    },
+    {
+        "name": "Dragon de Magma",
+        "image_path": "https://api.myl.cl/static/cards/49/002.png",
+        "rarity": "Promo",
+        "type": "Aliado",
+        "race": "Dragón",
+        "attack": 3,
+        "cost": 4,
+        "ability": "Cuando Dragón de Magma entra en juego, destruye un Aliado oponente."
+    },
+    {
+        "name": "Capa de Invisivilidad",
+        "image_path": "https://api.myl.cl/static/cards/49/003.png",
+        "rarity": "Promo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que tu oponente baje una carta, ésta es barajada en su mazo castillo. Esta habilidad no afecta a los oros."
+    },
+    {
+        "name": "Rómulo y Remo",
+        "image_path": "https://api.myl.cl/static/cards/49/004.png",
+        "rarity": "Promo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 0,
+        "ability": "Carta Única. Rómulo y Remo genera 2 Oros. Al finalizar tu turno, puedes robar una carta extra."
+    },
+    {
+        "name": "Daana",
+        "image_path": "https://api.myl.cl/static/cards/49/005.png",
+        "rarity": "Promo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 1,
+        "ability": "Mientras Daana esté en juego, tus Aliados de raza Desafiante y Olímpico no son afectados por Talismanes oponentes. Si tus Aliados de raza Desafiante u Olímpico son destruidos, barájalos en tu Mazo Castillo. Carta única."
+    },
+    {
+        "name": "https://tor.myl.cl/carta/promocionales_primer_bloque/minas_de_gruash",
+        "image_path": "https://api.myl.cl/static/cards//.png",
+        "rarity": null,
+        "type": null,
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Afrodita",
+        "image_path": "https://api.myl.cl/static/cards/49/007.png",
+        "rarity": "Promo",
+        "type": "Aliado",
+        "race": "Olímpico",
+        "attack": 1,
+        "cost": 3,
+        "ability": "En tu Fase de Vigilia, nombra un tipo de carta que no sea Talismán. A continuación, mira la primera carta de tu Mazo Castillo y, si es de ese tipo, ponla en juego sin pagar su coste. Si no lo es, barajala en tu Mazo Castillo"
+    },
+    {
+        "name": "Ptah",
+        "image_path": "https://api.myl.cl/static/cards/49/008.png",
+        "rarity": "Promo",
+        "type": "Aliado",
+        "race": "Eterno",
+        "attack": 4,
+        "cost": 2,
+        "ability": "Ptah no puede ser declarado atacante. Cuando entra en juego, tu oponente elige 6 cartas de tu Cementerio y las barajas en tu Mazo Castillo."
+    },
+    {
+        "name": "Fergus",
+        "image_path": "https://api.myl.cl/static/cards/49/009.png",
+        "rarity": "Promo",
+        "type": "Aliado",
+        "race": "",
+        "attack": 1,
+        "cost": 2,
+        "ability": "En tu Fase de Vigilia y una vez por turno, destruye el Aliado oponente de mayor fuerza."
+    },
+    {
+        "name": "¡Desleal!",
+        "image_path": "https://api.myl.cl/static/cards/49/010.png",
+        "rarity": "Promo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Destierra un Aliado oponente."
+    },
+    {
+        "name": "Fe sin Limite",
+        "image_path": "https://api.myl.cl/static/cards/49/011.png",
+        "rarity": "Promo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Fe sin Límites puede ser jugada, en cualquier momento, para anular un Talismán."
+    },
+    {
+        "name": "Tuatha de Danaan"
+    },
+    {
+        "name": "Aceite de Oliva",
+        "image_path": "https://api.myl.cl/static/cards/49/026.png",
+        "rarity": "Promo",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En tu Fase de Vigilia, si Aceite de Oliva está en tu reserva, puedes desterrarlo para buscar 1 Oro en tu Mazo Castillo y ponerlo en juego."
+    },
+    {
+        "name": "Relámpago Arcano",
+        "image_path": "https://api.myl.cl/static/cards/49/027.png",
+        "rarity": "Promo",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Única. Redirige un efecto oponente que afecte a una carta que controles que no sea Oro. Luego, tu oponente bota tantas cartas como coste tenga el nuevo objetivo."
+    },
+    {
+        "name": "https://tor.myl.cl/carta/promocionales_primer_bloque/dendera",
+        "image_path": "https://api.myl.cl/static/cards//.png",
+        "rarity": null,
+        "type": null,
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Micenas",
+        "image_path": "https://api.myl.cl/static/cards/49/117.png",
+        "rarity": "Promo",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Mientras Micenas esté en juego, el coste de las cartas de anulación o en respuesta de tu oponente aumenta en 2."
+    },
+    {
+        "name": "https://tor.myl.cl/carta/promocionales_primer_bloque/minas_de_gruash",
+        "image_path": "https://api.myl.cl/static/cards//.png",
+        "rarity": null,
+        "type": null,
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "https://tor.myl.cl/carta/promocionales_primer_bloque/dendera",
+        "image_path": "https://api.myl.cl/static/cards//.png",
+        "rarity": null,
+        "type": null,
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": ""
+    },
+    {
+        "name": "Dragón Dorado",
+        "image_path": "https://api.myl.cl/static/cards/49/013.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 0,
+        "ability": "Cuando juegues Dragón Dorado, destiérralo. Anula una carta que no sea Oro. Carta Única."
+    },
+    {
+        "name": "Gaitas",
+        "image_path": "https://api.myl.cl/static/cards/49/014.png",
+        "rarity": "Real",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En la Fase Final, puedes agrupar este Oro."
+    },
+    {
+        "name": "Forma de Toro",
+        "image_path": "https://api.myl.cl/static/cards/49/016.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Convierte todos los Oros que controles en Aliados de coste y fuerza 2 hasta la Fase Final. En la Fase Final, pon todos los Oros convertidos en tu Zona de Oro Pagado. Luego, destruye un Oro que controles."
+    },
+    {
+        "name": "Morir de Pie",
+        "image_path": "https://api.myl.cl/static/cards/49/017.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Cuando juegues Morir de Pie, destiérralo. Sólo puedes jugar Morir de Pie si controlas 2 o más Aliados de una misma Raza. Anula una carta oponente que no sea Oro ni Aliado."
+    },
+    {
+        "name": "Jinetes de Fuego",
+        "image_path": "https://api.myl.cl/static/cards/49/019.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Jinetes de Fuego no puede ser anulado. Tu oponente bota tres cartas de su Mazo Castillo. Puedes jugar esta carta si está en tu Cementerio, si lo haces debes desterrarla."
+    },
+    {
+        "name": "Carro Celta",
+        "image_path": "https://api.myl.cl/static/cards/49/020.png",
+        "rarity": "Real",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 0,
+        "ability": "El portador de Carro Celta gana 4 a la fuerza. Si el portador de Carro Celta ataca, destiérralo en la Fase Final. Carta Única."
+    },
+    {
+        "name": "La Traición de MacAlpin",
+        "image_path": "https://api.myl.cl/static/cards/49/022.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Prevén que un Aliado que controles salga del juego."
+    },
+    {
+        "name": "Alas de Horus",
+        "image_path": "https://api.myl.cl/static/cards/49/023.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Baraja una carta en juego que no sea Oro."
+    },
+    {
+        "name": "Capa de Invisibilidad",
+        "image_path": "https://api.myl.cl/static/cards/49/025.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Cuando entra en juego una carta oponente que no sea Oro, puedes jugar Capa de la Invisibilidad para barajar esa carta en el Mazo Castillo de su dueño."
+    },
+    {
+        "name": "Fe sin Limite",
+        "image_path": "https://api.myl.cl/static/cards/49/028.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Anula un Talismán."
+    },
+    {
+        "name": "Juramento Feérico",
+        "image_path": "https://api.myl.cl/static/cards/49/029.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Busca un Arma en tu Mazo Castillo o Cementerio y juégala en un Aliado que controles reduciendo su coste en 1 Oro. El Aliado portador puede ser declarado atacante este turno."
+    },
+    {
+        "name": "Traición de Seth",
+        "image_path": "https://api.myl.cl/static/cards/49/030.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Puedes jugar Traición de Seth desde tu cementerio, si lo haces destiérralo. Destierra 1 carta del Cementerio oponente; o baraja 1 carta de tu Cementerio en tu Mazo Castillo; o tu oponente bota 1 carta. Luego, roba una carta de tu Mazo Castillo."
+    },
+    {
+        "name": "Avalon",
+        "image_path": "https://api.myl.cl/static/cards/49/032.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "En tu Fase de Vigilia, sólo una vez por turno, puedes robar tantas cartas como Aliados tengas en juego."
+    },
+    {
+        "name": "Golpear la raíz",
+        "image_path": "https://api.myl.cl/static/cards/49/035.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Tu oponente bota 2 cartas de su Mazo Castillo. Luego, roba una carta de tu Mazo Castillo."
+    },
+    {
+        "name": "Bola de Fuego",
+        "image_path": "https://api.myl.cl/static/cards/49/036.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Destruye una carta en juego que no sea Oro."
+    },
+    {
+        "name": "Ira Ígnea",
+        "image_path": "https://api.myl.cl/static/cards/49/037.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Destruye un Aliado de fuerza 3 o menos. Puedes robar 1 carta."
+    },
+    {
+        "name": "Despertar Oscuro",
+        "image_path": "https://api.myl.cl/static/cards/49/038.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "En respuesta a tu Fase de Agrupación, puedes jugar Despertar Oscuro para robar 3 cartas y luego descartar 1 carta."
+    },
+    {
+        "name": "Dragon Dorado",
+        "image_path": "https://api.myl.cl/static/cards/49/130.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 0,
+        "ability": "Dragón Dorado puede ser jugado en cualquier momento para anular una carta. Carta Unica."
+    },
+    {
+        "name": "Fe sin Limite",
+        "image_path": "https://api.myl.cl/static/cards/49/131.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Fe sin Límites puede ser jugada, en cualquier momento, para anular un Talismán."
+    },
+    {
+        "name": "Capa de Invisibilidad",
+        "image_path": "https://api.myl.cl/static/cards/49/133.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "En respuesta a que tu oponente baje una carta, ésta es barajada en su mazo castillo. Esta habilidad no afecta a los oros."
+    },
+    {
+        "name": "Guiza",
+        "image_path": "https://api.myl.cl/static/cards/49/134.png",
+        "rarity": "Real",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 5,
+        "ability": "Cuando Guiza entra en juego, todos los Aliados pierden su Habilidad y son barajados. Mientras esté en juego, no se pueden jugar Aliados. En su Fase de Vigilia, cualquier jugador puede pagar 3 Oros para que uno de sus Tótem se considere un Aliado con fuerza igual a su coste hasta la Fase Final. Carta Única."
+    },
+    {
+        "name": "Herrero",
+        "image_path": "https://api.myl.cl/static/cards/49/135.png",
+        "rarity": "Real",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En tu fase de vigilia, Herrero genera 2 oros para jugar armas. Si pierde la habilidad es destruido."
+    },
+    {
+        "name": "La Traición de Macalpin",
+        "image_path": "https://api.myl.cl/static/cards/49/136.png",
+        "rarity": "Real",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "En respuesta a que uno de tus Aliados salga del juego, juega La Traición de Mac Alpin para salvarlo."
+    },
+    {
+        "name": "Mercaderes",
+        "image_path": "https://api.myl.cl/static/cards/49/137.png",
+        "rarity": "Real",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En respuesta a un ataque oponente, mueve Mercaderes a la Línea de Defensa y considéralo como un aliado bloqueador de fuerza 3. Al finalizar el turno, destrúyelo."
+    },
+    {
+        "name": "Ojo Udyat",
+        "image_path": "https://api.myl.cl/static/cards/49/138.png",
+        "rarity": "Real",
+        "type": "Oro",
+        "race": null,
+        "attack": null,
+        "cost": null,
+        "ability": "En respuesta a que tu oponente juegue una carta, si Ojo Udyat está en tu Reserva de Oro, puedes desterrarlo para buscar una carta de Tótem o de Orbe en tu Mazo Castillo y ponerlo en juego sin pagar su coste."
+    },
+    {
+        "name": "Tótem de Nwyre",
+        "image_path": "https://api.myl.cl/static/cards/49/015.png",
+        "rarity": "Cortesano",
+        "type": "Tótem",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Paga 1 de oro y roba 1 carta."
+    },
+    {
+        "name": "Red de Plata",
+        "image_path": "https://api.myl.cl/static/cards/49/021.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Anula un Aliado oponente."
+    },
+    {
+        "name": "Antropófagos",
+        "image_path": "https://api.myl.cl/static/cards/49/024.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 4,
+        "ability": "Gana el control de un Aliado oponente y en la Fase Final debe ser destruido."
+    },
+    {
+        "name": "Hacha de Batalla",
+        "image_path": "https://api.myl.cl/static/cards/49/033.png",
+        "rarity": "Cortesano",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "El portador de Hacha de Batalla gana 2 a la fuerza. En tu Fase Final, puedes robar 1 carta."
+    },
+    {
+        "name": "Raza de Pigmeos",
+        "image_path": "https://api.myl.cl/static/cards/49/034.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 1,
+        "ability": "Anula un Tótem."
+    },
+    {
+        "name": "Red de Plata",
+        "image_path": "https://api.myl.cl/static/cards/49/132.png",
+        "rarity": "Cortesano",
+        "type": "Talismán",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Anula un Aliado oponente."
+    },
+    {
+        "name": "Martillo Pesado",
+        "image_path": "https://api.myl.cl/static/cards/49/018.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 3,
+        "ability": "Cuando Martillo Pesado entra en juego, puedes destruir una carta en juego que no sea Oro. El portador de Martillo Pesado gana 2 a la fuerza."
+    },
+    {
+        "name": "Espada Larga",
+        "image_path": "https://api.myl.cl/static/cards/49/031.png",
+        "rarity": "Vasallo",
+        "type": "Arma",
+        "race": null,
+        "attack": null,
+        "cost": 2,
+        "ability": "Cuando Espada Larga entra en juego, roba 2 cartas de tu Mazo Castillo. El portador de Espada Larga gana 1 a la fuerza."
+    }
+]

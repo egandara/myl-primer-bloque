@@ -1,0 +1,65 @@
+﻿@using static SandboxApp.Components.Pages.Home
+
+<div draggable="true"
+     @ondragstart="ManejarDragStart"
+     @ondblclick="ManejarDblClick"
+     onmousedown="this.style.zIndex='99999';"
+     style="@Style">
+
+    <div style="@GetInnerContainerStyle()"
+         onmousemove="@GetMouseMoveJs()"
+         onmouseleave="this.style.transform='none'; this.parentElement.style.zIndex='@Index'; this.style.boxShadow=''; this.children[1].style.opacity='0';">
+
+        <img src="@Card.RutaImagen"
+             @onmouseover="ActivarLupa"
+             @onmouseout="DesactivarLupa"
+             style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px; display: block; @(Card.Tipo.Contains("Arma") ? "box-shadow: -3px 3px 6px rgba(0,0,0,0.5);" : "")" />
+
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; border-radius:4px; mix-blend-mode: overlay; opacity:0; transition: opacity 0.1s ease;"></div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public CartaJuego Card { get; set; } = new();
+    [Parameter] public string Style { get; set; } = ""; // Recibe las coordenadas o tamaños del padre
+    [Parameter] public int Index { get; set; } = 0;     // Su orden z-index
+    [Parameter] public bool IsHand { get; set; } = false; // ¿Es una carta de la mano?
+
+    // Eventos que le notifican al Tablero Principal (Home.razor)
+    [Parameter] public EventCallback<string> OnDragStart { get; set; }
+    [Parameter] public EventCallback<CartaJuego> OnDblClick { get; set; }
+    [Parameter] public EventCallback<string> OnZoomIn { get; set; }
+    [Parameter] public EventCallback OnZoomOut { get; set; }
+
+    private void ManejarDragStart() => OnDragStart.InvokeAsync(Card.Id);
+    private void ManejarDblClick() => OnDblClick.InvokeAsync(Card);
+    private void ActivarLupa() => OnZoomIn.InvokeAsync(Card.RutaImagen);
+    private void DesactivarLupa() => OnZoomOut.InvokeAsync();
+
+    // Devuelve los estilos tridimensionales base según la zona
+    private string GetInnerContainerStyle()
+    {
+        string baseStyle = "position: relative; width: 100%; height: 100%; perspective: 500px; transform-style: preserve-3d; transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.12s ease;";
+        if (Card.IsGirada && !IsHand)
+        {
+            // Si la carta está girada en la mesa (declarando ataque o pago)
+            baseStyle += " transform: rotate(90deg);";
+        }
+        return baseStyle;
+    }
+
+    // Genera la cadena de JavaScript exacta para el balanceo y el brillo Foil
+    private string GetMouseMoveJs()
+    {
+        if (IsHand)
+        {
+            // Físicas premium de la mano: se endereza a 0 grados, sube 45px y se agranda un 35%
+            return "let r=this.getBoundingClientRect(); let x=event.clientX-r.left; let y=event.clientY-r.top; let pctX=(x/r.width)*100; this.style.transform='perspective(600px) translateX(0px) translateY(-45px) rotate(0deg) rotateX('+((r.height/2-y)/3)+'deg) rotateY('+((x-r.width/2)/3)+'deg) scale(1.35)'; this.parentElement.style.zIndex='99999'; this.style.boxShadow='0 20px 45px rgba(0,0,0,0.9)'; this.children[1].style.opacity='0.5'; this.children[1].style.background='linear-gradient('+Math.atan2(y-r.height/2, x-r.width/2)*(180/Math.PI)+'deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) '+pctX+'%, rgba(255,255,255,0) 100%)';";
+        }
+        else
+        {
+            // Físicas premium de la mesa: rotación Tilt estándar sobre su propio eje
+            return "let r=this.getBoundingClientRect(); let x=event.clientX-r.left; let y=event.clientY-r.top; let pctX=(x/r.width)*100; this.style.transform='perspective(600px) rotateX('+((r.height/2-y)/4)+'deg) rotateY('+((x-r.width/2)/4)+'deg) scale(1.1)'; this.style.zIndex='50'; this.children[1].style.opacity='0.45'; this.children[1].style.background='linear-gradient('+Math.atan2(y-r.height/2, x-r.width/2)*(180/Math.PI)+'deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) '+pctX+'%, rgba(255,255,255,0) 100%)';";
+        }
+    }
+}
