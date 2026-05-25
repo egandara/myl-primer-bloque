@@ -1,10 +1,14 @@
 using SandboxApp.Components;
+using SandboxApp.Services; // <-- Agregamos esta referencia
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Registramos el administrador de partidas como Singleton para que sea el mismo para todos los jugadores
+builder.Services.AddSingleton<GameManagerService>();
 
 var app = builder.Build();
 

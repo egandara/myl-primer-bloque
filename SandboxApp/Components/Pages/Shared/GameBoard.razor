@@ -1,4 +1,6 @@
 ﻿@inject IJSRuntime JSRuntime
+@inject SandboxApp.Services.GameManagerService GameManager
+@implements IDisposable
 @using System.Text.Json
 @using System.IO
 @using static SandboxApp.Components.Pages.Home
@@ -91,11 +93,6 @@
 
 <div @ondragend="LimpiarHover" style="display: flex; width: 100vw; height: 100vh; background: radial-gradient(circle at center, #181411 0%, #070605 100%); color: white; font-family: 'Georgia', serif; overflow: hidden; user-select: none;">
 
-    <div style="position: absolute; top: 15px; left: 15px; z-index: 6000; display: flex; gap: 8px;">
-        <button @onclick="() => OnSurrender.InvokeAsync()" style="background: linear-gradient(135deg, #451b1d 0%, #240a0c 100%); color: #ff4d4d; border: 1px solid #6b2125; padding: 6px 14px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.7rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: background 0.1s;">🏳️ Rendirse (Derrota)</button>
-        <button @onclick="() => OnDraw.InvokeAsync()" style="background: linear-gradient(135deg, #1c242b 0%, #0d1217 100%); color: #44ccff; border: 1px solid #285a7a; padding: 6px 14px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.7rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: background 0.1s;">🤝 Pedir Empate</button>
-    </div>
-
     @if (FaseMulliganActiva)
     {
         <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(4,3,3,0.98); backdrop-filter: blur(25px); z-index: 7000; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 30px; box-sizing: border-box;">
@@ -168,9 +165,10 @@
     }
 
     <div style="width: 75%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 8px; box-sizing: border-box; border-right: 3px solid #33271c; z-index: 10; position: relative;">
-        <div @ondrop='() => ManejarDropZonaAbierta("Campo Oponente")' @ondragover="(() => { })" @ondragover:preventDefault style="height: 30%; border: 2px solid #422f1d; background: linear-gradient(180deg, #120e0a 0%, #0a0806 100%); box-shadow: inset 0 0 25px rgba(0,0,0,0.9); border-radius: 6px; display: flex; flex-direction: column; justify-content: space-between; padding: 6px; box-sizing: border-box; overflow: hidden; position: relative;">
-            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; z-index: 10;">
-                <span style="color: #57412b; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; margin-left: 170px;">[ Campo del Oponente ]</span>
+        <div style="height: 30%; border: 2px solid #422f1d; background: linear-gradient(180deg, #120e0a 0%, #0a0806 100%); box-shadow: inset 0 0 25px rgba(0,0,0,0.9); border-radius: 6px; display: flex; flex-direction: column; padding: 4px 6px; box-sizing: border-box; overflow: hidden; position: relative;">
+
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; z-index: 10; margin-bottom: 4px;">
+                <span style="color: #57412b; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; font-weight: bold;">[ Campo de Batalla del Oponente ]</span>
                 <div style="display: flex; gap: 4px;">
                     <button @onclick='() => AbrirInspectorZona("Castillo Oponente")' style="background: #211710; color: #b89047; border: 1px solid #5c3b16; font-size: 0.6rem; padding: 2px 6px; border-radius: 3px; cursor: pointer; font-weight: bold;">🏰 Mazo Op. (@MisCartas.Count(c => c.ZonaActual == "Castillo Oponente"))</button>
                     <button @onclick='() => AbrirInspectorZona("Cementerio Oponente")' style="background: #211710; color: #b89047; border: 1px solid #5c3b16; font-size: 0.6rem; padding: 2px 6px; border-radius: 3px; cursor: pointer; font-weight: bold;">💀 Cem. Op. (@MisCartas.Count(c => c.ZonaActual == "Cementerio Oponente"))</button>
@@ -178,16 +176,71 @@
                     <button @onclick='() => AbrirInspectorZona("Mano Oponente")' style="background: #4a1d24; color: #ff9999; border: 1px solid #852b36; font-size: 0.6rem; padding: 2px 6px; border-radius: 3px; cursor: pointer; font-weight: bold;">🎴 Mano Op. (@MisCartas.Count(c => c.ZonaActual == "Mano Oponente"))</button>
                 </div>
             </div>
-            <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-grow: 1;">
-                @foreach (var carta in MisCartas.Where(c => c.ZonaActual == "Campo Oponente"))
-                {
-                    <div draggable="true" @ondragstart="() => ManejarDragStart(carta.Id)" style="width: 62px; height: 88px; display: inline-block; position: relative; cursor: grab;">
-                        <div style="width: 100%; height: 100%; perspective: 500px; transform-style: preserve-3d; transition: transform 0.1s ease;" onmousemove="let r=this.getBoundingClientRect(); let x=event.clientX-r.left; let y=event.clientY-r.top; let pctX=(x/r.width)*100; this.style.transform='perspective(500px) rotateX('+((r.height/2-y)/4)+'deg) rotateY('+((x-r.width/2)/4)+'deg) scale(1.1)'; this.children[1].style.opacity='0.4'; this.children[1].style.background='linear-gradient('+Math.atan2(y-r.height/2, x-r.width/2)*(180/Math.PI)+'deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) '+pctX+'%, rgba(255,255,255,0) 100%)'; this.style.zIndex='999';" onmouseleave="this.style.transform='none'; this.children[1].style.opacity='0'; this.style.zIndex='';">
-                            <img src="@carta.RutaImagen" @onmouseover="() => ActivarZoom(carta.RutaImagen)" @onmouseout="DesactivarZoom" @ondblclick="() => AlternarGiro(carta)" style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px; display: block;" />
-                            <div style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; mix-blend-mode: overlay; opacity:0;"></div>
+
+            <div style="flex-grow: 1; display: grid; grid-template-columns: 30% 45% 25%; gap: 8px; overflow: hidden;">
+
+                <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 4px;">
+                    <div style="background: rgba(9,20,15,0.25); border: 1px solid rgba(48,143,90,0.3); border-radius: 4px; display: flex; align-items: center; padding: 2px 6px; overflow-x: auto; position: relative;">
+                        <span style="font-size: 0.55rem; color: #308f5a; position: absolute; left: 4px; top: 2px; text-transform: uppercase; font-weight: bold;">Reserva</span>
+                        <div style="display: flex; gap: -20px; margin-left: 45px; align-items: center; height: 100%;">
+                            @foreach (var carta in MisCartas.Where(c => c.ZonaActual == "Reserva de Oro Oponente").OrderBy(c => c.OrdenEnZona))
+                            {
+                                <div style="width: 52px; height: 74px; flex-shrink: 0; cursor: zoom-in; margin-right: 4px; transition: transform 0.1s;" onmouseenter="this.style.transform='scale(1.1)'; this.style.zIndex='10';" onmouseleave="this.style.transform='none'; this.style.zIndex='1';">
+                                    <img src="@carta.RutaImagen" @onmouseover="() => ActivarZoom(carta.RutaImagen)" @onmouseout="DesactivarZoom" style="width: 100%; height: 100%; object-fit: contain; border-radius: 3px; transform: @(carta.IsGirada ? "rotate(90deg)" : "none"); box-shadow: 2px 2px 5px rgba(0,0,0,0.6);" />
+                                </div>
+                            }
                         </div>
                     </div>
-                }
+                    <div style="background: rgba(18,9,10,0.25); border: 1px solid rgba(138,43,51,0.3); border-radius: 4px; display: flex; align-items: center; padding: 2px 6px; overflow-x: auto; position: relative;">
+                        <span style="font-size: 0.55rem; color: #8a2b33; position: absolute; left: 4px; top: 2px; text-transform: uppercase; font-weight: bold;">Pagado</span>
+                        <div style="display: flex; gap: -20px; margin-left: 45px; align-items: center; height: 100%;">
+                            @foreach (var carta in MisCartas.Where(c => c.ZonaActual == "Oro Pagado Oponente").OrderBy(c => c.OrdenEnZona))
+                            {
+                                <div style="width: 52px; height: 74px; flex-shrink: 0; cursor: zoom-in; margin-right: 4px; transition: transform 0.1s;" onmouseenter="this.style.transform='scale(1.1)'; this.style.zIndex='10';" onmouseleave="this.style.transform='none'; this.style.zIndex='1';">
+                                    <img src="@carta.RutaImagen" @onmouseover="() => ActivarZoom(carta.RutaImagen)" @onmouseout="DesactivarZoom" style="width: 100%; height: 100%; object-fit: contain; border-radius: 3px; transform: @(carta.IsGirada ? "rotate(90deg)" : "none"); box-shadow: 2px 2px 5px rgba(0,0,0,0.6);" />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-rows: 1fr 1fr; gap: 4px;">
+                    <div style="background: rgba(15,11,8,0.25); border: 1px solid rgba(61,42,28,0.4); border-radius: 4px; display: flex; align-items: center; padding: 2px 6px; overflow-x: auto; position: relative;">
+                        <span style="font-size: 0.55rem; color: #b89047; position: absolute; left: 4px; top: 2px; text-transform: uppercase; font-weight: bold;">Defensa</span>
+                        <div style="display: flex; gap: 6px; margin-left: 45px; align-items: center; height: 100%;">
+                            @foreach (var carta in MisCartas.Where(c => c.ZonaActual == "Línea de Defensa Oponente").OrderBy(c => c.OrdenEnZona))
+                            {
+                                <div style="width: 52px; height: 74px; flex-shrink: 0; cursor: zoom-in; transition: transform 0.1s;" onmouseenter="this.style.transform='scale(1.1)'; this.style.zIndex='10';" onmouseleave="this.style.transform='none'; this.style.zIndex='1';">
+                                    <img src="@carta.RutaImagen" @onmouseover="() => ActivarZoom(carta.RutaImagen)" @onmouseout="DesactivarZoom" style="width: 100%; height: 100%; object-fit: contain; border-radius: 3px; transform: @(carta.IsGirada ? "rotate(90deg)" : "none"); box-shadow: 2px 2px 5px rgba(0,0,0,0.6);" />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div style="background: rgba(20,11,13,0.25); border: 1px solid rgba(90,24,30,0.4); border-radius: 4px; display: flex; align-items: center; padding: 2px 6px; overflow-x: auto; position: relative;">
+                        <span style="font-size: 0.55rem; color: #a1323b; position: absolute; left: 4px; top: 2px; text-transform: uppercase; font-weight: bold;">Ataque</span>
+                        <div style="display: flex; gap: 6px; margin-left: 45px; align-items: center; height: 100%;">
+                            @foreach (var carta in MisCartas.Where(c => c.ZonaActual == "Línea de Ataque Oponente").OrderBy(c => c.OrdenEnZona))
+                            {
+                                <div style="width: 52px; height: 74px; flex-shrink: 0; cursor: zoom-in; transition: transform 0.1s;" onmouseenter="this.style.transform='scale(1.1)'; this.style.zIndex='10';" onmouseleave="this.style.transform='none'; this.style.zIndex='1';">
+                                    <img src="@carta.RutaImagen" @onmouseover="() => ActivarZoom(carta.RutaImagen)" @onmouseout="DesactivarZoom" style="width: 100%; height: 100%; object-fit: contain; border-radius: 3px; transform: @(carta.IsGirada ? "rotate(90deg)" : "none"); box-shadow: 2px 2px 5px rgba(0,0,0,0.6);" />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(9,14,20,0.25); border: 1px solid rgba(48,110,176,0.3); border-radius: 4px; display: flex; flex-direction: column; padding: 4px; overflow-y: auto; position: relative;">
+                    <span style="font-size: 0.55rem; color: #306eb0; text-transform: uppercase; font-weight: bold; margin-bottom: 4px;">Apoyo Op.</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-start;">
+                        @foreach (var carta in MisCartas.Where(c => c.ZonaActual == "Línea de Apoyo Oponente").OrderBy(c => c.OrdenEnZona))
+                        {
+                            <div style="width: 52px; height: 74px; flex-shrink: 0; cursor: zoom-in; transition: transform 0.1s;" onmouseenter="this.style.transform='scale(1.1)'; this.style.zIndex='10';" onmouseleave="this.style.transform='none'; this.style.zIndex='1';">
+                                <img src="@carta.RutaImagen" @onmouseover="() => ActivarZoom(carta.RutaImagen)" @onmouseout="DesactivarZoom" style="width: 100%; height: 100%; object-fit: contain; border-radius: 3px; transform: @(carta.IsGirada ? "rotate(90deg)" : "none"); box-shadow: 2px 2px 5px rgba(0,0,0,0.6);" />
+                            </div>
+                        }
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -537,6 +590,19 @@
 </div>
 
 <div style="width: 25%; height: 100%; display: flex; flex-direction: column; background-color: #0b0b0b; border-left: 1px solid #1a1a1a; z-index: 30;">
+    <div style="background: #111; border-bottom: 2px solid #1a1a1a; padding: 8px; display: flex; flex-direction: column; gap: 6px;">
+        @if (EsMultiplayer)
+        {
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #0a0a0a; border: 1px solid #332415; padding: 4px 10px; border-radius: 4px;">
+                <span style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; font-weight: bold;">🌍 Cód. Sala:</span>
+                <span style="color: #ffcc00; font-size: 0.95rem; font-family: monospace; font-weight: bold; letter-spacing: 2px;">@SalaId</span>
+            </div>
+        }
+        <div style="display: flex; gap: 5px;">
+            <button @onclick="() => OnSurrender.InvokeAsync()" style="flex: 1; background: linear-gradient(135deg, #451b1d 0%, #240a0c 100%); color: #ff4d4d; border: 1px solid #6b2125; padding: 5px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.65rem; box-shadow: 0 2px 5px rgba(0,0,0,0.5); transition: background 0.1s;">🏳️ Rendirse</button>
+            <button @onclick="() => OnDraw.InvokeAsync()" style="flex: 1; background: linear-gradient(135deg, #1c242b 0%, #0d1217 100%); color: #44ccff; border: 1px solid #285a7a; padding: 5px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.65rem; box-shadow: 0 2px 5px rgba(0,0,0,0.5); transition: background 0.1s;">🤝 Empate</button>
+        </div>
+    </div>
     <div style="height: 60%; width: 100%; display: flex; align-items: center; justify-content: center; background-color: #050505; border-bottom: 2px solid #1a1a1a; box-sizing: border-box; overflow: hidden; position: relative;">
         @if (!string.IsNullOrEmpty(UrlCartaZoom))
         {
@@ -557,19 +623,56 @@
         <div style="flex-grow: 1; background: #030303; border-radius: 0 0 4px 4px; border: 1px solid #1e1e1e; padding: 6px; display: flex; flex-direction: column; overflow: hidden;">
             @if (PestanaLateralActiva == "Chat")
             {
-                <div style="flex-grow: 1; overflow-y: auto; font-size: 0.8rem; color: #ccc; padding-right: 2px;">@foreach (var msg in ListaMensajesChat) {
-                    <div style="margin-bottom: 2px; word-break: break-all;">@msg</div>
-                }
-            </div>
-            <input type="text" placeholder="Escribe un mensaje..." @bind="TextoNuevoMensaje" @bind:event="oninput" @onkeyup="EnviarMensajeChat" style="padding: 6px; background: #141414; border: 1px solid #222; color: white; border-radius: 4px; font-size: 0.75rem; margin-top: 4px; box-sizing: border-box;" />
-        } else
-        {
-            <div style="flex-grow: 1; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 0.75rem; line-height: 13px; padding-right: 2px;">@foreach (var entrada in HistorialLogs) { var colorLog = "#00ff55"; var pesoFuente = "normal"; if (entrada.Contains("[FASE]")) { colorLog = "#ffcc00"; pesoFuente = "bold"; } else if (entrada.Contains("[EQUIPAMIENTO]")) { colorLog = "#00e5ff"; pesoFuente = "bold"; } else if (entrada.Contains("[TUTOR]")) { colorLog = "#e040fb"; pesoFuente = "bold"; } else if (entrada.Contains("MECÁNICA")) { colorLog = "#ff9100"; } else if (entrada.Contains("Sistema:")) { colorLog = "#ffffff"; pesoFuente = "bold"; }
-                <div style="color: @colorLog; font-weight: @pesoFuente; margin-bottom: 3px; word-break: break-word;">@entrada</div>
+                <div style="flex-grow: 1; overflow-y: auto; font-size: 0.8rem; color: #ccc; padding-right: 2px;">
+                    @foreach (var msg in ListaMensajesChat)
+                    {
+                        bool esMio = msg.StartsWith(NombreJugador + ":");
+                        <div style="margin-bottom: 4px; word-break: break-word; background: @(esMio ? "rgba(161, 88, 44, 0.15)" : "rgba(68, 204, 255, 0.1)"); padding: 4px 6px; border-radius: 4px; border-left: 2px solid @(esMio ? "#a1582c" : "#44ccff"); color: @(esMio ? "#ffccaa" : "#cceeff");">
+                            @msg
+                        </div>
+                    }
+                </div>
+                <input type="text" placeholder="Escribe un mensaje..." @bind="TextoNuevoMensaje" @bind:event="oninput" @onkeyup="EnviarMensajeChat" style="padding: 6px; background: #141414; border: 1px solid #222; color: white; border-radius: 4px; font-size: 0.75rem; margin-top: 4px; box-sizing: border-box;" />
+            }
+            else
+            {
+                <div style="flex-grow: 1; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 0.75rem; line-height: 13px; padding-right: 2px;">
+                    @foreach (var entrada in HistorialLogs)
+                    {
+                        var colorLog = "#00ff55";
+                        var pesoFuente = "normal";
+                        var fondoLog = "transparent";
+
+                        // Colores por categoría táctica
+                        if (entrada.Contains("[FASE]")) { colorLog = "#ffcc00"; pesoFuente = "bold"; }
+                        else if (entrada.Contains("[EQUIPAMIENTO]")) { colorLog = "#00e5ff"; pesoFuente = "bold"; }
+                        else if (entrada.Contains("[TUTOR]")) { colorLog = "#e040fb"; pesoFuente = "bold"; }
+                        else if (entrada.Contains("MECÁNICA")) { colorLog = "#ff9100"; }
+                        else if (entrada.Contains("Sistema:")) { colorLog = "#ffffff"; pesoFuente = "bold"; }
+                        else if (entrada.Contains("[COMBATE]")) { colorLog = "#ff4d4d"; pesoFuente = "bold"; }
+
+                        // Identificar de quién es la acción mediante un tenue fondo
+                        if (EsMultiplayer && !entrada.Contains("Sistema:"))
+                        {
+                            if (entrada.Contains($"[{NombreJugador}]"))
+                            {
+                                fondoLog = "rgba(0, 255, 85, 0.08)"; // Fondo verde tenue (Tus acciones)
+                            }
+                            else
+                            {
+                                fondoLog = "rgba(255, 77, 77, 0.12)"; // Fondo rojo tenue (Acciones rivales)
+                                if (colorLog == "#00ff55") colorLog = "#ff9999"; // Cambia el verde estándar por rojo claro para el rival
+                            }
+                        }
+
+                        <div style="color: @colorLog; background: @fondoLog; font-weight: @pesoFuente; margin-bottom: 3px; padding: 3px; border-radius: 3px; word-break: break-word;">
+                            @entrada
+                        </div>
+                    }
+                </div>
             }
         </div>
     }
-</div>
 </div>
 </div>
 </div>
@@ -580,24 +683,85 @@
     [Parameter] public List<Home.CartaJuego> MazoBase { get; set; } = new();
     [Parameter] public string? UrlCartaZoom { get; set; }
 
+    // --- PARÁMETROS MULTIJUGADOR ---
+    [Parameter] public string SalaId { get; set; } = "";
+    [Parameter] public bool EsMultiplayer { get; set; } = false;
+
     [Parameter] public EventCallback<string> OnZoomIn { get; set; }
     [Parameter] public EventCallback OnZoomOut { get; set; }
-
     [Parameter] public EventCallback OnSurrender { get; set; }
     [Parameter] public EventCallback OnDraw { get; set; }
 
-    private List<Home.CartaJuego> MisCartas { get; set; } = new();
+    private SandboxApp.Models.GameState? PartidaActual;
+
+    // --- MAGIA DE PERSPECTIVA ---
+    // Esta propiedad decide si lee las cartas en solitario o desde el servidor
+    // --- MAGIA DE PERSPECTIVA ---
+    // Esta propiedad decide si lee las cartas en solitario o desde el servidor
+    private List<Home.CartaJuego> MisCartas
+    {
+        get
+        {
+            if (!EsMultiplayer || PartidaActual == null) return _misCartasLocal;
+
+            var listaProyectada = new List<Home.CartaJuego>();
+            foreach (var c in PartidaActual.CartasEnJuego)
+            {
+                bool esMia = c.Id.StartsWith($"{NombreJugador}_");
+
+                if (esMia)
+                {
+                    listaProyectada.Add(c); // Mis cartas las veo y manipulo tal cual
+                }
+                else
+                {
+                    // ARREGLO: Ahora respetamos el nombre original de la zona y le añadimos " Oponente"
+                    string zonaVisual = c.ZonaActual.EndsWith(" Oponente") ? c.ZonaActual : c.ZonaActual + " Oponente";
+
+                    // Ocultamos las imágenes de su mano y mazo
+                    string imagenProtegida = (c.ZonaActual == "Mano" || c.ZonaActual == "Castillo") ? "images/back_card.png" : c.RutaImagen;
+
+                    listaProyectada.Add(new Home.CartaJuego
+                    {
+                        Id = c.Id,
+                        Nombre = c.Nombre,
+                        RutaImagen = imagenProtegida,
+                        ZonaActual = zonaVisual,
+                        OrdenEnZona = c.OrdenEnZona,
+                        IsGirada = c.IsGirada,
+                        Fuerza = c.Fuerza,
+                        FuerzaModificada = c.FuerzaModificada,
+                        Tipo = c.Tipo
+                    });
+                }
+            }
+            return listaProyectada;
+        }
+        set { if (!EsMultiplayer) _misCartasLocal = value; }
+    }
+    private List<Home.CartaJuego> _misCartasLocal = new();
+
+    private List<string> HistorialLogs => EsMultiplayer && PartidaActual != null ? PartidaActual.HistorialLogs : _historialLogsLocal;
+    private List<string> _historialLogsLocal = new();
+
+    private List<string> ListaMensajesChat => EsMultiplayer && PartidaActual != null ? PartidaActual.MensajesChat : _listaMensajesChatLocal;
+    private List<string> _listaMensajesChatLocal = new();
+
+    private bool MiTurnoActActive
+    {
+        get => EsMultiplayer && PartidaActual != null ? PartidaActual.JugadorTurnoActivo == NombreJugador : _miTurnoLocal;
+        set { if (!EsMultiplayer) _miTurnoLocal = value; }
+    }
+    private bool _miTurnoLocal = true;
+
     private bool MostrarInspectorZona = false;
     private string ZonaInspeccionada = "";
     private int LimiteTopX = 0;
     private bool EsOrdenamientoTopX => LimiteTopX > 0 && ZonaInspeccionada == "Castillo";
     private List<Home.CartaJuego> CartasBuzonInspector = new();
-    private bool MiTurnoActActive = true;
 
     private string? IdCartaArrastrada = null;
     private string TextoNuevoMensaje = "";
-    private List<string> ListaMensajesChat = new();
-    private List<string> HistorialLogs = new();
     private string PestanaLateralActiva = "Chat";
     private string? IdCartaHoverEnMesa = null;
     private bool InyectarAntes = true;
@@ -611,12 +775,27 @@
 
     protected override void OnInitialized()
     {
+        if (EsMultiplayer)
+        {
+            PartidaActual = GameManager.ObtenerPartida(SalaId);
+            if (PartidaActual != null)
+            {
+                // Suscribirse a los cambios del servidor
+                PartidaActual.OnStateChanged += ActualizarPantalla;
+
+                // El primero en entrar toma el turno inicial
+                if (string.IsNullOrEmpty(PartidaActual.JugadorTurnoActivo))
+                    PartidaActual.JugadorTurnoActivo = NombreJugador;
+            }
+        }
+
         int idx = 0;
         foreach (var c in MazoBase)
         {
-            MisCartas.Add(new Home.CartaJuego
+            var cartaNueva = new Home.CartaJuego
             {
-                Id = c.Id,
+                // Agregamos un prefijo único en multiplayer para no mezclar las cartas de ambos
+                Id = EsMultiplayer ? $"{NombreJugador}_{c.Id}_{Guid.NewGuid().ToString().Substring(0, 4)}" : c.Id,
                 Nombre = c.Nombre,
                 Edicion = c.Edicion,
                 Tipo = c.Tipo,
@@ -627,9 +806,29 @@
                 Habilidad = c.Habilidad,
                 ZonaActual = "Castillo",
                 OrdenEnZona = idx++
-            });
+            };
+
+            if (EsMultiplayer && PartidaActual != null) PartidaActual.CartasEnJuego.Add(cartaNueva);
+            else _misCartasLocal.Add(cartaNueva);
         }
-        HistorialLogs.Add($"Sistema: Partida iniciada por [{NombreJugador}]. Esperando Mulligan...");
+
+        Histolog($"Sistema: Partida iniciada por [{NombreJugador}]. Esperando Mulligan...");
+    }
+
+    private void ActualizarPantalla()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        if (PartidaActual != null) PartidaActual.OnStateChanged -= ActualizarPantalla;
+    }
+
+    // --- HELPER PARA AVISAR AL SERVIDOR DE CAMBIOS ---
+    private void NotificarMesa()
+    {
+        if (EsMultiplayer && PartidaActual != null) PartidaActual.NotificarCambios();
     }
 
     private async Task TriggerRitualBarajadoMano()
@@ -637,35 +836,85 @@
         if (AnimacionBarajadoActiva) return;
         AnimacionBarajadoActiva = true; MazoBarajadoInicial = true; CartasReveladasAnimCount = 0;
         await JSRuntime.InvokeVoidAsync("playTCGSound", "shuffle"); await Task.Delay(1300);
-        var r = new Random(); var mazo = MisCartas.Where(c => c.ZonaActual == "Castillo").ToList(); int n = mazo.Count;
+
+        var mazo = MisCartas.Where(c => c.ZonaActual == "Castillo").ToList();
+        var r = new Random(); int n = mazo.Count;
         while (n > 1) { n--; int k = r.Next(n + 1); var value = mazo[k]; mazo[k] = mazo[n]; mazo[n] = value; }
+
         int idx = 0; foreach (var c in mazo) c.OrdenEnZona = idx++;
         var cartasEnMano = MisCartas.Where(c => c.ZonaActual == "Mano").ToList(); foreach (var c in cartasEnMano) c.ZonaActual = "Castillo";
         var nuevasCartas = MisCartas.Where(c => c.ZonaActual == "Castillo").OrderBy(c => c.OrdenEnZona).Take(CantidadRoboActual).ToList();
+
         int ordenMano = 0; foreach (var nc in nuevasCartas) { nc.ZonaActual = "Mano"; nc.OrdenEnZona = ordenMano++; }
         AnimacionBarajadoActiva = false;
-        for (int i = 1; i <= CantidadRoboActual; i++) { CartasReveladasAnimCount = i; await JSRuntime.InvokeVoidAsync("playTCGSound", "draw"); StateHasChanged(); await Task.Delay(260); }
+
+        for (int i = 1; i <= CantidadRoboActual; i++)
+        {
+            CartasReveladasAnimCount = i;
+            await JSRuntime.InvokeVoidAsync("playTCGSound", "draw");
+            NotificarMesa(); // Sincroniza la animación al rival
+            StateHasChanged();
+            await Task.Delay(260);
+        }
     }
 
     private async Task TriggerRechazarManoMulligan() { await JSRuntime.InvokeVoidAsync("playTCGSound", "mulligan"); CantidadRoboActual--; await TriggerRitualBarajadoMano(); }
-    private async Task TriggerAceptarManoLimpia() { await JSRuntime.InvokeVoidAsync("playTCGSound", "accept"); var oroIni = MisCartas.FirstOrDefault(c => c.Id == IdOroInicial); if (oroIni != null) { oroIni.ZonaActual = "Reserva de Oro"; } FaseMulliganActiva = false; Histolog($"📢 [FASE] {NombreJugador} aceptó una mano de {CantidadRoboActual} cartas. ¡Comienza el juego!"); }
+
+    private async Task TriggerAceptarManoLimpia()
+    {
+        await JSRuntime.InvokeVoidAsync("playTCGSound", "accept");
+        // El id de oro inicial ahora tiene el prefijo si es multiplayer
+        string idBuscado = EsMultiplayer ? MisCartas.FirstOrDefault(c => c.Id.Contains(IdOroInicial ?? ""))?.Id : IdOroInicial;
+        var oroIni = MisCartas.FirstOrDefault(c => c.Id == idBuscado);
+        if (oroIni != null) { oroIni.ZonaActual = "Reserva de Oro"; }
+        FaseMulliganActiva = false;
+        Histolog($"📢 [FASE] {NombreJugador} aceptó una mano de {CantidadRoboActual} cartas. ¡Comienza el juego!");
+        NotificarMesa();
+    }
 
     private void IntentarFinalizarTurno()
     {
         int totalEnMano = MisCartas.Count(c => c.ZonaActual == "Mano");
-        if (totalEnMano > 8) { int exceso = totalEnMano - 8; MensajeAlertaTurno = $"LÍMITE EXCEDIDO: Tienes {totalEnMano} cartas en la mano. El límite legal es 8. ¡Debes descartar {exceso} cartas al Cementerio!"; }
-        else { MensajeAlertaTurno = ""; FinalizarMiTurno(); }
+        if (totalEnMano > 8)
+        {
+            int exceso = totalEnMano - 8;
+            MensajeAlertaTurno = $"LÍMITE EXCEDIDO: Tienes {totalEnMano} cartas en la mano. El límite legal es 8. ¡Debes descartar {exceso} cartas al Cementerio!";
+        }
+        else
+        {
+            MensajeAlertaTurno = ""; FinalizarMiTurno();
+        }
     }
 
     private void SetHoverSlot(string idCarta, bool antes) { IdCartaHoverEnMesa = idCarta; InyectarAntes = antes; }
-    private void CambiarFuerzaManual(Home.CartaJuego aliado, int delta) { aliado.FuerzaModificada += delta; aliado.TieneFuerzaAlterada = (aliado.FuerzaModificada != 0); Histolog($"🔢 [MECÁNICA] Modificó la fuerza de [{aliado.Nombre}] a [{(aliado.Fuerza ?? 0) + aliado.FuerzaModificada}]."); }
-    private void LiberarDefensor(Home.CartaJuego defensor) { string? atacanteId = defensor.IdAliadoAtacante; var atacante = MisCartas.FirstOrDefault(x => x.Id == atacanteId); defensor.IdAliadoAtacante = null; Histolog($"🛡️ [COMBATE] [{defensor.Nombre}] ya no bloquea a [{atacante?.Nombre ?? "Atacante"}]."); DesactivarZoom(); }
+
+    private void CambiarFuerzaManual(Home.CartaJuego aliado, int delta)
+    {
+        aliado.FuerzaModificada += delta; aliado.TieneFuerzaAlterada = (aliado.FuerzaModificada != 0);
+        Histolog($"🔢 [MECÁNICA] Modificó la fuerza de [{aliado.Nombre}] a [{(aliado.Fuerza ?? 0) + aliado.FuerzaModificada}].");
+        NotificarMesa();
+    }
+
+    private void LiberarDefensor(Home.CartaJuego defensor)
+    {
+        string? atacanteId = defensor.IdAliadoAtacante; var atacante = MisCartas.FirstOrDefault(x => x.Id == atacanteId);
+        defensor.IdAliadoAtacante = null; Histolog($"🛡️ [COMBATE] [{defensor.Nombre}] ya no bloquea a [{atacante?.Nombre ?? "Atacante"}].");
+        DesactivarZoom(); NotificarMesa();
+    }
 
     private void AbrirInspectorZona(string zona, int topX = 0)
     {
         ZonaInspeccionada = zona; LimiteTopX = topX;
-        if (topX > 0 && zona == "Castillo") { CartasBuzonInspector = MisCartas.Where(c => c.ZonaActual == "Castillo").Take(topX).ToList(); Histolog($"🔮 [TUTOR] Viendo las {CartasBuzonInspector.Count} cartas superiores."); }
-        else { CartasBuzonInspector = MisCartas.Where(c => c.ZonaActual == zona).OrderBy(c => c.OrdenEnZona).ToList(); Histolog($"🔍 [TUTOR] Registros de zona: [{NombreZonaFormateada(zona)}]."); }
+        if (topX > 0 && zona == "Castillo")
+        {
+            CartasBuzonInspector = MisCartas.Where(c => c.ZonaActual == "Castillo").Take(topX).ToList();
+            Histolog($"🔮 [TUTOR] Viendo las {CartasBuzonInspector.Count} cartas superiores.");
+        }
+        else
+        {
+            CartasBuzonInspector = MisCartas.Where(c => c.ZonaActual == zona).OrderBy(c => c.OrdenEnZona).ToList();
+            Histolog($"🔍 [TUTOR] Registros de zona: [{NombreZonaFormateada(zona)}].");
+        }
         OnZoomOut.InvokeAsync(); MostrarInspectorZona = true;
     }
 
@@ -677,9 +926,10 @@
     {
         if (EsOrdenamientoTopX)
         {
-            var restoCastillo = MisCartas.Where(c => c.ZonaActual == "Castillo").Skip(LimiteTopX).ToList(); var cardboard = MisCartas.Where(c => c.ZonaActual != "Castillo").ToList();
-            int idx = 0; foreach (var c in CartasBuzonInspector) c.OrdenEnZona = idx++; foreach (var c in restoCastillo) c.OrdenEnZona = idx++;
-            MisCartas = cardboard.Concat(CartasBuzonInspector).Concat(restoCastillo).ToList(); Histolog("📢 [MECÁNICA] Reordenó el mazo Castillo."); CerrarInspectorZona();
+            var restoCastillo = MisCartas.Where(c => c.ZonaActual == "Castillo").Skip(LimiteTopX).ToList();
+            int idx = 0; foreach (var c in CartasBuzonInspector) c.OrdenEnZona = idx++;
+            foreach (var c in restoCastillo) c.OrdenEnZona = idx++;
+            Histolog("📢 [MECÁNICA] Reordenó el mazo Castillo."); CerrarInspectorZona(); NotificarMesa();
         }
     }
 
@@ -688,17 +938,51 @@
         var target = MisCartas.FirstOrDefault(c => c.Id == carta.Id);
         if (target != null)
         {
-            string orig = target.ZonaActual; target.ZonaActual = zonaDestino; target.IsGirada = false; target.IdAliadoPortador = null; target.IdAliadoAtacante = null;
+            string orig = target.ZonaActual;
+            target.ZonaActual = zonaDestino; target.IsGirada = false; target.IdAliadoPortador = null; target.IdAliadoAtacante = null;
             int maxOrden = MisCartas.Where(c => c.ZonaActual == zonaDestino).Select(c => (int?)c.OrdenEnZona).Max() ?? 0; target.OrdenEnZona = maxOrden + 1;
-            Histolog($"🔮 [TUTOR] Movió [{target.Nombre}] de [{NombreZonaFormateada(orig)}] a [{NombreZonaFormateada(zonaDestino)}]."); CartasBuzonInspector.Remove(carta); OnZoomOut.InvokeAsync();
+            Histolog($"🔮 [TUTOR] Movió [{target.Nombre}] de [{NombreZonaFormateada(orig)}] a [{NombreZonaFormateada(zonaDestino)}].");
+            CartasBuzonInspector.Remove(carta); OnZoomOut.InvokeAsync(); NotificarMesa();
         }
     }
 
     private string NombreZonaFormateada(string zona) => zona switch { "Castillo" => "Mi Castillo", "Cementerio" => "Mi Cementerio", "Destierro" => "Mi Destierro", "Campo Oponente" => "Campo Oponente", "Línea de Ataque" => "Línea de Ataque", "Línea de Defensa" => "Línea de Defensa", "Línea de Apoyo" => "Línea de Apoyo", "Mano" => "Mano", "Reserva de Oro" => "Reserva de Oro", "Oro Pagado" => "Oros Pagados", _ => zona };
-    private void FinalizarMiTurno() { MiTurnoActActive = false; Histolog($"📢 [FASE] {NombreJugador} finalizó su turno."); }
-    private void SimularPaseRival() { MiTurnoActActive = true; Histolog($"⚔️ [FASE] ¡Es tu turno de nuevo, {NombreJugador}!"); }
-    private void BarajarCastillo() { var mazo = MisCartas.Where(c => c.ZonaActual == "Castillo").OrderBy(c => Guid.NewGuid()).ToList(); int idx = 0; foreach (var c in mazo) c.OrdenEnZona = idx++; MisCartas = MisCartas.Where(c => c.ZonaActual != "Castillo").Concat(mazo).ToList(); Histolog("📢 [MECÁNICA] Mazo Castillo barajado."); }
-    private void EnviarMensajeChat(KeyboardEventArgs e) { if (e.Key == "Enter" && !string.IsNullOrWhiteSpace(TextoNuevoMensaje)) { ListaMensajesChat.Add($"{NombreJugador}: {TextoNuevoMensaje}"); TextoNuevoMensaje = ""; } }
+
+    private void FinalizarMiTurno()
+    {
+        if (EsMultiplayer && PartidaActual != null)
+        {
+            PartidaActual.JugadorTurnoActivo = PartidaActual.Jugador1 == NombreJugador ? PartidaActual.Jugador2 : PartidaActual.Jugador1;
+        }
+        else
+        {
+            _miTurnoLocal = false;
+        }
+        Histolog($"📢 [FASE] {NombreJugador} finalizó su turno."); NotificarMesa();
+    }
+
+    private void SimularPaseRival()
+    {
+        if (!EsMultiplayer) { _miTurnoLocal = true; Histolog($"⚔️ [FASE] ¡Es tu turno de nuevo, {NombreJugador}!"); }
+    }
+
+    private void BarajarCastillo()
+    {
+        var mazo = MisCartas.Where(c => c.ZonaActual == "Castillo").OrderBy(c => Guid.NewGuid()).ToList();
+        int idx = 0; foreach (var c in mazo) c.OrdenEnZona = idx++;
+        Histolog("📢 [MECÁNICA] Mazo Castillo barajado."); NotificarMesa();
+    }
+
+    private void EnviarMensajeChat(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !string.IsNullOrWhiteSpace(TextoNuevoMensaje))
+        {
+            if (EsMultiplayer && PartidaActual != null) PartidaActual.EnviarMensaje(NombreJugador, TextoNuevoMensaje);
+            else _listaMensajesChatLocal.Add($"{NombreJugador}: {TextoNuevoMensaje}");
+            TextoNuevoMensaje = "";
+        }
+    }
+
     private void ManejarDragStart(string idCarta) { IdCartaArrastrada = idCarta; OnZoomOut.InvokeAsync(); }
 
     private void ManejarDrop(string zonaDestino)
@@ -708,11 +992,12 @@
             var c = MisCartas.FirstOrDefault(x => x.Id == IdCartaArrastrada);
             if (c != null)
             {
-                string orig = c.ZonaActual; c.ZonaActual = zonaDestino; c.IdAliadoPortador = null; c.IsGirada = false; c.IdAliadoAtacante = null;
+                string orig = c.ZonaActual;
+                c.ZonaActual = zonaDestino; c.IdAliadoPortador = null; c.IsGirada = false; c.IdAliadoAtacante = null;
                 int maxOrden = MisCartas.Where(x => x.ZonaActual == zonaDestino).Select(x => (int?)x.OrdenEnZona).Max() ?? 0; c.OrdenEnZona = maxOrden + 1;
                 Histolog($"Militar: [{c.Nombre}] movida de [{NombreZonaFormateada(orig)}] a [{NombreZonaFormateada(zonaDestino)}].");
             }
-            LimpiarHover();
+            LimpiarHover(); NotificarMesa();
         }
     }
 
@@ -720,33 +1005,72 @@
 
     private void ManejarDropEnSlotCalculado(Home.CartaJuego cartaDestino)
     {
-        if (string.IsNullOrEmpty(IdCartaArrastrada)) return; var o = MisCartas.FirstOrDefault(x => x.Id == IdCartaArrastrada); if (o == null) return;
-        if (o.ZonaActual == "Línea de Defensa" && cartaDestino.ZonaActual == "Línea de Ataque" && o.Tipo.Contains("Aliado")) { o.IdAliadoAtacante = cartaDestino.Id; Histolog($"🛡️ [COMBATE] [{o.Nombre}] asignado para bloquear a [{cartaDestino.Nombre}]."); LimpiarHover(); return; }
-        if (o.Tipo.Contains("Arma") && cartaDestino.Tipo.Contains("Aliado") && o.ZonaActual != cartaDestino.ZonaActual) { o.IdAliadoPortador = cartaDestino.Id; o.ZonaActual = cartaDestino.ZonaActual; o.IsGirada = false; Histolog($"⚔️ [EQUIPAMIENTO] [{o.Nombre}] equipada a [{cartaDestino.Nombre}]."); LimpiarHover(); return; }
+        if (string.IsNullOrEmpty(IdCartaArrastrada)) return;
+        var o = MisCartas.FirstOrDefault(x => x.Id == IdCartaArrastrada); if (o == null) return;
+
+        if (o.ZonaActual == "Línea de Defensa" && cartaDestino.ZonaActual == "Línea de Ataque" && o.Tipo.Contains("Aliado"))
+        {
+            o.IdAliadoAtacante = cartaDestino.Id;
+            Histolog($"🛡️ [COMBATE] [{o.Nombre}] asignado para bloquear a [{cartaDestino.Nombre}]."); LimpiarHover(); NotificarMesa(); return;
+        }
+        if (o.Tipo.Contains("Arma") && cartaDestino.Tipo.Contains("Aliado") && o.ZonaActual != cartaDestino.ZonaActual)
+        {
+            o.IdAliadoPortador = cartaDestino.Id; o.ZonaActual = cartaDestino.ZonaActual; o.IsGirada = false;
+            Histolog($"⚔️ [EQUIPAMIENTO] [{o.Nombre}] equipada a [{cartaDestino.Nombre}]."); LimpiarHover(); NotificarMesa(); return;
+        }
 
         string zonaMeta = cartaDestino.ZonaActual; int posicionDestino = cartaDestino.OrdenEnZona; if (!InyectarAntes) { posicionDestino++; }
         if (o.ZonaActual == zonaMeta)
         {
-            int antiguaPos = o.OrdenEnZona; var cartasZona = MisCartas.Where(x => x.ZonaActual == zonaMeta && x.Id != o.Id).OrderBy(x => x.OrdenEnZona).ToList();
+            int antiguaPos = o.OrdenEnZona;
+            var cartasZona = MisCartas.Where(x => x.ZonaActual == zonaMeta && x.Id != o.Id).OrderBy(x => x.OrdenEnZona).ToList();
             o.OrdenEnZona = posicionDestino;
             foreach (var c in cartasZona) { if (antiguaPos < posicionDestino) { if (c.OrdenEnZona > antiguaPos && c.OrdenEnZona < posicionDestino) c.OrdenEnZona--; } else { if (c.OrdenEnZona >= posicionDestino && c.OrdenEnZona < antiguaPos) c.OrdenEnZona++; } }
-            ReindexarZona(zonaMeta); Histolog($"🔄 [MECÁNICA] Reordenó [{o.Nombre}] directo en la posición elegida de [{NombreZonaFormateada(zonaMeta)}].");
+            ReindexarZona(zonaMeta);
+            Histolog($"🔄 [MECÁNICA] Reordenó [{o.Nombre}] directo en la posición elegida de [{NombreZonaFormateada(zonaMeta)}].");
         }
         else
         {
-            string orig = o.ZonaActual; o.ZonaActual = zonaMeta; o.IdAliadoPortador = null; o.IsGirada = false; o.IdAliadoAtacante = null; o.OrdenEnZona = posicionDestino;
-            var siguientes = MisCartas.Where(x => x.ZonaActual == zonaMeta && x.Id != o.Id && x.OrdenEnZona >= posicionDestino); foreach (var s in siguientes) s.OrdenEnZona++;
+            string orig = o.ZonaActual;
+            o.ZonaActual = zonaMeta; o.IdAliadoPortador = null; o.IsGirada = false; o.IdAliadoAtacante = null; o.OrdenEnZona = posicionDestino;
+            var siguientes = MisCartas.Where(x => x.ZonaActual == zonaMeta && x.Id != o.Id && x.OrdenEnZona >= posicionDestino);
+            foreach (var s in siguientes) s.OrdenEnZona++;
             ReindexarZona(orig); ReindexarZona(zonaMeta); Histolog($"Militar: [{o.Nombre}] inyectada en posición intermedia de [{NombreZonaFormateada(zonaMeta)}].");
         }
-        LimpiarHover();
+        LimpiarHover(); NotificarMesa();
     }
 
-    private void ReindexarZona(string zona) { var cartas = MisCartas.Where(x => x.ZonaActual == "Mano" ? x.ZonaActual == "Mano" : x.ZonaActual == zona && string.IsNullOrEmpty(x.IdAliadoPortador)).OrderBy(x => x.OrdenEnZona).ToList(); int idx = 0; foreach (var c in cartas) c.OrdenEnZona = idx++; }
+    private void ReindexarZona(string zona)
+    {
+        var cartas = MisCartas.Where(x => x.ZonaActual == "Mano" ? x.ZonaActual == "Mano" : x.ZonaActual == zona && string.IsNullOrEmpty(x.IdAliadoPortador)).OrderBy(x => x.OrdenEnZona).ToList();
+        int idx = 0; foreach (var c in cartas) c.OrdenEnZona = idx++;
+    }
+
     private void LimpiarHover() { IdCartaHoverEnMesa = null; IdCartaArrastrada = null; }
     private string GetEstiloAmontonadoOrganico(string idCarta, int indicePila) { int semillaCaos = idCarta.GetHashCode(); int rotacionDeg = (semillaCaos % 10) - 5; int shiftX = (semillaCaos % 9) - 4; int shiftY = (semillaCaos % 9) - 4; return $"position: absolute; width: 100%; height: 100%; top: {shiftY}px; left: {shiftX}px; transform: rotate({rotacionDeg}deg); z-index: {indicePila}; transition: all 0.15s ease-out;"; }
-    private void RobarCarta() { var c = MisCartas.Where(x => x.ZonaActual == "Castillo").OrderBy(x => x.OrdenEnZona).FirstOrDefault(); if (c != null) { c.ZonaActual = "Mano"; int maxMano = MisCartas.Where(x => x.ZonaActual == "Mano").Select(x => (int?)x.OrdenEnZona).Max() ?? 0; c.OrdenEnZona = maxMano + 1; Histolog($"Militar: Robó [{c.Nombre}]."); } LimpiarHover(); }
-    private void AlternarGiro(Home.CartaJuego c) { if (c.ZonaActual != "Mano" && c.ZonaActual != "Castillo") { c.IsGirada = !c.IsGirada; Histolog($"Militar: [{c.Nombre}] {(c.IsGirada ? "girada" : "enderezada")}."); } }
-    private void Histolog(string m) => HistorialLogs.Add($"[{DateTime.Now.ToLongTimeString()}] {m}");
+
+    private void RobarCarta()
+    {
+        var c = MisCartas.Where(x => x.ZonaActual == "Castillo").OrderBy(x => x.OrdenEnZona).FirstOrDefault();
+        if (c != null) { c.ZonaActual = "Mano"; int maxMano = MisCartas.Where(x => x.ZonaActual == "Mano").Select(x => (int?)x.OrdenEnZona).Max() ?? 0; c.OrdenEnZona = maxMano + 1; Histolog($"Militar: Robó [{c.Nombre}]."); }
+        LimpiarHover(); NotificarMesa();
+    }
+
+    private void AlternarGiro(Home.CartaJuego c)
+    {
+        if (c.ZonaActual != "Mano" && c.ZonaActual != "Castillo") { c.IsGirada = !c.IsGirada; Histolog($"Militar: [{c.Nombre}] {(c.IsGirada ? "girada" : "enderezada")}."); NotificarMesa(); }
+    }
+
+    private void Histolog(string m)
+    {
+        // Agregamos [TuNombre] al inicio del mensaje si es que la acción no lo trae ya
+        string firma = $"[{NombreJugador}]";
+        string mensajeFinal = m.Contains(NombreJugador) ? m : $"{firma} {m}";
+
+        if (EsMultiplayer && PartidaActual != null) PartidaActual.AgregarLog(mensajeFinal);
+        else _historialLogsLocal.Add($"[{DateTime.Now.ToLongTimeString()}] {mensajeFinal}");
+    }
+
     private void ActivarZoom(string url) => OnZoomIn.InvokeAsync(url);
     private void DesactivarZoom() => OnZoomOut.InvokeAsync();
 }

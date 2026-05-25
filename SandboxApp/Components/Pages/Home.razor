@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject IWebHostEnvironment Env
+@inject SandboxApp.Services.GameManagerService GameManager
 @using System.Text.Json
 @using System.IO
 
@@ -9,6 +10,8 @@
                                                   IdOroInicial="@IdOroInicial"
                                                   MazoBase="MazoPersonalizado"
                                                   UrlCartaZoom="@UrlCartaZoom"
+                                                  SalaId="@SalaIdActiva"
+                                                  EsMultiplayer="@EsMultiplayer"
                                                   OnZoomIn="ActivarZoom"
                                                   OnZoomOut="DesactivarZoom"
                                                   OnSurrender="ProcesarDerrota"
@@ -202,7 +205,7 @@ else if (VistaActual == "Album")
         @{
             var listaFiltro = CatalogoCompleto.Where(c => FiltroAlbumEdicion == "Todas" || c.Edicion.Trim().Equals(FiltroAlbumEdicion.Trim(), StringComparison.OrdinalIgnoreCase)).OrderBy(c => c.Edicion).ThenBy(c => c.Nombre).ToList();
             int totalElementos = listaFiltro.Count;
-            int elementosPorPagina = 10; // MODIFICADO: Formato 2x5
+            int elementosPorPagina = 10;
             int totalPaginas = (int)Math.Ceiling((double)totalElementos / elementosPorPagina);
             if (totalPaginas == 0) totalPaginas = 1;
             if (PaginaActualAlbum >= totalPaginas) PaginaActualAlbum = 0;
@@ -248,6 +251,41 @@ else if (VistaActual == "Album")
             <img src="@UrlCartaZoom" style="max-height: 90vh; object-fit: contain; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border-radius: 12px;" />
         </div>
     }
+}
+else if (VistaActual == "LobbyMultiplayer")
+{
+    <div style="display: flex; flex-direction: column; width: 100vw; height: 100vh; background: radial-gradient(circle at center, #1b120b 0%, #050505 100%); padding: 30px; box-sizing: border-box; font-family: 'Georgia', serif; color: white; align-items: center; justify-content: center;">
+        <div style="background: rgba(0,0,0,0.8); border: 2px solid #b89047; padding: 40px; border-radius: 8px; text-align: center; max-width: 450px; box-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+            <div style="font-size: 3rem; margin-bottom: 10px;">🌍</div>
+            <h2 style="color: #b89047; text-transform: uppercase; margin-top: 0; letter-spacing: 2px;">Sala de Duelo</h2>
+            <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 25px; font-family: sans-serif;">Crea una sala para invitar a tu rival, o ingresa el código secreto si ya te están esperando.</p>
+
+            @if (!string.IsNullOrEmpty(ErrorSala))
+            {
+                <div style="background: #4a1d24; border: 1px solid #852b36; color: #ff9999; padding: 10px; border-radius: 4px; margin-bottom: 15px; font-size: 0.8rem;">
+                    @ErrorSala
+                </div>
+            }
+
+            <button @onclick="CrearSalaMultiplayer" style="width: 100%; background: linear-gradient(135deg, #1e7e34 0%, #13441e 100%); color: white; border: 1px solid #28a745; padding: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; margin-bottom: 30px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                ⚔️ Crear Nueva Sala
+            </button>
+
+            <div style="border-top: 1px solid #3a2a1c; padding-top: 25px; position: relative;">
+                <span style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #111; padding: 0 10px; color: #888; font-size: 0.8rem; font-weight: bold;">O ÚNETE A UNA</span>
+
+                <input type="text" @bind="InputCodigoSala" placeholder="CÓDIGO (Ej: A4F2)" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #b89047; color: #ffcc00; border-radius: 4px; text-align: center; text-transform: uppercase; margin-bottom: 15px; box-sizing: border-box; font-size: 1.2rem; font-weight: bold; letter-spacing: 2px;" />
+
+                <button @onclick="UnirseSalaMultiplayer" style="width: 100%; background: linear-gradient(135deg, #1e5fa8 0%, #0d2e54 100%); color: white; border: 1px solid #44aaff; padding: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                    🤝 Unirse a la Sala
+                </button>
+            </div>
+        </div>
+
+        <button @onclick='() => CambiarVista("MenuPrincipal")' style="@EstiloBotonRegresar">
+            ⬅ Volver al Menú Principal
+        </button>
+    </div>
 }
 else
 {
@@ -304,6 +342,13 @@ else
                     <h3 style="margin: 0; color: #66b2ff; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px; font-weight: bold;">Modo Gladiador Carrera</h3>
                     <p style="margin: 6px 0 0 0; font-size: 0.75rem; color: #aaa; font-family: sans-serif; max-width: 340px; line-height: 13px; text-align: center;">El verdadero desafío. Gestiona tu colección y arma tus barajas utilizando **únicamente los naipes que posees** en tu álbum.</p>
                 </div>
+
+                <div @onclick='() => CambiarVista("LobbyMultiplayer")' style="@EstiloTarjetaMenu grid-column: span 2; background: linear-gradient(135deg, #3d0c22 0%, #17040d 100%); border-color: #a81e5f;" onmouseenter="this.style.transform='translateY(-5px)'; this.style.borderColor='#ff66b2'; this.style.boxShadow='0 12px 25px rgba(255,100,178,0.15)';" onmouseleave="this.style.transform='none'; this.style.borderColor='#a81e5f'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.5)';">
+                    <div style="font-size: 2.5rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px black);">🌍</div>
+                    <h3 style="margin: 0; color: #ff66b2; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px; font-weight: bold;">Duelo Multijugador</h3>
+                    <p style="margin: 6px 0 0 0; font-size: 0.8rem; color: #ccc; font-family: sans-serif; max-width: 500px; line-height: 14px; text-align: center;">Enfréntate a otro gladiador en tiempo real. Crea una sala o únete a una existente usando un código secreto.</p>
+                </div>
+
                 <div @onclick='() => CambiarVista("Tienda")' style="@EstiloTarjetaMenu background: linear-gradient(135deg, #4d3914 0%, #140e04 100%); border-color: #b89047;" onmouseenter="this.style.transform='translateY(-5px)'; this.style.borderColor='#ffcc00'; this.style.boxShadow='0 12px 25px rgba(255,200,0,0.15)';" onmouseleave="this.style.transform='none'; this.style.borderColor='#b89047'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.5)';">
                     <div style="font-size: 2.5rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px black);">🛒</div>
                     <h3 style="margin: 0; color: #ffcc66; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px; font-weight: bold;">Mercado de Camelot</h3>
@@ -384,6 +429,13 @@ else
     private string NombreJugador = "Gladiador";
     private string? IdOroInicial = null;
 
+    // --- VARIABLES DE MULTIJUGADOR ---
+    private string? SalaIdActiva = null;
+    private string InputCodigoSala = "";
+    private string ErrorSala = "";
+    private bool EsMultiplayer => !string.IsNullOrEmpty(SalaIdActiva);
+    // ---------------------------------
+
     private List<CartaJuego> CatalogoCompleto = new();
     private List<CartaJuego> CatalogoFiltradoPorModo = new();
     private List<CartaJuego> MazoPersonalizado = new();
@@ -392,9 +444,8 @@ else
     private bool MostrarMantenedor = false;
     private HashSet<string> IdsSinImagen = new();
     private string? UrlCartaZoom = null;
-
     private int PaginaActualAlbum = 0;
-    private string FiltroAlbumEdicion = "Todas"; // Inicializado en Bloque Completo por defecto
+    private string FiltroAlbumEdicion = "Todas";
     private string AvatarActivoKey = "Caballero Real";
     private string AvatarActivoIcono = "🛡️";
 
@@ -484,6 +535,38 @@ else
         return "Escudero Aspirante";
     }
 
+    // --- MÉTODOS MULTIJUGADOR ---
+    private void CrearSalaMultiplayer()
+    {
+        ErrorSala = "";
+        var partida = GameManager.CrearPartida(NombreJugador);
+        SalaIdActiva = partida.SalaId;
+        // Te llevamos al Constructor de Mazos (en modo libre temporalmente) para que te armes el mazo antes de la batalla
+        EntrarAConstructor(false);
+    }
+
+    private void UnirseSalaMultiplayer()
+    {
+        ErrorSala = "";
+        if (string.IsNullOrWhiteSpace(InputCodigoSala))
+        {
+            ErrorSala = "Debes ingresar un código de sala.";
+            return;
+        }
+
+        var partida = GameManager.UnirseAPartida(InputCodigoSala, NombreJugador);
+        if (partida != null)
+        {
+            SalaIdActiva = partida.SalaId;
+            EntrarAConstructor(false);
+        }
+        else
+        {
+            ErrorSala = "La sala no existe o ya está llena.";
+        }
+    }
+    // ----------------------------
+
     private void EntrarAConstructor(bool modoCarrera)
     {
         EsModoCarreraActivo = modoCarrera;
@@ -515,12 +598,14 @@ else
         Perfil.Derrotas++;
         SalvarCambiosPerfilManual();
         PartidaIniciada = false;
+        SalaIdActiva = null;
         VistaActual = "MenuPrincipal";
     }
 
     private void ProcesarEmpate()
     {
         PartidaIniciada = false;
+        SalaIdActiva = null;
         VistaActual = "MenuPrincipal";
     }
 
