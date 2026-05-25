@@ -10,7 +10,9 @@
                                                   MazoBase="MazoPersonalizado"
                                                   UrlCartaZoom="@UrlCartaZoom"
                                                   OnZoomIn="ActivarZoom"
-                                                  OnZoomOut="DesactivarZoom" />
+                                                  OnZoomOut="DesactivarZoom"
+                                                  OnSurrender="ProcesarDerrota"
+                                                  OnDraw="ProcesarEmpate" />
 }
 else if (VistaActual == "Tienda")
 {
@@ -31,35 +33,212 @@ else if (VistaActual == "DeckBuilder")
                                                     OnOpenMantenedor="AbrirMantenedorCartas"
                                                     OnDeployBattle="(() => PartidaIniciada = true)"
                                                     OnZoomIn="ActivarZoom"
-                                                    OnZoomOut="DesactivarZoom" />
+                                                    OnZoomOut="DesactivarZoom"
+                                                    OnOpenTienda='() => CambiarVista("Tienda")' />
 
     <button @onclick='() => CambiarVista("MenuPrincipal")' style="@EstiloBotonRegresar">
         ⬅ Volver al Menú Principal
     </button>
 }
-else if (VistaActual == "Album")
+else if (VistaActual == "GestorPerfil")
 {
-    <div style="display: flex; flex-direction: column; width: 100vw; height: 100vh; background: #070605; padding: 20px; box-sizing: border-box; font-family: 'Georgia', serif; color: white;">
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #2d2015; padding-bottom: 10px; margin-bottom: 15px;">
+    <div style="display: flex; flex-direction: column; width: 100vw; height: 100vh; background: radial-gradient(circle at center, #1b120b 0%, #050505 100%); padding: 30px; box-sizing: border-box; font-family: 'Georgia', serif; color: white; justify-content: space-between; overflow-y: auto;">
+        <div style="border-bottom: 2px solid #3a2a1c; padding-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
             <div>
-                <h2 style="margin: 0; color: #b89047; text-transform: uppercase; letter-spacing: 2px;">🎴 Álbum Real de Colección</h2>
-                <span style="font-size: 0.8rem; color: #666;">Mostrando las cartas desbloqueadas de tu inventario. Haz click en una para examinarla en 3D.</span>
+                <h2 style="margin: 0; color: #b89047; text-transform: uppercase; letter-spacing: 2px;">⚙️ Consola de Edición del Gladiador</h2>
+                <span style="font-size: 0.8rem; color: #888;">Modifica la fortuna, estadísticas e identidad de tu avatar en caliente en el archivo JSON.</span>
             </div>
-            <button @onclick='() => CambiarVista("MenuPrincipal")' style="background: linear-gradient(135deg, #1c242b 0%, #0d1217 100%); color: #44ccff; border: 1px solid #285a7a; padding: 8px 20px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.75rem;">⬅ Volver al Menú</button>
+            <button @onclick='() => CambiarVista("MenuPrincipal")' style="background: linear-gradient(135deg, #1c242b 0%, #0d1217 100%); color: #44ccff; border: 1px solid #285a7a; padding: 8px 20px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.75rem;">💾 Regresar y Refrescar</button>
         </div>
 
-        <div style="flex-grow: 1; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, 130px); gap: 15px; padding-right: 5px; align-content: start;">
-            @foreach (var carta in CatalogoCompleto.OrderBy(c => c.Edicion).ThenBy(c => c.Nombre))
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 20px 0; flex-grow: 1; align-content: start;">
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid #3a2a1c; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; gap: 15px;">
+                <h3 style="margin: 0; color: #b89047; text-transform: uppercase; font-size: 1rem; border-bottom: 1px solid #222; padding-bottom: 5px;">📜 Estadísticas de Campaña</h3>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <label style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; font-weight: bold;">Nombre del Gladiador:</label>
+                    <input type="text" @bind="Perfil.NombreGladiador" style="padding: 8px; background: #111; border: 1px solid #444; color: white; border-radius: 4px;" />
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <label style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; font-weight: bold;">Fortuna en Monedas (Oro):</label>
+                    <input type="number" @bind="Perfil.Oro" style="padding: 8px; background: #111; border: 1px solid #444; color: #ffcc00; font-weight: bold; border-radius: 4px;" />
+                </div>
+                <div style="display: flex; gap: 15px; width: 100%;">
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
+                        <label style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; font-weight: bold;">⚔️ Victorias:</label>
+                        <input type="number" @bind="Perfil.Victorias" style="padding: 8px; background: #111; border: 1px solid #444; color: #00ff55; font-weight: bold; border-radius: 4px;" />
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
+                        <label style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; font-weight: bold;">💀 Derrotas:</label>
+                        <input type="number" @bind="Perfil.Derrotas" style="padding: 8px; background: #111; border: 1px solid #444; color: #ff4d4d; font-weight: bold; border-radius: 4px;" />
+                    </div>
+                </div>
+                <button @onclick="SalvarCambiosPerfilManual" style="width: 100%; background: linear-gradient(135deg, #1e7e34 0%, #13441e 100%); color: white; border: none; padding: 10px; font-weight: bold; border-radius: 4px; text-transform: uppercase; cursor: pointer; font-size: 0.8rem; margin-top: 10px;">💾 Guardar Cambios en Disco JSON</button>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid #3a2a1c; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; gap: 12px;">
+                <h3 style="margin: 0; color: #b89047; text-transform: uppercase; font-size: 1rem; border-bottom: 1px solid #222; padding-bottom: 5px;">🖼️ Galería Real de Avatares</h3>
+                <span style="font-size: 0.75rem; color: #888;">Elige tu identidad oficial. Los títulos dinámicos cambian según tus victorias registradas.</span>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 5px;">
+                    @foreach (var av in AvataresDisponibles)
+                    {
+                        <div @onclick="() => SeleccionarAvatarLocal(av.Key, av.Value)" style="border: 2px solid @(AvatarActivoKey == av.Key ? "#ffcc00" : "#222"); background: @(AvatarActivoKey == av.Key ? "#261c14" : "#0d0d0d"); padding: 8px; border-radius: 6px; text-align: center; cursor: pointer; transition: transform 0.1s;">
+                            <div style="font-size: 2.2rem; margin-bottom: 4px;">@av.Value</div>
+                            <div style="font-size: 0.65rem; color: #ccc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: bold;">@av.Key</div>
+                        </div>
+                    }
+                </div>
+                <div style="background: #0d0d0d; border-left: 3px solid #ffcc00; padding: 12px; border-radius: 4px; margin-top: 15px; font-family: sans-serif; font-size: 0.8rem;">
+                    Identidad Asignada: <b style="font-family: 'Georgia'; color: white;">@AvatarActivoIcono @Perfil.NombreGladiador</b> <br />
+                    Título Honorífico Actual: <span style="color: #44ccff; font-weight: bold;">👑 @CalcularTituloDinamico()</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (VistaActual == "Album")
+{
+    <div style="display: flex; flex-direction: column; width: 100vw; height: 100vh; background: #070605; padding: 20px; box-sizing: border-box; font-family: 'Georgia', serif; color: white; justify-content: space-between;">
+
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; border-bottom: 2px solid #2d2015; padding-bottom: 12px;">
+            <div>
+                <h2 style="margin: 0; color: #b89047; text-transform: uppercase; letter-spacing: 2px; font-size: 1.4rem;">🎴 Carpeta Coleccionadora Ancestral</h2>
+                <span style="font-size: 0.8rem; color: #888; font-family: sans-serif;">Navegación premium de 10 cartas por hoja (2x5). Toca las barras de progreso para alternar el filtro.</span>
+            </div>
+
+            <button @onclick='() => CambiarVista("MenuPrincipal")' style="background: linear-gradient(135deg, #451b1d 0%, #1a0507 100%); color: #ff4d4d; border: 1px solid #6b2125; padding: 10px 28px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.6); transition: background 0.1s;">
+                ⬅ Volver al Menú Principal
+            </button>
+        </div>
+
+        @{
+            Func<string, int> ObtenerPorcentajeSet = (ed) =>
+            {
+                var pool = ed == "Todas" ? CatalogoCompleto : CatalogoCompleto.Where(c => c.Edicion.Trim().Equals(ed, StringComparison.OrdinalIgnoreCase)).ToList();
+                var obtenidas = pool.Count(c => Perfil.Coleccion.ContainsKey(c.Nombre) && Perfil.Coleccion[c.Nombre] > 0);
+                return pool.Any() ? (obtenidas * 100) / pool.Count : 0;
+            };
+
+            int porcTotal = ObtenerPorcentajeSet("Todas");
+            int porcPromo = ObtenerPorcentajeSet("Promo");
+            int porcEspada = ObtenerPorcentajeSet("Espada Sagrada");
+            int porcCruzadas = ObtenerPorcentajeSet("Cruzadas");
+            int porcHelenica = ObtenerPorcentajeSet("Helénica");
+            int porcImperio = ObtenerPorcentajeSet("Imperio");
+            int porcDaana = ObtenerPorcentajeSet("Hijos de Daana");
+            int porcTierras = ObtenerPorcentajeSet("Tierras Altas");
+            int porcRa = ObtenerPorcentajeSet("Dominios de Ra");
+            int porcEncru = ObtenerPorcentajeSet("Encrucijada");
+        }
+
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; width: 100%; max-width: 1400px; margin: 15px auto 5px auto; background: #0c0a09; padding: 12px; border-radius: 8px; border: 1px solid #3a2a1c; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div @onclick='() => { FiltroAlbumEdicion = "Todas"; PaginaActualAlbum = 0; }'
+                     style="background: @(FiltroAlbumEdicion == "Todas" ? "#1e5fa8" : "#141414"); border: 1px solid @(FiltroAlbumEdicion == "Todas" ? "#ffcc00" : "#333"); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.12s;">
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 3px;"><span>👑 Bloque Completo</span><span style="color: #ffcc00;">@porcTotal%</span></div>
+                    <div style="width: 100%; height: 4px; background: #000; border-radius: 2px; overflow: hidden;"><div style="width: @porcTotal%; height: 100%; background: #44aaff;"></div></div>
+                </div>
+                <div @onclick='() => { FiltroAlbumEdicion = "Promo"; PaginaActualAlbum = 0; }'
+                     style="background: @(FiltroAlbumEdicion == "Promo" ? "#5b21b6" : "#141414"); border: 1px solid @(FiltroAlbumEdicion == "Promo" ? "#ffcc00" : "#333"); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.12s; opacity: @(FiltroAlbumEdicion == "Promo" ? "1" : "0.75");">
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 3px;"><span>✨ Promo</span><span style="color: #ffcc00;">@porcPromo%</span></div>
+                    <div style="width: 100%; height: 4px; background: #000; border-radius: 2px; overflow: hidden;"><div style="width: @porcPromo%; height: 100%; background: #a78bfa;"></div></div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div @onclick='() => { FiltroAlbumEdicion = "Espada Sagrada"; PaginaActualAlbum = 0; }'
+                     style="background: @(FiltroAlbumEdicion == "Espada Sagrada" ? "#1e3a8a" : "#1a1615"); border: 2px solid @(FiltroAlbumEdicion == "Espada Sagrada" ? "#ffcc00" : "#b89047"); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.12s;">
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 3px;"><span style="color: #ffcc00;">🛡️ Espada Sagrada</span><span>@porcEspada%</span></div>
+                    <div style="width: 100%; height: 4px; background: #000; border-radius: 2px; overflow: hidden;"><div style="width: @porcEspada%; height: 100%; background: #3b82f6;"></div></div>
+                </div>
+                <div @onclick='() => { FiltroAlbumEdicion = "Cruzadas"; PaginaActualAlbum = 0; }'
+                     style="background: @(FiltroAlbumEdicion == "Cruzadas" ? "#2563eb" : "#141414"); border: 1px solid @(FiltroAlbumEdicion == "Cruzadas" ? "#ffcc00" : "#333"); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.12s; opacity: @(FiltroAlbumEdicion == "Cruzadas" ? "1" : "0.65");">
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 3px;"><span>⛪ Cruzadas</span><span>@porcCruzadas%</span></div>
+                    <div style="width: 100%; height: 4px; background: #000; border-radius: 2px; overflow: hidden;"><div style="width: @porcCruzadas%; height: 100%; background: #60a5fa;"></div></div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div @onclick='() => { FiltroAlbumEdicion = "Helénica"; PaginaActualAlbum = 0; }'
+                     style="background: @(FiltroAlbumEdicion == "Helénica" ? "#78350f" : "#1a1615"); border: 2px solid @(FiltroAlbumEdicion == "Helénica" ? "#ffcc00" : "#b89047"); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.12s;">
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 3px;"><span style="color: #ffcc00;">🏛️ Helénica</span><span>@porcHelenica%</span></div>
+                    <div style="width: 100%; height: 4px; background: #000; border-radius: 2px; overflow: hidden;"><div style="width: @porcHelenica%; height: 100%; background: #f59e0b;"></div></div>
+                </div>
+                <div @onclick='() => { FiltroAlbumEdicion = "Imperio"; PaginaActualAlbum = 0; }'
+                     style="background: @(FiltroAlbumEdicion == "Imperio" ? "#d97706" : "#141414"); border: 1px solid @(FiltroAlbumEdicion == "Imperio" ? "#ffcc00" : "#333"); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.12s; opacity: @(FiltroAlbumEdicion == "Imperio" ? "1" : "0.65");">
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 3px;"><span>🦅 Imperio</span><span>@porcImperio%</span></div>
+                    <div style="width: 100%; height: 4px; background: #000; border-radius: 2px; overflow: hidden;"><div style="width: @porcImperio%; height: 100%; background: #fbbf24;"></div></div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div @onclick='() => { FiltroAlbumEdicion = "Hijos de Daana"; PaginaActualAlbum = 0; }'
+                     style="background: @(FiltroAlbumEdicion == "Hijos de Daana" ? "#064e3b" : "#1a1615"); border: 2px solid @(FiltroAlbumEdicion == "Hijos de Daana" ? "#ffcc00" : "#b89047"); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.12s;">
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 3px;"><span style="color: #ffcc00;">🍀 Hijos de Daana</span><span>@porcDaana%</span></div>
+                    <div style="width: 100%; height: 4px; background: #000; border-radius: 2px; overflow: hidden;"><div style="width: @porcDaana%; height: 100%; background: #10b981;"></div></div>
+                </div>
+                <div @onclick='() => { FiltroAlbumEdicion = "Tierras Altas"; PaginaActualAlbum = 0; }'
+                     style="background: @(FiltroAlbumEdicion == "Tierras Altas" ? "#059669" : "#141414"); border: 1px solid @(FiltroAlbumEdicion == "Tierras Altas" ? "#ffcc00" : "#333"); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.12s; opacity: @(FiltroAlbumEdicion == "Tierras Altas" ? "1" : "0.65");">
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 3px;"><span>🌲 Tierras Altas</span><span>@porcTierras%</span></div>
+                    <div style="width: 100%; height: 4px; background: #000; border-radius: 2px; overflow: hidden;"><div style="width: @porcTierras%; height: 100%; background: #34d399;"></div></div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div @onclick='() => { FiltroAlbumEdicion = "Dominios de Ra"; PaginaActualAlbum = 0; }'
+                     style="background: @(FiltroAlbumEdicion == "Dominios de Ra" ? "#7c2d12" : "#1a1615"); border: 2px solid @(FiltroAlbumEdicion == "Dominios de Ra" ? "#ffcc00" : "#b89047"); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.12s;">
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 3px;"><span style="color: #ffcc00;">☀️ Dominios de Ra</span><span>@porcRa%</span></div>
+                    <div style="width: 100%; height: 4px; background: #000; border-radius: 2px; overflow: hidden;"><div style="width: @porcRa%; height: 100%; background: #ea580c;"></div></div>
+                </div>
+                <div @onclick='() => { FiltroAlbumEdicion = "Encrucijada"; PaginaActualAlbum = 0; }'
+                     style="background: @(FiltroAlbumEdicion == "Encrucijada" ? "#d946ef" : "#141414"); border: 1px solid @(FiltroAlbumEdicion == "Encrucijada" ? "#ffcc00" : "#333"); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: all 0.12s; opacity: @(FiltroAlbumEdicion == "Encrucijada" ? "1" : "0.65");">
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 3px;"><span>🔮 Encrucijada</span><span>@porcEncru%</span></div>
+                    <div style="width: 100%; height: 4px; background: #000; border-radius: 2px; overflow: hidden;"><div style="width: @porcEncru%; height: 100%; background: #f472b6;"></div></div>
+                </div>
+            </div>
+
+        </div>
+
+        @{
+            var listaFiltro = CatalogoCompleto.Where(c => FiltroAlbumEdicion == "Todas" || c.Edicion.Trim().Equals(FiltroAlbumEdicion.Trim(), StringComparison.OrdinalIgnoreCase)).OrderBy(c => c.Edicion).ThenBy(c => c.Nombre).ToList();
+            int totalElementos = listaFiltro.Count;
+            int elementosPorPagina = 10; // MODIFICADO: Formato 2x5
+            int totalPaginas = (int)Math.Ceiling((double)totalElementos / elementosPorPagina);
+            if (totalPaginas == 0) totalPaginas = 1;
+            if (PaginaActualAlbum >= totalPaginas) PaginaActualAlbum = 0;
+            var paginaCartas = listaFiltro.Skip(PaginaActualAlbum * elementosPorPagina).Take(elementosPorPagina).ToList();
+        }
+
+        <div style="flex-grow: 1; display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(2, 1fr); gap: 18px; padding: 18px; background: linear-gradient(135deg, #110d0a 0%, #070504 100%); border: 3px double #2d2015; border-radius: 12px; margin: 10px 0; align-items: center; justify-items: center; box-sizing: border-box;">
+            @foreach (var carta in paginaCartas)
             {
                 int copias = Perfil.Coleccion.ContainsKey(carta.Nombre) ? Perfil.Coleccion[carta.Nombre] : 0;
                 bool laPosee = copias > 0;
 
-                <div @onclick="() => { if (laPosee) ActivarZoom(carta.RutaImagen); }" style="background: #111; border: 1px solid @(laPosee ? "#332418" : "#222"); border-radius: 6px; padding: 6px; text-align: center; position: relative; opacity: @(laPosee ? "1" : "0.22"); filter: @(laPosee ? "none" : "grayscale(100%)"); cursor: @(laPosee ? "pointer" : "default");">
-                    <img src="@carta.RutaImagen" style="width: 100%; height: 145px; object-fit: contain; background: black; border-radius: 4px;" />
-                    <span style="font-size: 0.6rem; font-weight: bold; display: block; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #ccc;">@carta.Nombre</span>
-                    <span style="position: absolute; bottom: 24px; right: 10px; background: #a1582c; color: white; font-size: 0.6rem; font-weight: bold; padding: 1px 5px; border-radius: 3px; border: 1px solid #b89047;">x@copias</span>
+                <div @onclick="() => { if (laPosee) ActivarZoom(carta.RutaImagen); }"
+                     style="background: #090909; border: 2px solid @(laPosee ? (FiltroAlbumEdicion == "Todas" ? "#1e5fa8" : "#b89047") : "#222"); border-radius: 8px; padding: 10px; text-align: center; position: relative; width: 175px; height: 245px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8px 18px rgba(0,0,0,0.6); cursor: @(laPosee ? "pointer" : "not-allowed"); transition: transform 0.1s; box-sizing: border-box;">
+
+                    <div style="position: relative; width: 100%; height: 190px; border-radius: 4px; overflow: hidden; background: black; opacity: @(laPosee ? "1" : "0.15"); filter: @(laPosee ? "none" : "brightness(0.3) grayscale(100%)");">
+                        <img src="@carta.RutaImagen" style="width: 100%; height: 100%; object-fit: contain;" />
+                    </div>
+
+                    @if (!laPosee)
+                    {
+                        <div style="position: absolute; top: 85px; left: 50%; transform: translate(-50%, -50%); font-size: 2.2rem; color: #555; z-index: 10; text-shadow: 0 2px 5px black;">🔒</div>
+                    }
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px; width: 100%;">
+                        <span style="font-size: 0.72rem; font-weight: bold; color: @(laPosee ? "#ccc" : "#444"); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 115px;">@carta.Nombre</span>
+                        <span style="background: @(laPosee ? "#a1582c" : "#222"); color: @(laPosee ? "white" : "#555"); font-size: 0.65rem; font-weight: bold; padding: 1px 6px; border-radius: 3px; border: 1px solid @(laPosee ? "#b89047" : "#333"); font-family: monospace;">x@copias</span>
+                    </div>
                 </div>
             }
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #0a0a0a; border: 1px solid #2d2015; padding: 8px 20px; border-radius: 6px;">
+            <button disabled="@(PaginaActualAlbum == 0)" @onclick="() => PaginaActualAlbum--" style="background: #222; color: white; border: 1px solid #444; padding: 5px 20px; font-weight: bold; cursor: pointer; border-radius: 4px; font-size: 0.8rem;">⬅ Hoja Anterior</button>
+            <span style="font-size: 0.85rem; color: #b89047; font-weight: bold;">Hoja Real @(PaginaActualAlbum + 1) de @totalPaginas <span style="font-size: 0.72rem; color: #555;">(Set: @FiltroAlbumEdicion)</span></span>
+            <button disabled="@(PaginaActualAlbum >= totalPaginas - 1)" @onclick="() => PaginaActualAlbum++" style="background: #222; color: white; border: 1px solid #444; padding: 5px 20px; font-weight: bold; cursor: pointer; border-radius: 4px; font-size: 0.8rem;">Hoja Siguiente ➡</button>
         </div>
     </div>
 
@@ -73,13 +252,13 @@ else if (VistaActual == "Album")
 else
 {
     <div style="display: flex; width: 100vw; height: 100vh; background: radial-gradient(circle at center, #1c140e 0%, #030303 100%); color: white; font-family: 'Georgia', serif; padding: 25px; box-sizing: border-box; gap: 20px; user-select: none; overflow: hidden;">
-
         <div style="width: 28%; height: 100%; display: flex; flex-direction: column; gap: 15px; box-sizing: border-box;">
             <div style="background: linear-gradient(135deg, #181411 0%, #0a0807 100%); border: 2px solid #3a2a1c; border-radius: 8px; padding: 18px; box-shadow: 0 12px 25px rgba(0,0,0,0.6); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -20px; right: -20px; font-size: 5rem; opacity: 0.03; color: #b89047;">👑</div>
-                <h3 style="margin: 0 0 12px 0; color: #b89047; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1.5px; border-bottom: 1px solid #3a2a1c; padding-bottom: 6px; font-weight: bold;">🛡️ Perfil del Gladiador</h3>
+                <button @onclick='() => CambiarVista("GestorPerfil")' style="position: absolute; top: 12px; right: 12px; background: #261c14; border: 1px solid #4a3725; color: #ffcc00; font-size: 0.65rem; font-weight: bold; padding: 3px 8px; border-radius: 4px; cursor: pointer; text-transform: uppercase;">⚙️ Config</button>
+                <div style="font-size: 2.2rem; margin-bottom: 2px;">@AvatarActivoIcono</div>
+                <h3 style="margin: 0 0 12px 0; color: #b89047; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1.5px; border-bottom: 1px solid #333; padding-bottom: 6px; font-weight: bold;">🛡️ @Perfil.NombreGladiador</h3>
                 <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; font-family: sans-serif; color: #b0b0b0;">
-                    <div style="display: flex; justify-content: space-between; align-items: center;"><span>Rango Activo:</span><span style="color: #fff; font-weight: bold; font-family: 'Georgia'; background: #261c14; padding: 2px 8px; border-radius: 4px; border: 1px solid #4a3725; font-size: 0.75rem;">Gladiador Real</span></div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;"><span>Rango Militar:</span><span style="color: #44ccff; font-weight: bold; font-family: 'Georgia'; font-size: 0.75rem;">👑 @CalcularTituloDinamico()</span></div>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1f1812; padding-top: 6px;"><span>Billetera:</span><span style="color: #ffcc00; font-weight: bold; font-size: 1.1rem; font-family: monospace; text-shadow: 0 0 4px rgba(255,204,0,0.2);">🪙 @Perfil.Oro</span></div>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #1f1812; padding-top: 6px;"><span>⚔️ Victorias:</span><span style="color: #00ff55; font-weight: bold; font-family: monospace;">@Perfil.Victorias</span></div>
                     <div style="display: flex; justify-content: space-between; align-items: center;"><span>💀 Derrotas:</span><span style="color: #ff4d4d; font-weight: bold; font-family: monospace;">@Perfil.Derrotas</span></div>
@@ -98,8 +277,7 @@ else
                     {
                         @foreach (var mazo in ListaMazosFisicos)
                         {
-                            <div style="background: #141414; border: 1px solid #222; padding: 8px 12px; border-radius: 5px; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; transition: background 0.1s;"
-                                 onmouseenter="this.style.background='#1a1a1a';" onmouseleave="this.style.background='#141414';">
+                            <div style="background: #141414; border: 1px solid #222; padding: 8px 12px; border-radius: 5px; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; transition: background 0.1s;" onmouseenter="this.style.background='#1a1a1a';" onmouseleave="this.style.background='#141414';">
                                 <span style="color: #ddd; font-weight: bold; font-family: sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 170px;">📜 @mazo.Replace("mazo_", "").Replace(".json", "").Replace("_", " ")</span>
                                 <span style="font-size: 0.6rem; background: #261f18; color: #b89047; padding: 2px 6px; border-radius: 3px; border: 1px solid #423325; font-weight: bold;">DECK</span>
                             </div>
@@ -116,39 +294,29 @@ else
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; flex-grow: 1; margin: 20px 0; align-content: center;">
-                <div @onclick='() => EntrarAConstructor(false)' style="@EstiloTarjetaMenu background: linear-gradient(135deg, #4d230b 0%, #170a03 100%); border-color: #a1582c;"
-                     onmouseenter="this.style.transform='translateY(-5px)'; this.style.borderColor='#ff8844'; this.style.boxShadow='0 12px 25px rgba(255,100,0,0.15)';" onmouseleave="this.style.transform='none'; this.style.borderColor='#a1582c'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.5)';">
+                <div @onclick='() => EntrarAConstructor(false)' style="@EstiloTarjetaMenu background: linear-gradient(135deg, #4d230b 0%, #170a03 100%); border-color: #a1582c;" onmouseenter="this.style.transform='translateY(-5px)'; this.style.borderColor='#ff8844'; this.style.boxShadow='0 12px 25px rgba(255,100,0,0.15)';" onmouseleave="this.style.transform='none'; this.style.borderColor='#a1582c'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.5)';">
                     <div style="font-size: 2.5rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px black);">⚔️</div>
                     <h3 style="margin: 0; color: #ff9d66; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px; font-weight: bold;">Modo Sandbox Libre</h3>
                     <p style="margin: 6px 0 0 0; font-size: 0.75rem; color: #aaa; font-family: sans-serif; max-width: 340px; line-height: 13px; text-align: center;">Acceso ilimitado al olimpo de las 1,381 cartas del catálogo completo. Prueba estrategias sin frenos de inventario.</p>
                 </div>
-
-                <div @onclick='() => EntrarAConstructor(true)' style="@EstiloTarjetaMenu background: linear-gradient(135deg, #0e294a 0%, #040d1a 100%); border-color: #1e5fa8;"
-                     onmouseenter="this.style.transform='translateY(-5px)'; this.style.borderColor='#44aaff'; this.style.boxShadow='0 12px 25px rgba(0,100,255,0.15)';" onmouseleave="this.style.transform='none'; this.style.borderColor='#1e5fa8'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.5)';">
+                <div @onclick='() => EntrarAConstructor(true)' style="@EstiloTarjetaMenu background: linear-gradient(135deg, #0e294a 0%, #040d1a 100%); border-color: #1e5fa8;" onmouseenter="this.style.transform='translateY(-5px)'; this.style.borderColor='#44aaff'; this.style.boxShadow='0 12px 25px rgba(0,100,255,0.15)';" onmouseleave="this.style.transform='none'; this.style.borderColor='#1e5fa8'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.5)';">
                     <div style="font-size: 2.5rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px black);">🛡️</div>
                     <h3 style="margin: 0; color: #66b2ff; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px; font-weight: bold;">Modo Gladiador Carrera</h3>
                     <p style="margin: 6px 0 0 0; font-size: 0.75rem; color: #aaa; font-family: sans-serif; max-width: 340px; line-height: 13px; text-align: center;">El verdadero desafío. Gestiona tu colección y arma tus barajas utilizando **únicamente los naipes que posees** en tu álbum.</p>
                 </div>
-
-                <div @onclick='() => CambiarVista("Tienda")' style="@EstiloTarjetaMenu background: linear-gradient(135deg, #4d3914 0%, #140e04 100%); border-color: #b89047;"
-                     onmouseenter="this.style.transform='translateY(-5px)'; this.style.borderColor='#ffcc00'; this.style.boxShadow='0 12px 25px rgba(255,200,0,0.15)';" onmouseleave="this.style.transform='none'; this.style.borderColor='#b89047'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.5)';">
+                <div @onclick='() => CambiarVista("Tienda")' style="@EstiloTarjetaMenu background: linear-gradient(135deg, #4d3914 0%, #140e04 100%); border-color: #b89047;" onmouseenter="this.style.transform='translateY(-5px)'; this.style.borderColor='#ffcc00'; this.style.boxShadow='0 12px 25px rgba(255,200,0,0.15)';" onmouseleave="this.style.transform='none'; this.style.borderColor='#b89047'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.5)';">
                     <div style="font-size: 2.5rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px black);">🛒</div>
                     <h3 style="margin: 0; color: #ffcc66; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px; font-weight: bold;">Mercado de Camelot</h3>
                     <p style="margin: 6px 0 0 0; font-size: 0.75rem; color: #aaa; font-family: sans-serif; max-width: 340px; line-height: 13px; text-align: center;">Gasta tus monedas de oro acumuladas. Adquiere estructuras listas para combatir o desata la suerte abriendo sobres.</p>
                 </div>
-
-                <div @onclick='() => CambiarVista("Album")' style="@EstiloTarjetaMenu background: linear-gradient(135deg, #0d3b19 0%, #031207 100%); border-color: #28a745;"
-                     onmouseenter="this.style.transform='translateY(-5px)'; this.style.borderColor='#55ff77'; this.style.boxShadow='0 12px 25px rgba(0,255,100,0.15)';" onmouseleave="this.style.transform='none'; this.style.borderColor='#28a745'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.5)';">
+                <div @onclick='() => CambiarVista("Album")' style="@EstiloTarjetaMenu background: linear-gradient(135deg, #0d3b19 0%, #031207 100%); border-color: #28a745;" onmouseenter="this.style.transform='translateY(-5px)'; this.style.borderColor='#55ff77'; this.style.boxShadow='0 12px 25px rgba(0,255,100,0.15)';" onmouseleave="this.style.transform='none'; this.style.borderColor='#28a745'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.5)';">
                     <div style="font-size: 2.5rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px black);">🎴</div>
                     <h3 style="margin: 0; color: #66ff88; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px; font-weight: bold;">Álbum de Colección</h3>
                     <p style="margin: 6px 0 0 0; font-size: 0.75rem; color: #aaa; font-family: sans-serif; max-width: 340px; line-height: 13px; text-align: center;">Inspecciona tu galería de trofeos. Examina el arte original, revisa copias repetidas y lleva el registro de tu porcentaje.</p>
                 </div>
             </div>
 
-            <button @onclick="AbrirMantenedorCartas" style="width: 100%; background: #17110c; color: #a88867; border: 1px solid #4a3421; padding: 12px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; border-radius: 6px; cursor: pointer; letter-spacing: 1.5px; transition: background 0.1s;"
-                    onmouseenter="this.style.background='#241a12';" onmouseleave="this.style.background='#17110c';">
-                ⚙️ Consola del Arquitecto (Mantenedor Base de Datos)
-            </button>
+            <button @onclick="AbrirMantenedorCartas" style="width: 100%; background: #17110c; color: #a88867; border: 1px solid #4a3421; padding: 12px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; border-radius: 6px; cursor: pointer; letter-spacing: 1.5px; transition: background 0.1s;" onmouseenter="this.style.background='#241a12';" onmouseleave="this.style.background='#17110c';">Consola del Arquitecto (Mantenedor Base de Datos)</button>
         </div>
     </div>
 }
@@ -180,6 +348,36 @@ else
         public string? IdAliadoAtacante { get; set; } = null;
     }
 
+    public class RanuraSobre
+    {
+        public CartaJuego Carta { get; set; } = new CartaJuego();
+        public bool Revelada { get; set; } = false;
+        public bool EsNueva { get; set; } = false;
+    }
+
+    public class ProductoTienda
+    {
+        public string Id { get; set; } = "";
+        public string Tipo { get; set; } = "Sobre";
+        public string Nombre { get; set; } = "";
+        public string Edicion { get; set; } = "";
+        public int Precio { get; set; } = 500;
+        public string RutaImagen { get; set; } = "";
+        public string Descripcion { get; set; } = "";
+        public int CantidadOros { get; set; } = 1;
+        public int CantidadVasallos { get; set; } = 5;
+        public int CantidadCortesanos { get; set; } = 3;
+        public int CantidadReales { get; set; } = 1;
+        public int ProbabilidadUpgrade { get; set; } = 20;
+    }
+
+    public class MazoGuardadoDTO
+    {
+        public string NombreMazo { get; set; } = "Mitos Deck";
+        public List<string> NombresCartas { get; set; } = new List<string>();
+        public string? NombreOroInicial { get; set; }
+    }
+
     private string VistaActual = "MenuPrincipal";
     private bool EsModoCarreraActivo = false;
     private bool PartidaIniciada = false;
@@ -191,13 +389,23 @@ else
     private List<CartaJuego> MazoPersonalizado = new();
     private List<string> ListaMazosFisicos = new();
     private SandboxApp.Models.ProgresoJugador Perfil { get; set; } = new SandboxApp.Models.ProgresoJugador();
-
     private bool MostrarMantenedor = false;
     private HashSet<string> IdsSinImagen = new();
     private string? UrlCartaZoom = null;
 
-    private string PathProgreso => Path.Combine(Env.WebRootPath, "data", "progreso_gladiador.json");
+    private int PaginaActualAlbum = 0;
+    private string FiltroAlbumEdicion = "Todas"; // Inicializado en Bloque Completo por defecto
+    private string AvatarActivoKey = "Caballero Real";
+    private string AvatarActivoIcono = "🛡️";
 
+    private Dictionary<string, string> AvataresDisponibles = new()
+    {
+        { "Caballero Real", "🛡️" }, { "Mago Merlín", "🔮" }, { "Morgana la Bruja", "🧪" },
+        { "San Jorge", "🐉" }, { "Rey Supremo", "👑" }, { "Cazador Celta", "🏹" },
+        { "Sacerdote Santo", "⚜️" }, { "Gladiador Bárbaro", "🪓" }
+    };
+
+    private string PathProgreso => Path.Combine(Env.WebRootPath, "data", "progreso_gladiador.json");
     private string EstiloTarjetaMenu => "background: #090909; border: 1px solid #222; border-radius: 8px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.15s ease-out; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 8px 16px rgba(0,0,0,0.5);";
     private string EstiloBotonRegresar => "position: fixed; bottom: 20px; left: 20px; background: linear-gradient(135deg, #1c242b 0%, #0d1217 100%); color: #44ccff; border: 1px solid #285a7a; padding: 10px 20px; font-family: 'Georgia', serif; font-size: 0.8rem; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.6); z-index: 9999;";
 
@@ -226,6 +434,10 @@ else
             {
                 string json = File.ReadAllText(PathProgreso);
                 Perfil = JsonSerializer.Deserialize<SandboxApp.Models.ProgresoJugador>(json) ?? new SandboxApp.Models.ProgresoJugador();
+                if (!string.IsNullOrWhiteSpace(Perfil.NombreGladiador))
+                {
+                    NombreJugador = Perfil.NombreGladiador;
+                }
             }
             else
             {
@@ -245,6 +457,31 @@ else
         catch { }
 
         AuditarImagenesFaltantes();
+    }
+
+    private void SalvarCambiosPerfilManual()
+    {
+        try
+        {
+            NombreJugador = Perfil.NombreGladiador;
+            string json = JsonSerializer.Serialize(Perfil, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(PathProgreso, json);
+        }
+        catch { }
+    }
+
+    private void SeleccionarAvatarLocal(string nombre, string icono)
+    {
+        AvatarActivoKey = nombre;
+        AvatarActivoIcono = icono;
+    }
+
+    private string CalcularTituloDinamico()
+    {
+        if (Perfil.Victorias >= 50) return "Héroe Ancestral";
+        if (Perfil.Victorias >= 20) return "Señor de Camelot";
+        if (Perfil.Victorias >= 5) return "Caballero de la Mesa Redonda";
+        return "Escudero Aspirante";
     }
 
     private void EntrarAConstructor(bool modoCarrera)
@@ -271,6 +508,20 @@ else
     {
         if (destino == "MenuPrincipal") RefrescarDatosMenuPrincipal();
         VistaActual = destino;
+    }
+
+    private void ProcesarDerrota()
+    {
+        Perfil.Derrotas++;
+        SalvarCambiosPerfilManual();
+        PartidaIniciada = false;
+        VistaActual = "MenuPrincipal";
+    }
+
+    private void ProcesarEmpate()
+    {
+        PartidaIniciada = false;
+        VistaActual = "MenuPrincipal";
     }
 
     private void AuditarImagenesFaltantes()

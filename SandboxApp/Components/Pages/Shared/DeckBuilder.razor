@@ -22,9 +22,9 @@
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 6px; background: #0a0a0a; padding: 8px; border-radius: 6px; border: 1px solid #1a1a1a; margin-bottom: 12px;">
-                <div style="display: flex; gap: 8px;">
+                <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
                     <input type="text" placeholder="Buscar por nombre..." @bind="FiltroTexto" @bind:event="oninput"
-                           style="flex: 2; padding: 6px; background: #181818; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;" />
+                           style="flex: 1.5; padding: 6px; background: #181818; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;" />
 
                     <select @bind="FiltroTipo" style="flex: 1; padding: 6px; background: #181818; border: 1px solid #333; color: white; border-radius: 4px; font-size: 0.8rem;">
                         <option value="">[ Todos los Tipos ]</option>
@@ -43,6 +43,19 @@
                         <option value="Oro">Oro Base</option>
                         <option value="Oro con Habilidad">Oro Habilidad</option>
                     </select>
+
+                    <select @bind="FiltroRaza" style="flex: 1; padding: 6px; background: #181818; border: 1px solid #333; color: #ffcc00; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">
+                        <option value="">[ Todas las Razas ]</option>
+                        <option value="Caballero">🛡️ Caballero</option>
+                        <option value="Bárbaro">🪓 Bárbaro</option>
+                        <option value="Faerie">✨ Faerie</option>
+                        <option value="Sombra">👁️ Sombra</option>
+                        <option value="Sacerdote">⚜️ Sacerdote</option>
+                        <option value="Dios">👑 Dios</option>
+                        <option value="Dragón">🐉 Dragón</option>
+                        <option value="Bestia">🐾 Bestia</option>
+                        <option value="Héroe">🦅 Héroe</option>
+                    </select>
                 </div>
 
                 <div style="display: flex; flex-wrap: wrap; gap: 4px;">
@@ -58,41 +71,28 @@
                 @foreach (var carta in FiltrarCatalogo())
                 {
                     int cantEnMazo = MazoPersonalizado.Count(c => c.Nombre == carta.Nombre);
-                    bool esUnica = !string.IsNullOrEmpty(carta.Habilidad) &&
-                                  (carta.Habilidad.Contains("Solo puedes tener en juego", StringComparison.OrdinalIgnoreCase) ||
-                                   carta.Habilidad.Contains("única", StringComparison.OrdinalIgnoreCase));
-
-                    // ALGORITMO INTEGRADO: Calcula el límite comparando las reglas generales y tu inventario JSON real
+                    bool esUnica = !string.IsNullOrEmpty(carta.Habilidad) && (carta.Habilidad.Contains("Solo puedes tener en juego", StringComparison.OrdinalIgnoreCase) || carta.Habilidad.Contains("única", StringComparison.OrdinalIgnoreCase));
                     int limiteMaximo = esUnica ? 1 : 3;
+
                     if (EsModoCarrera && ColeccionGladiador != null)
                     {
                         int totalPoseido = ColeccionGladiador.ContainsKey(carta.Nombre) ? ColeccionGladiador[carta.Nombre] : 0;
                         limiteMaximo = Math.Min(limiteMaximo, totalPoseido);
                     }
-
                     bool maxCopiasAlcanzado = cantEnMazo >= limiteMaximo;
                     bool mazoLleno = MazoPersonalizado.Count >= 50;
 
                     <div style="background: #161616; border: 1px solid #252525; border-radius: 6px; padding: 5px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; position: relative; width: 120px; box-sizing: border-box;">
                         @if (cantEnMazo > 0)
                         {
-                            <div style="position: absolute; top: 4px; right: 4px; background: #a1582c; color: white; font-size: 0.65rem; font-weight: bold; padding: 1px 5px; border-radius: 4px; z-index: 10; border: 1px solid #b89047;">
-                                x@cantEnMazo
-                            </div>
+                            <div style="position: absolute; top: 4px; right: 4px; background: #a1582c; color: white; font-size: 0.65rem; font-weight: bold; padding: 1px 5px; border-radius: 4px; z-index: 10; border: 1px solid #b89047;">x@cantEnMazo</div>
                         }
-
-                        <div style="position: relative; width: 100%; height: 130px; border-radius: 4px; overflow: hidden; perspective: 500px;"
-                             @onmouseover="() => ActivarZoomLocal(carta.RutaImagen)" @onmouseout="DesactivarZoomLocal"
-                             @onclick="() => ActivarInspector3DMaestro(carta.RutaImagen)">
+                        <div style="position: relative; width: 100%; height: 130px; border-radius: 4px; overflow: hidden; perspective: 500px;" @onmouseover="() => ActivarZoomLocal(carta.RutaImagen)" @onmouseout="DesactivarZoomLocal" @onclick="() => ActivarInspector3DMaestro(carta.RutaImagen)">
                             <img src="@carta.RutaImagen" style="width: 100%; height: 100%; object-fit: contain; background: #000; cursor: zoom-in;" />
                         </div>
-
                         <span style="font-size: 0.65rem; font-weight: bold; margin: 3px 0 1px 0; height: 24px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 11px; color: #ddd;">@carta.Nombre</span>
                         <span style="font-size: 0.55rem; color: #777; text-transform: uppercase; margin-bottom: 3px;">@carta.Tipo</span>
-
-                        <button @onclick="() => AgregarAlMazo(carta)" disabled="@(mazoLleno || maxCopiasAlcanzado)"
-                                style="width: 100%; padding: 3px 0; font-size: 0.65rem; border-radius: 3px; border: none; font-weight: bold; text-transform: uppercase;
-                            background: @(maxCopiasAlcanzado ? "#222" : mazoLleno ? "#1a1a1a" : "#a1582c"); color: @(maxCopiasAlcanzado ? "#555" : "white"); cursor: pointer;">
+                        <button @onclick="() => AgregarAlMazo(carta)" disabled="@(mazoLleno || maxCopiasAlcanzado)" style="width: 100%; padding: 3px 0; font-size: 0.65rem; border-radius: 3px; border: none; font-weight: bold; text-transform: uppercase; background: @(maxCopiasAlcanzado ? "#222" : mazoLleno ? "#1a1a1a" : "#a1582c"); color: @(maxCopiasAlcanzado ? "#555" : "white"); cursor: pointer;">
                             @(maxCopiasAlcanzado ? "Límite" : "+ Agregar")
                         </button>
                     </div>
@@ -104,20 +104,16 @@
             <div>
                 <div style="background: #0a0a0a; padding: 8px; border-radius: 6px; border: 1px solid #1a1a1a; margin-bottom: 4px;">
                     <label style="font-size: 0.75rem; color: #b89047; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px;">Nombre del Gladiador:</label>
-                    <input type="text" placeholder="Tu Nickname..." @value="NombreJugador" @oninput="UpdateNombreJugador"
-                           style="width: 100%; padding: 6px; background: #181818; border: 1px solid #333; color: white; border-radius: 4px; box-sizing: border-box; font-size: 0.85rem;" />
+                    <input type="text" placeholder="Tu Nickname..." @value="NombreJugador" @oninput="UpdateNombreJugador" style="width: 100%; padding: 6px; background: #181818; border: 1px solid #333; color: white; border-radius: 4px; box-sizing: border-box; font-size: 0.85rem;" />
                 </div>
 
                 <div style="background: #0a0a0a; padding: 8px; border-radius: 6px; border: 1px solid #1a1a1a; margin-bottom: 6px; display: flex; flex-direction: column; gap: 4px;">
                     <span style="font-size: 0.65rem; color: #b89047; text-transform: uppercase; font-weight: bold;">💾 Gestor de Múltiples Mazos</span>
-
                     <div style="display: flex; gap: 6px; align-items: center;">
                         <span style="font-size: 0.65rem; color: #888; width: 45px;">Guardar:</span>
-                        <input type="text" placeholder="ej: Caballeros_ES, Mazo_Atón" @bind="NombreArchivoMazo"
-                               style="flex: 1; padding: 5px; background: #181818; border: 1px solid #333; color: white; font-size: 0.75rem; border-radius: 4px;" />
+                        <input type="text" placeholder="ej: Caballeros_ES" @bind="NombreArchivoMazo" style="flex: 1; padding: 5px; background: #181818; border: 1px solid #333; color: white; font-size: 0.75rem; border-radius: 4px;" />
                         <button @onclick="KeepDeck" style="background: #1c2e24; color: #44ff44; border: 1px solid #287a48; padding: 4px 10px; font-size: 0.65rem; border-radius: 4px; font-weight: bold; cursor: pointer; text-transform: uppercase;">Guardar</button>
                     </div>
-
                     <div style="display: flex; gap: 6px; align-items: center;">
                         <span style="font-size: 0.65rem; color: #888; width: 45px;">Cargar:</span>
                         <select @bind="MazoSeleccionadoParaCargar" style="flex: 1; padding: 4px; background: #181818; border: 1px solid #333; color: white; font-size: 0.75rem; border-radius: 4px;">
@@ -127,26 +123,33 @@
                                 <option value="@archivoMazo">@archivoMazo</option>
                             }
                         </select>
-                        <button @onclick="LoadDeck" style="background: #1a2a3a; color: #44ccff; border: 1px solid #285a7a; padding: 4px 10px; font-size: 0.65rem; border-radius: 4px; font-weight: bold; cursor: pointer; text-transform: uppercase;">Cargar</button>
+                        <button @onclick="LoadDeck" style="background: #1a2a3a; color: #44ccff; border: 1px solid #285a7a; padding: 4px 10px; font-size: 0.85rem; border-radius: 4px; font-weight: bold; cursor: pointer; text-transform: uppercase;">Cargar</button>
                     </div>
+                </div>
 
-                    <div style="display: flex; gap: 4px; align-items: center; margin-top: 2px; border-top: 1px solid #1a1a1a; padding-top: 4px;">
-                        <input type="text" placeholder="Código de respaldo..." @bind="TextoMazoCodigo" style="flex: 1; padding: 4px; background: #181818; border: 1px solid #2a2a2a; color: #999; font-size: 0.65rem; border-radius: 3px;" />
-                        <button @onclick="ExportarMazoAString" style="background: #252525; color: white; border: 1px solid #333; font-size: 0.6rem; padding: 4px 6px; border-radius: 3px; cursor: pointer;">Exportar</button>
-                        <button @onclick="ImportarMazoDesdeString" style="background: #252525; color: white; border: 1px solid #333; font-size: 0.6rem; padding: 4px 6px; border-radius: 3px; cursor: pointer;">Importar</button>
+                <div style="background: #070707; border: 1px solid #222; padding: 10px; border-radius: 6px; margin-bottom: 8px;">
+                    <span style="font-size: 0.65rem; color: #b89047; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 6px; text-align: center;">📊 Gráfica de Curva de Costes de Oro</span>
+                    <div style="display: flex; justify-content: space-around; align-items: flex-end; height: 55px; padding-top: 5px; box-sizing: border-box;">
+                        @for (int c = 0; c <= 5; c++)
+                        {
+                            var costeLocal = c;
+                            int totalConCoste = MazoPersonalizado.Count(x => costeLocal == 5 ? (x.Costo >= 5) : (x.Costo == costeLocal));
+                            int maxMazoCount = MazoPersonalizado.Any() ? MazoPersonalizado.GroupBy(x => x.Costo ?? 0).Max(g => g.Count()) : 1;
+                            if (maxMazoCount == 0) maxMazoCount = 1;
+                            int alturaPx = Math.Min(40, (totalConCoste * 40) / maxMazoCount) + 2;
+
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 14%;">
+                                <span style="font-size: 0.55rem; color: #00ff55; font-family: monospace;">@totalConCoste</span>
+                                <div style="width: 100%; height: @(alturaPx)px; background: linear-gradient(0deg, #a1582c 0%, #ffcc00 100%); border-radius: 2px 2px 0 0; box-shadow: 0 0 4px rgba(255,204,0,0.2);"></div>
+                                <span style="font-size: 0.6rem; color: #888; font-weight: bold; margin-top: 2px;">@(c == 5 ? "5+" : c.ToString())</span>
+                            </div>
+                        }
                     </div>
-
-                    @if (!string.IsNullOrEmpty(MensajeEstadoPersistencia))
-                    {
-                        <span style="font-size: 0.65rem; color: #00ff66; font-style: italic; text-align: center; display: block; margin-top: 2px;">@MensajeEstadoPersistencia</span>
-                    }
                 </div>
 
                 <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; padding-bottom: 4px;">
                     <h3 style="margin: 0; font-size: 0.95rem; color: #d47a3e; text-transform: uppercase;">Mazo Configurado</h3>
-                    <span style="font-size: 1rem; font-weight: bold; color: @(MazoPersonalizado.Count == 50 ? "#00ff66" : "#b89047")">
-                        @MazoPersonalizado.Count / 50 <span style="font-size: 0.65rem; color: #666;">Cartas</span>
-                    </span>
+                    <span style="font-size: 1rem; font-weight: bold; color: @(MazoPersonalizado.Count == 50 ? "#00ff66" : "#b89047")">@MazoPersonalizado.Count / 50 <span style="font-size: 0.65rem; color: #666;">Cartas</span></span>
                 </div>
             </div>
 
@@ -158,33 +161,17 @@
                             <span>🔹 @seccionTipo.Key</span>
                             <span style="color: #666; font-size: 0.75rem; font-weight: bold;">( @seccionTipo.Count() )</span>
                         </div>
-
                         <div style="display: grid; grid-template-columns: repeat(auto-fill, 82px); gap: 6px; justify-content: start;">
                             @foreach (var grupoCarta in seccionTipo.GroupBy(c => c.Nombre))
                             {
-                                var primera = grupoCarta.First();
-                                int cantidad = grupoCarta.Count();
-                                bool contieneOroInicial = grupoCarta.Any(c => c.Id == IdOroInicial);
-                                bool esCartaUnica = !string.IsNullOrEmpty(primera.Habilidad) &&
-                                                   (primera.Habilidad.Contains("Solo puedes tener en juego", StringComparison.OrdinalIgnoreCase) ||
-                                                    primera.Habilidad.Contains("única", StringComparison.OrdinalIgnoreCase));
-
-                                // ALGORITMO INTEGRADO: Límite dinámico también para los botones inline del mazo armado
+                                var primera = grupoCarta.First(); int cantidad = grupoCarta.Count(); bool contieneOroInicial = grupoCarta.Any(c => c.Id == IdOroInicial);
+                                bool esCartaUnica = !string.IsNullOrEmpty(primera.Habilidad) && (primera.Habilidad.Contains("Solo puedes tener en juego", StringComparison.OrdinalIgnoreCase) || primera.Habilidad.Contains("única", StringComparison.OrdinalIgnoreCase));
                                 int maxPermitido = esCartaUnica ? 1 : 3;
-                                if (EsModoCarrera && ColeccionGladiador != null)
-                                {
-                                    int totalPoseido = ColeccionGladiador.ContainsKey(primera.Nombre) ? ColeccionGladiador[primera.Nombre] : 0;
-                                    maxPermitido = Math.Min(maxPermitido, totalPoseido);
-                                }
+                                if (EsModoCarrera && ColeccionGladiador != null) { int totalPoseido = ColeccionGladiador.ContainsKey(primera.Nombre) ? ColeccionGladiador[primera.Nombre] : 0; maxPermitido = Math.Min(maxPermitido, totalPoseido); }
 
                                 <div style="background: #161616; border: 1px solid @(contieneOroInicial ? "#b89047" : "#282828"); border-radius: 4px; padding: 4px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; position: relative; width: 82px; box-sizing: border-box; text-align: center;">
-                                    <img src="@primera.RutaImagen" style="width: 100%; height: 80px; object-fit: contain; background: #000; border-radius: 3px; cursor: zoom-in;"
-                                         @onmouseover="() => ActivarZoomLocal(primera.RutaImagen)" @onmouseout="DesactivarZoomLocal"
-                                         @onclick="() => ActivarInspector3DMaestro(primera.RutaImagen)" />
-                                    <span style="font-size: 0.6rem; font-weight: bold; color: #ccc; margin: 3px 0; height: 22px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 11px; width: 100%;">
-                                        @primera.Nombre
-                                    </span>
-
+                                    <img src="@primera.RutaImagen" style="width: 100%; height: 80px; object-fit: contain; background: #000; border-radius: 3px; cursor: zoom-in;" @onmouseover="() => ActivarZoomLocal(primera.RutaImagen)" @onmouseout="DesactivarZoomLocal" @onclick="() => ActivarInspector3DMaestro(primera.RutaImagen)" />
+                                    <span style="font-size: 0.6rem; font-weight: bold; color: #ccc; margin: 3px 0; height: 22px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 11px; width: 100%;">@primera.Nombre</span>
                                     @if (primera.Tipo != null && primera.Tipo.Contains("Oro") && primera.Rareza != null && primera.Rareza.Trim().Equals("Oro", StringComparison.OrdinalIgnoreCase))
                                     {
                                         <div style="margin-bottom: 4px; width: 100%;">
@@ -194,11 +181,11 @@
                                             }
                                             else
                                             {
+
                                                 <button @onclick="() => AsignarOroInicial(grupoCarta.First().Id)" style="background: #000; color: #b89047; border: 1px solid #b89047; font-size: 0.55rem; padding: 1px 2px; border-radius: 2px; cursor: pointer; width: 100%; font-weight: bold; text-transform: uppercase;">Fijar</button>
                                             }
                                         </div>
                                     }
-
                                     <div style="display: flex; align-items: center; justify-content: center; gap: 4px; width: 100%; background: #0a0a0a; border-radius: 3px; padding: 2px 0;">
                                         <button @onclick="() => QuitarDelMazo(primera.Nombre)" style="background: @(cantidad == 1 ? "#5c1d24" : "#222"); color: @(cantidad == 1 ? "#ff4d4d" : "#bbb"); border: none; font-size: 0.65rem; width: 16px; height: 16px; border-radius: 2px; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center;">-</button>
                                         <span style="font-size: 0.65rem; font-weight: bold; color: #b89047; min-width: 12px;">@cantidad</span>
@@ -211,100 +198,42 @@
                 }
             </div>
 
-            <button @onclick="TriggerIniciarPartida" disabled="@(string.IsNullOrWhiteSpace(NombreJugador) || MazoPersonalizado.Count == 0 || string.IsNullOrEmpty(IdOroInicial))"
-                    style="width: 100%; padding: 10px; font-size: 0.95rem; font-weight: bold; text-transform: uppercase; border-radius: 6px; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-                background: @(string.IsNullOrWhiteSpace(NombreJugador) || MazoPersonalizado.Count == 0 || string.IsNullOrEmpty(IdOroInicial) ? "#222" : "linear-gradient(135deg, #a1582c 0%, #6e3615 100%)"); color: white; cursor: pointer;">
+            <button @onclick="TriggerIniciarPartida" disabled="@(string.IsNullOrWhiteSpace(NombreJugador) || MazoPersonalizado.Count == 0 || string.IsNullOrEmpty(IdOroInicial))" style="width: 100%; padding: 10px; font-size: 0.95rem; font-weight: bold; text-transform: uppercase; border-radius: 6px; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.4); background: @(string.IsNullOrWhiteSpace(NombreJugador) || MazoPersonalizado.Count == 0 || string.IsNullOrEmpty(IdOroInicial) ? "#222" : "linear-gradient(135deg, #a1582c 0%, #6e3615 100%)"); color: white; cursor: pointer;">
                 <span>⚔️ Desplegar en el Campo de Batalla ⚔️</span>
             </button>
         </div>
     </div>
 
     <div style="width: 25%; height: 100%; display: flex; flex-direction: column; background-color: #0b0b0b; border: 2px solid #1a1a1a; border-radius: 8px; box-sizing: border-box; overflow: hidden; z-index: 30; justify-content: space-between;">
-
         <div style="height: 70%; width: 100%; display: flex; align-items: center; justify-content: center; background-color: #050505; position: relative; box-sizing: border-box; padding: 10px; border-bottom: 2px solid #1a1a1a;">
             @if (!string.IsNullOrEmpty(UrlCartaLocalZoom))
             {
-                <img src="@UrlCartaLocalZoom"
-                     onmousemove="let r=this.getBoundingClientRect(); let x=event.clientX-r.left; let y=event.clientY-r.top; this.style.transform='perspective(800px) rotateX('+((r.height/2-y)/6)+'deg) rotateY('+((x-r.width/2)/6)+'deg) scale(1.03)';"
-                     onmouseleave="this.style.transform='perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';"
-                     style="width: 100%; height: 100%; object-fit: contain; box-shadow: 0 8px 25px rgba(0,0,0,0.9); transition: transform 0.1s ease; display: block; border-radius: 6px;" />
+                <img src="@UrlCartaLocalZoom" onmousemove="let r=this.getBoundingClientRect(); let x=event.clientX-r.left; let y=event.clientY-r.top; this.style.transform='perspective(800px) rotateX('+((r.height/2-y)/6)+'deg) rotateY('+((x-r.width/2)/6)+'deg) scale(1.03)';" onmouseleave="this.style.transform='perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';" style="width: 100%; height: 100%; object-fit: contain; box-shadow: 0 8px 25px rgba(0,0,0,0.9); transition: transform 0.1s ease; display: block; border-radius: 6px;" />
             }
             else
             {
-                <div style="border: 1px dashed #261c12; width: 85%; height: 90%; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at center, #0f0b08 0%, #050505 100%); color: #7a5f3e; padding: 20px; box-sizing: border-box; text-align: center;">
-                    <img src="images/back_card.png" style="width: 100px; opacity: 0.12; margin-bottom: 15px; filter: sepia(1) saturate(2);" />
-                    <span style="font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; font-weight: bold; color: #7a5f3e;">Gladiador de Primer Bloque</span>
-                    <span style="font-size: 0.65rem; font-family: sans-serif; color: #4f3b26; margin-top: 4px; max-width: 180px;">Pasa el cursor sobre una carta táctica para revelar su poder o haz click para ver su reverso en 3D.</span>
-                </div>
+
+                <div style="border: 1px dashed #261c12; width: 85%; height: 90%; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at center, #0f0b08 0%, #050505 100%); color: #7a5f3e; padding: 20px; box-sizing: border-box; text-align: center;"><img src="images/back_card.png" style="width: 100px; opacity: 0.12; margin-bottom: 15px; filter: sepia(1) saturate(2);" /><span style="font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; font-weight: bold; color: #7a5f3e;">Gladiador de Primer Bloque</span></div>
             }
         </div>
-
         <div style="height: 30%; width: 100%; background: #070707; padding: 12px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
             <span style="font-size: 0.7rem; color: #b89047; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #1a1a1a; padding-bottom: 4px; display: block; text-align: center;">📊 Balance del Mazo</span>
-
             <div style="display: flex; flex-direction: column; gap: 4px; flex-grow: 1; justify-content: center; font-size: 0.75rem; font-family: sans-serif; color: #aaa;">
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px; background: rgba(255,255,255,0.02); border-radius: 3px;">
-                    <span style="color: #ddd;">🗡️ Aliados totales:</span>
-                    <span style="font-weight: bold; color: #eee; font-family: monospace;">@MazoPersonalizado.Count(c => c.Tipo == "Aliado")</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px;">
-                    <span style="color: #ddd;">✨ Talismanes jugados:</span>
-                    <span style="font-weight: bold; color: #eee; font-family: monospace;">@MazoPersonalizado.Count(c => c.Tipo == "Talismán")</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px; background: rgba(255,255,255,0.02); border-radius: 3px;">
-                    <span style="color: #ddd;">🛡️ Armas de equipo:</span>
-                    <span style="font-weight: bold; color: #eee; font-family: monospace;">@MazoPersonalizado.Count(c => c.Tipo == "Arma")</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px;">
-                    <span style="color: #ddd;">🗿 Tótems de control:</span>
-                    <span style="font-weight: bold; color: #eee; font-family: monospace;">@MazoPersonalizado.Count(c => c.Tipo == "Tótem")</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px; background: rgba(255,255,255,0.02); border-radius: 3px; border-top: 1px dashed #222; margin-top: 2px; padding-top: 4px;">
-                    <span style="color: #b89047; font-weight: bold;">🪙 Oros en soporte:</span>
-                    <span style="font-weight: bold; color: #00ff55; font-family: monospace;">@MazoPersonalizado.Count(c => c.Tipo == "Oro")</span>
-                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px; background: rgba(255,255,255,0.02); border-radius: 3px;"><span>🗡️ Aliados totales:</span><span style="font-weight: bold; color: #eee; font-family: monospace;">@MazoPersonalizado.Count(c => c.Tipo == "Aliado")</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px;"><span>✨ Talismanes jugados:</span><span style="font-weight: bold; color: #eee; font-family: monospace;">@MazoPersonalizado.Count(c => c.Tipo == "Talismán")</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px; background: rgba(255,255,255,0.02); border-radius: 3px;"><span>🛡️ Armas de equipo:</span><span style="font-weight: bold; color: #eee; font-family: monospace;">@MazoPersonalizado.Count(c => c.Tipo == "Arma")</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px;"><span>🗿 Tótems de control:</span><span style="font-weight: bold; color: #eee; font-family: monospace;">@MazoPersonalizado.Count(c => c.Tipo == "Tótem")</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px; background: rgba(255,255,255,0.02); border-radius: 3px; border-top: 1px dashed #222; margin-top: 2px; padding-top: 4px;"><span style="color: #b89047; font-weight: bold;">🪙 Oros en soporte:</span><span style="font-weight: bold; color: #00ff55; font-family: monospace;">@MazoPersonalizado.Count(c => c.Tipo == "Oro")</span></div>
             </div>
-
-            <div style="width: 100%; height: 6px; background: #1a1a1a; border-radius: 3px; overflow: hidden; margin-top: 6px; border: 1px solid #222;">
-                <div style="width: @((MazoPersonalizado.Count * 100) / 50)%; height: 100%; background: linear-gradient(90deg, #a1582c 0%, #00ff55 100%); transition: width 0.2s ease;"></div>
-            </div>
+            <div style="width: 100%; height: 6px; background: #1a1a1a; border-radius: 3px; overflow: hidden; margin-top: 6px; border: 1px solid #222;"><div style="width: @((MazoPersonalizado.Count * 100) / 50)%; height: 100%; background: linear-gradient(90deg, #a1582c 0%, #00ff55 100%); transition: width 0.2s ease;"></div></div>
         </div>
     </div>
 
     @if (MostrarInspector3D)
     {
-        <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(5,4,3,0.93); backdrop-filter: blur(12px); z-index: 5000; display: flex; flex-direction: column; justify-content: center; align-items: center; animation: fadeIn 0.15s ease-out; box-sizing: border-box;"
-             @onclick="CerrarInspector3D">
-
-            <div id="tilt-chamber" @onclick:stopPropagation
-                 onmousemove="let r=this.getBoundingClientRect(); let x=event.clientX-r.left; let y=event.clientY-r.top; let pctX=(x/r.width)*100; let pctY=(y/r.height)*100; this.style.transform='perspective(800px) rotateX('+((r.height/2-y)/6)+'deg) rotateY('+((x-r.width/2)/6)+'deg) scale(1.02)'; let s=this.querySelector('#hologram-shine'); if(s){ s.style.opacity='0.45'; s.style.background='linear-gradient('+Math.atan2(y-r.height/2, x-r.width/2)*(180/Math.PI)+'deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) '+pctX+'%, rgba(255,255,255,0) 100%)'; }"
-                 onmouseleave="this.style.transform='none'; let s=this.querySelector('#hologram-shine'); if(s) s.style.opacity='0';"
-                 style="width: 380px; height: 532px; perspective: 1200px; transform-style: preserve-3d; transition: transform 0.08s ease-out; position: relative;">
-
-                <div style="width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); transform: @(IsFlipped3D ? "rotateY(180deg)" : "none");">
-
-                    <div style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.85); background: #000; border: 1px solid rgba(184,144,71,0.25);">
-                        <img src="@UrlCartaInspector3D" style="width: 100%; height: 100%; object-fit: contain; pointer-events: none;" />
-                        <div id="hologram-shine" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; mix-blend-mode: overlay; opacity:0; z-index: 10;"></div>
-                    </div>
-
-                    <div style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; transform: rotateY(180deg); border-radius: 14px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.85); background: #070504; border: 1px solid rgba(184,144,71,0.25);">
-                        <img src="images/back_card.png" style="width: 100%; height: 100%; object-fit: contain; pointer-events: none;" />
-                    </div>
-
-                </div>
-            </div>
-
-            <div style="display: flex; gap: 12px; margin-top: 30px;" @onclick:stopPropagation>
-                <button @onclick="AlternarVolteo3D" style="background: linear-gradient(135deg, #1c242b 0%, #0d1217 100%); color: #44ccff; border: 1px solid #285a7a; padding: 10px 24px; font-size: 0.85rem; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 6px; transition: transform 0.1s;">
-                    🔄 Girar Carta
-                </button>
-                <button @onclick="CerrarInspector3D" style="background: linear-gradient(135deg, #31181a 0%, #1a0a0b 100%); color: #ff4d4d; border: 1px solid #6b2125; padding: 10px 24px; font-size: 0.85rem; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: transform 0.1s;">
-                    ✕ Cerrar Vista
-                </button>
-            </div>
-
-            <span style="font-size: 0.75rem; color: #57412b; font-family: sans-serif; font-style: italic; margin-top: 15px; letter-spacing: 0.5px;">Tip: Puedes mover tu cursor por los extremos para inclinar el holograma, o hacer clic afuera para regresar.</span>
+        <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(5,4,3,0.93); backdrop-filter: blur(12px); z-index: 5000; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box;" @onclick="CerrarInspector3D">
+            <div id="tilt-chamber" @onclick:stopPropagation onmousemove="let r=this.getBoundingClientRect(); let x=event.clientX-r.left; let y=event.clientY-r.top; let pctX=(x/r.width)*100; let pctY=(y/r.height)*100; this.style.transform='perspective(800px) rotateX('+((r.height/2-y)/6)+'deg) rotateY('+((x-r.width/2)/6)+'deg) scale(1.02)'; let s=this.querySelector('#hologram-shine'); if(s){ s.style.opacity='0.45'; s.style.background='linear-gradient('+Math.atan2(y-r.height/2, x-r.width/2)*(180/Math.PI)+'deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) '+pctX+'%, rgba(255,255,255,0) 100%)'; }" onmouseleave="this.style.transform='none'; let s=this.querySelector('#hologram-shine'); if(s) s.style.opacity='0';" style="width: 380px; height: 532px; perspective: 1200px; transform-style: preserve-3d; transition: transform 0.08s ease-out; position: relative;"><div style="width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); transform: @(IsFlipped3D ? "rotateY(180deg)" : "none");"><div style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.85); background: #000; border: 1px solid rgba(184,144,71,0.25);"><img src="@UrlCartaInspector3D" style="width: 100%; height: 100%; object-fit: contain; pointer-events: none;" /><div id="hologram-shine" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; mix-blend-mode: overlay; opacity:0; z-index: 10;"></div></div><div style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; transform: rotateY(180deg); border-radius: 14px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.85); background: #070504; border: 1px solid rgba(184,144,71,0.25);"><img src="images/back_card.png" style="width: 100%; height: 100%; object-fit: contain; pointer-events: none;" /></div></div></div>
+            <div style="display: flex; gap: 12px; margin-top: 30px;" @onclick:stopPropagation><button @onclick="AlternarVolteo3D" style="background: linear-gradient(135deg, #1c242b 0%, #0d1217 100%); color: #44ccff; border: 1px solid #285a7a; padding: 10px 24px; font-size: 0.85rem; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 6px; transition: transform 0.1s;">🔄 Girar Carta</button><button @onclick="CerrarInspector3D" style="background: linear-gradient(135deg, #31181a 0%, #1a0a0b 100%); color: #ff4d4d; border: 1px solid #6b2125; padding: 10px 24px; font-size: 0.85rem; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: transform 0.1s;">✕ Cerrar Vista</button></div>
         </div>
     }
 
@@ -312,17 +241,12 @@
 
 @code {
     [Parameter] public List<CartaJuego> CatalogoCompleto { get; set; } = new();
-
-    // NUEVOS PARÁMETROS: Reciben las restricciones del Modo Carrera y la colección JSON del jugador
     [Parameter] public bool EsModoCarrera { get; set; } = false;
     [Parameter] public Dictionary<string, int> ColeccionGladiador { get; set; } = new();
-
     [Parameter] public List<CartaJuego> MazoPersonalizado { get; set; } = new();
     [Parameter] public EventCallback<List<CartaJuego>> MazoPersonalizadoChanged { get; set; }
-
     [Parameter] public string NombreJugador { get; set; } = "";
     [Parameter] public EventCallback<string> NombreJugadorChanged { get; set; }
-
     [Parameter] public string? IdOroInicial { get; set; }
     [Parameter] public EventCallback<string?> IdOroInicialChanged { get; set; }
 
@@ -336,13 +260,13 @@
     private string FiltroTipo = "Oro";
     private string FiltroEdicion = "";
     private string FiltroRareza = "";
+    private string FiltroRaza = "";
 
     private string NombreArchivoMazo = "MiMazo";
     private string MazoSeleccionadoParaCargar = "";
     private List<string> ListaMazosDisponibles = new();
     private string TextoMazoCodigo = "";
     private string MensajeEstadoPersistencia = "";
-
     private string? UrlCartaLocalZoom = null;
 
     private bool MostrarInspector3D = false;
@@ -350,32 +274,63 @@
     private bool IsFlipped3D = false;
 
     protected override void OnInitialized() => ActualizarListaMazos();
-
     private void UpdateNombreJugador(ChangeEventArgs e) => NombreJugadorChanged.InvokeAsync(e.Value?.ToString() ?? "");
     private void TriggerOpenMantenedor() => OnOpenMantenedor.InvokeAsync();
     private void TriggerIniciarPartida() => OnDeployBattle.InvokeAsync();
-
-    private void ActivarZoomLocal(string url)
-    {
-        UrlCartaLocalZoom = url;
-        OnZoomIn.InvokeAsync(url);
-    }
-
-    private void DesactivarZoomLocal()
-    {
-        UrlCartaLocalZoom = null;
-        OnZoomOut.InvokeAsync();
-    }
-
-    private void ActivarInspector3DMaestro(string url)
-    {
-        UrlCartaInspector3D = url;
-        IsFlipped3D = false;
-        MostrarInspector3D = true;
-    }
-
+    private void ActivarZoomLocal(string url) { UrlCartaLocalZoom = url; OnZoomIn.InvokeAsync(url); }
+    private void DesactivarZoomLocal() { UrlCartaLocalZoom = null; OnZoomOut.InvokeAsync(); }
+    private void ActivarInspector3DMaestro(string url) { UrlCartaInspector3D = url; IsFlipped3D = false; MostrarInspector3D = true; }
     private void AlternarVolteo3D() => IsFlipped3D = !IsFlipped3D;
     private void CerrarInspector3D() { MostrarInspector3D = false; UrlCartaInspector3D = null; }
+
+    // =========================================================================
+    // 🛡️ REINGENIERÍA INTELIGENTE: ESCANER DE RAZAS HISTÓRICAS DE PRIMER BLOQUE
+    // =========================================================================
+    private string MapearRazaPrimerBloqueOculta(string nombreCarta)
+    {
+        if (string.IsNullOrEmpty(nombreCarta)) return "";
+        string n = nombreCarta.ToLower();
+
+        if (n.Contains("arturo") || n.Contains("sir ") || n.Contains("lady ") || n.Contains("isolda") ||
+            n.Contains("llewelyn") || n.Contains("kay") || n.Contains("piqueros") || n.Contains("barbarroja") ||
+            n.Contains("león") || n.Contains("ricardo") || n.Contains("godfrey") || n.Contains("tancredo") ||
+            n.Contains("lancelot") || n.Contains("galahad") || n.Contains("percival") || n.Contains("gawain") ||
+            n.Contains("mador") || n.Contains("hector") || n.Contains("gaerin") || n.Contains("thomas"))
+            return "Caballero";
+
+        if (n.Contains("argusthat") || n.Contains("eric") || n.Contains("olaf") || n.Contains("egil") ||
+            n.Contains("thorfinn") || n.Contains("sigurd") || n.Contains("khan") || n.Contains("attila") ||
+            n.Contains("alarico") || n.Contains("ragnar"))
+            return "Bárbaro";
+
+        if (n.Contains("titania") || n.Contains("oberón") || n.Contains("puck") || n.Contains("pixie") ||
+            n.Contains("elfo") || n.Contains("nimue"))
+            return "Faerie";
+
+        if (n.Contains("vlad") || n.Contains("drácula") || n.Contains("espectro") || n.Contains("súcubo") ||
+            n.Contains("nosferatu") || n.Contains("golem") || n.Contains("hela"))
+            return "Sombra";
+
+        if (n.Contains("arco") || n.Contains("jorge") || n.Contains("torquemada") ||
+            n.Contains("patricio") || n.Contains("bonifacio") || n.Contains("rachel"))
+            return "Sacerdote";
+
+        if (n.Contains("odín") || n.Contains("thor") || n.Contains("zeus") || n.Contains("poseidón") ||
+            n.Contains("hades") || n.Contains("ra") || n.Contains("anubis") || n.Contains("isis") || n.Contains("osiris"))
+            return "Dios";
+
+        if (n.Contains("fafner") || n.Contains("nidhoggr") || n.Contains("dragón") || n.Contains("wyvern"))
+            return "Dragón";
+
+        if (n.Contains("azor") || n.Contains("lobo") || n.Contains("fenrir") || n.Contains("cancerbero") ||
+            n.Contains("quimera") || n.Contains("minotauro"))
+            return "Bestia";
+
+        if (n.Contains("sigfrido") || n.Contains("aquiles") || n.Contains("hércules") || n.Contains("teseo") || n.Contains("ulises"))
+            return "Héroe";
+
+        return "";
+    }
 
     private IEnumerable<CartaJuego> FiltrarCatalogo()
     {
@@ -384,18 +339,20 @@
         if (!string.IsNullOrWhiteSpace(FiltroTipo)) res = res.Where(c => c.Tipo == FiltroTipo);
         if (!string.IsNullOrWhiteSpace(FiltroRareza)) res = res.Where(c => c.Rareza != null && c.Rareza.Trim().Equals(FiltroRareza, StringComparison.OrdinalIgnoreCase));
         if (!string.IsNullOrWhiteSpace(FiltroEdicion)) res = res.Where(c => c.Edicion == FiltroEdicion);
+
+        if (!string.IsNullOrWhiteSpace(FiltroRaza))
+        {
+            res = res.Where(c => MapearRazaPrimerBloqueOculta(c.Nombre).Equals(FiltroRaza, StringComparison.OrdinalIgnoreCase));
+        }
         return res;
     }
 
     private void AgregarAlMazo(CartaJuego cartaBase)
     {
         int copiasActuales = MazoPersonalizado.Count(c => c.Nombre == cartaBase.Nombre);
-        bool esUnica = !string.IsNullOrEmpty(cartaBase.Habilidad) &&
-                      (cartaBase.Habilidad.Contains("Solo puedes tener en juego", StringComparison.OrdinalIgnoreCase) ||
-                       cartaBase.Habilidad.Contains("única", StringComparison.OrdinalIgnoreCase));
-
-        // MODIFICADO: Bloquea físicamente la inserción en el servidor si supera la cantidad de cartas que tienes compradas
+        bool esUnica = !string.IsNullOrEmpty(cartaBase.Habilidad) && (cartaBase.Habilidad.Contains("Solo puedes tener en juego", StringComparison.OrdinalIgnoreCase) || cartaBase.Habilidad.Contains("única", StringComparison.OrdinalIgnoreCase));
         int limiteMaximo = esUnica ? 1 : 3;
+
         if (EsModoCarrera && ColeccionGladiador != null)
         {
             int totalPoseido = ColeccionGladiador.ContainsKey(cartaBase.Nombre) ? ColeccionGladiador[cartaBase.Nombre] : 0;
@@ -404,19 +361,7 @@
 
         if (MazoPersonalizado.Count < 50 && copiasActuales < limiteMaximo)
         {
-            MazoPersonalizado.Add(new CartaJuego
-            {
-                Id = Guid.NewGuid().ToString(),
-                Nombre = cartaBase.Nombre,
-                Edicion = cartaBase.Edicion,
-                Tipo = cartaBase.Tipo,
-                Rareza = cartaBase.Rareza,
-                RutaImagen = cartaBase.RutaImagen,
-                Fuerza = cartaBase.Fuerza,
-                Costo = cartaBase.Costo,
-                Habilidad = cartaBase.Habilidad,
-                ZonaActual = "Castillo"
-            });
+            MazoPersonalizado.Add(new CartaJuego { Id = Guid.NewGuid().ToString(), Nombre = cartaBase.Nombre, Edicion = cartaBase.Edicion, Tipo = cartaBase.Tipo, Rareza = cartaBase.Rareza, RutaImagen = cartaBase.RutaImagen, Fuerza = cartaBase.Fuerza, Costo = cartaBase.Costo, Habilidad = cartaBase.Habilidad, ZonaActual = "Castillo" });
             MazoPersonalizadoChanged.InvokeAsync(MazoPersonalizado);
         }
     }
@@ -432,21 +377,14 @@
         }
     }
 
-    private void AsignarOroInicial(string idInstancia)
-    {
-        IdOroInicial = idInstancia;
-        IdOroInicialChanged.InvokeAsync(idInstancia);
-    }
+    private void AsignarOroInicial(string idInstancia) { IdOroInicial = idInstancia; IdOroInicialChanged.InvokeAsync(idInstancia); }
 
     private void ActualizarListaMazos()
     {
         try
         {
             string directorio = Path.Combine(Env.WebRootPath, "data");
-            if (Directory.Exists(directorio))
-            {
-                ListaMazosDisponibles = Directory.GetFiles(directorio, "mazo_*.json").Select(Path.GetFileName).ToList()!;
-            }
+            if (Directory.Exists(directorio)) { ListaMazosDisponibles = Directory.GetFiles(directorio, "mazo_*.json").Select(Path.GetFileName).ToList()!; }
         }
         catch { }
     }
@@ -458,16 +396,9 @@
             if (!MazoPersonalizado.Any() || string.IsNullOrWhiteSpace(NombreArchivoMazo)) return;
             string nombreSeguro = string.Concat(NombreArchivoMazo.Split(Path.GetInvalidFileNameChars())).Replace(" ", "_");
             string nombreCompletoArchivo = $"mazo_{nombreSeguro}.json";
-
-            var dto = new MazoGuardadoDTO
-            {
-                NombresCartas = MazoPersonalizado.Select(c => c.Nombre).ToList(),
-                NombreOroInicial = MazoPersonalizado.FirstOrDefault(c => c.Id == IdOroInicial)?.Nombre
-            };
-
+            var dto = new MazoGuardadoDTO { NombresCartas = MazoPersonalizado.Select(c => c.Nombre).ToList(), NombreOroInicial = MazoPersonalizado.FirstOrDefault(c => c.Id == IdOroInicial)?.Nombre };
             string json = JsonSerializer.Serialize(dto, new JsonSerializerOptions { WriteIndented = true });
             await File.WriteAllTextAsync(Path.Combine(Env.WebRootPath, "data", nombreCompletoArchivo), json);
-
             TextoMazoCodigo = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(json));
             ActualizarListaMazos();
             MazoSeleccionadoParaCargar = nombreCompletoArchivo;
@@ -537,11 +468,4 @@
     }
 
     private int GetTipoOrder(string tipo) => tipo.Contains("Oro") ? 1 : tipo.Contains("Aliado") ? 2 : tipo.Contains("Talismán") ? 3 : tipo.Contains("Arma") ? 4 : 5;
-
-    public class MazoGuardadoDTO
-    {
-        public string NombreMazo { get; set; } = "Mitos Deck";
-        public List<string> NombresCartas { get; set; } = new List<string>();
-        public string? NombreOroInicial { get; set; }
-    }
 }
